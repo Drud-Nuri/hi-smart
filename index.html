@@ -1,0 +1,2463 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>High Smart - Smart Solution Provider | های سمارت</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            cyan: '#00F0FF',
+                            neon: '#00E676',
+                            dark: '#0B0F17',
+                            card: '#151C2C',
+                            accent: '#1E293B'
+                        }
+                    },
+                    fontFamily: {
+                        kurdish: ['Vazirmatn', 'sans-serif']
+                    },
+                    screens: {
+                        'xs': '380px'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Font Vazirmatn -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #0B0F17;
+            color: #E2E8F0;
+            overflow-x: hidden;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #00F0FF 0%, #00E676 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .border-glow {
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        .border-glow:hover {
+            border-color: rgba(0, 230, 118, 0.6);
+        }
+        .product-img {
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .product-img:hover {
+            transform: scale(1.05);
+        }
+        html[dir="ltr"] .text-right-auto {
+            text-align: left;
+        }
+        html[dir="rtl"] .text-right-auto {
+            text-align: right;
+        }
+        /* Mobile Touch Optimizations */
+        button, a, input, select {
+            touch-action: manipulation;
+        }
+
+    </style>
+
+<style>
+.visit-us-section {
+  padding: 60px 20px;
+  background: linear-gradient(180deg, #0B0F17 0%, #101625 100%);
+  text-align: center;
+  border-radius: 24px;
+  font-family: 'Vazirmatn', sans-serif;
+  direction: rtl;
+  border-top: 1px solid rgba(0, 240, 255, 0.08);
+}
+
+.visit-us-section h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.visit-us-section .working-hours {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  margin-bottom: 36px;
+}
+
+.locations-grid {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+.locations-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 30px auto 0;
+}
+
+.location-card-img {
+    position: relative;
+    flex: 1;
+    min-width: 250px;
+    max-width: 320px;
+    height: 220px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: block;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.location-overlay-title {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(11, 15, 23, 0.75);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 800;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hover Effects */
+.location-card-img:hover {
+    transform: translateY(-8px);
+    border-color: #00F0FF;
+    box-shadow: 0 12px 30px rgba(0, 240, 255, 0.25);
+}
+
+.location-card-img:hover img {
+    transform: scale(1.08);
+}
+
+
+.social-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #f0f2f5;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect - کاتێک ماوسەکە دەبەیتە سەری */
+.social-icon:hover {
+  transform: translateY(-5px);
+  color: #ffffff;
+}
+
+/* ڕەنگی تایبەت بە هەر سۆشیال میدیایەک لە کاتی Hover */
+.social-icon.facebook:hover {
+  background-color: #1877f2;
+}
+
+.social-icon.instagram:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-icon.snapchat:hover {
+  background-color: #fffc00;
+  color: #000; /* بۆ ئەوەی ئایکۆنەکە دیار بێت لەسەر زەرد */
+}
+
+.social-icon.tiktok:hover {
+  background-color: #000000;
+}
+
+
+.social-icon.gmail:hover {
+  background-color: #ea4335;
+}
+
+.footer-copy {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  word-break: break-word;
+}
+
+.section-divider {
+  position: relative;
+}
+.section-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(90%, 900px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.35), rgba(0, 230, 118, 0.35), transparent);
+}
+
+@keyframes radar-pulse {
+  0% { transform: scale(0.85); opacity: 0.55; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+.radar-active {
+  border-color: rgba(52, 211, 153, 0.6) !important;
+  animation: radar-pulse 2s ease-out infinite;
+}
+#alarm-radar-2.radar-active {
+  animation-delay: 1s;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* WhatsApp floating button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 45;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.6);
+}
+.whatsapp-float::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25D366;
+  opacity: 0.55;
+  animation: wa-pulse 2.2s ease-out infinite;
+  z-index: -1;
+}
+@keyframes wa-pulse {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+@media (max-width: 480px) {
+  .whatsapp-float {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .visit-us-section {
+    padding: 40px 16px;
+  }
+  .visit-us-section h2 {
+    font-size: 1.7rem;
+  }
+  .locations-grid {
+    gap: 16px;
+  }
+  .location-card-img {
+    min-width: 220px;
+    height: 190px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .visit-us-section {
+    padding: 32px 12px;
+    border-radius: 16px;
+  }
+  .visit-us-section h2 {
+    font-size: 1.4rem;
+  }
+  .visit-us-section .working-hours {
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+  }
+  .locations-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .location-card-img {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    height: 100px;
+    border-radius: 12px;
+  }
+  .location-overlay-title {
+    bottom: 6px;
+    right: 6px;
+    left: 6px;
+    padding: 3px 6px;
+    font-size: 0.65rem;
+    border-radius: 6px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .social-links {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 17px;
+  }
+  .footer-copy {
+    font-size: 0.75rem;
+    padding: 0 12px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+</head>
+<body class="antialiased selection:bg-brand-neon selection:text-black min-h-screen flex flex-col bg-brand-dark">
+
+    <a href="https://wa.me/9647701915449" target="_blank" rel="noopener" class="whatsapp-float" title="پەیوەندی وواتساپ" aria-label="پەیوەندی وواتساپ">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
+            <!-- Company Logo & Title -->
+            <div class="flex items-center gap-2 sm:gap-3 cursor-pointer shrink-0" onclick="openLogoModal()">
+                <div id="company-logo-container" class="relative group">
+                    <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-neon p-0.5 shadow-lg shadow-cyan-500/20 flex items-center justify-center bg-brand-dark">
+                        <!-- High Smart Circuit Logo SVG -->
+<img id="header-logo-img" src="logo.jpg" alt="High Smart Logo" class="w-full h-full object-contain rounded-lg">
+                            <path d="M25 20V80M75 20V80M25 50H75M25 20L75 80" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="25" cy="20" r="7" fill="#00E676"/>
+                            <circle cx="25" cy="80" r="7" fill="#00F0FF"/>
+                            <circle cx="75" cy="20" r="7" fill="#00F0FF"/>
+                            <circle cx="75" cy="80" r="7" fill="#00E676"/>
+                            <circle cx="50" cy="50" r="6" fill="#FFFFFF"/>
+                        </svg>
+                        <img id="header-logo-img" src="logo.jpg" alt="High Smart Logo" class="hidden w-full h-full object-contain rounded-lg">
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-sm sm:text-lg lg:text-5x0.1 font-black tracking-wider text-white E6FFFA flex items-center gap-1.5 leading-tight">
+                        HIGH SMART
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden lg:flex items-center gap-12 text-sm font-medium text-slate-300">
+                <a href="#services" class="hover:text-brand-cyan transition-colors" data-i18n="nav_services">خزمەتگوزارییەکان</a>
+                <a href="#brands" class="hover:text-brand-cyan transition-colors" data-i18n="nav_brands">براندە جیهانییەکان</a>
+                <a href="#products" class="hover:text-brand-cyan transition-colors" data-i18n="nav_products">بەرهەمەکانمان</a>
+            </div>
+
+            <!-- Language Switcher in Header -->
+            <div class="flex items-center gap-2 shrink-0">
+                <div class="relative">
+                    <button onclick="toggleLangMenu()" id="lang-trigger-btn" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-slate-200 text-[11px] font-bold shadow-inner hover:border-brand-cyan/50 transition-all" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-globe text-[11px] text-brand-cyan"></i>
+                        <span id="lang-trigger-label">کوردی</span>
+                        <i id="lang-trigger-chevron" class="fa-solid fa-chevron-down text-[9px] text-slate-500 transition-transform"></i>
+                    </button>
+                    <div id="lang-menu" class="hidden absolute top-full mt-2 left-0 w-32 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl overflow-hidden z-50 py-1">
+                        <button onclick="switchLanguage('ckb')" id="lang-ckb" class="w-full flex items-center justify-between px-3 py-2 text-[11px] font-bold text-white hover:bg-slate-800 transition-colors">
+                            <span>کوردی</span><i class="fa-solid fa-check text-brand-cyan text-[10px]"></i>
+                        </button>
+                        <button onclick="switchLanguage('en')" id="lang-en" class="w-full flex items-center justify-between px-3 py-2 text-[11px] font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-colors">
+                            <span>English</span><i class="fa-solid fa-check text-brand-cyan text-[10px] hidden"></i>
+                        </button>
+                        <button onclick="switchLanguage('ar')" id="lang-ar" class="w-full flex items-center justify-between px-3 py-2 text-[11px] font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-colors">
+                            <span>عربي</span><i class="fa-solid fa-check text-brand-cyan text-[10px] hidden"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button onclick="toggleMobileMenu()" id="mobile-menu-btn" class="lg:hidden w-9 h-9 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-200 flex items-center justify-center shrink-0" aria-label="Menu" aria-expanded="false">
+                    <i id="mobile-menu-icon" class="fa-solid fa-bars text-sm"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Panel -->
+        <div id="mobile-nav-panel" class="lg:hidden hidden border-t border-slate-800/80 bg-brand-dark/98 backdrop-blur-md">
+            <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1 text-sm font-medium text-slate-300">
+                <a href="#services" onclick="closeMobileMenu()" class="py-2.5 px-2 rounded-lg hover:bg-slate-900 hover:text-brand-cyan transition-colors" data-i18n="nav_services">خزمەتگوزارییەکان</a>
+                <a href="#brands" onclick="closeMobileMenu()" class="py-2.5 px-2 rounded-lg hover:bg-slate-900 hover:text-brand-cyan transition-colors" data-i18n="nav_brands">براندە جیهانییەکان</a>
+                <a href="#products" onclick="closeMobileMenu()" class="py-2.5 px-2 rounded-lg hover:bg-slate-900 hover:text-brand-cyan transition-colors" data-i18n="nav_products">بەرهەمەکانمان</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="relative overflow-hidden py-14 sm:py-20 lg:py-28 bg-gradient-to-b from-brand-dark via-brand-card/30 to-brand-dark">
+        <div class="absolute top-1/4 left-10 w-72 h-72 sm:w-96 sm:h-96 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-72 h-72 sm:w-96 sm:h-96 bg-brand-neon/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Signature circuit-line motif, echoing the logo mark -->
+        <svg class="absolute inset-0 w-full h-full opacity-[0.07] pointer-events-none" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 500" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 120H260L320 60H620L680 120H1200" stroke="#00F0FF" stroke-width="1.5" fill="none"/>
+            <path d="M0 380H340L400 440H760L820 380H1200" stroke="#00E676" stroke-width="1.5" fill="none"/>
+            <path d="M180 0V60M320 60V0M680 120V220M900 220H1200" stroke="#00F0FF" stroke-width="1.5" fill="none"/>
+            <circle cx="260" cy="120" r="5" fill="#00F0FF"/>
+            <circle cx="620" cy="120" r="5" fill="#00E676"/>
+            <circle cx="340" cy="380" r="5" fill="#00E676"/>
+            <circle cx="820" cy="380" r="5" fill="#00F0FF"/>
+            <circle cx="900" cy="220" r="5" fill="#00F0FF"/>
+        </svg>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                <div class="reveal lg:col-span-12 space-y-5">
+                    
+
+                    <h2 class="text-2xl sm:text-4xl lg:text-6xl font-black text-white leading-tight sm:leading-tight" data-i18n="hero_title">
+                        ماڵ و شوێنی کارت بکە بە <br>
+                        <span class="text-gradient">زیرەکترین سیستەمی سەردەمیانە</span>
+                    </h2>
+
+                    <p class="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl" data-i18n="hero_desc">
+                        کۆمپانیای  -HIGH SMART- دابینکەری سەرەکی نوێترین تەکنەلۆجیای جیهانییە بۆ ئۆتۆماتیکردنی ماڵ،  بە براندە نێودەوڵەتیییەکان.
+                    </p>
+
+                    
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="brands" class="py-12 sm:py-16 bg-slate-900/60 section-divider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal text-center mb-8">
+                <div class="inline-flex items-center gap-2 text-brand-neon text-xs font-bold uppercase tracking-wider mb-3">
+                    <span class="w-6 h-px bg-brand-neon/60"></span> <span data-i18n="nav_brands">براندەکان</span> <span class="w-6 h-px bg-brand-neon/60"></span>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white" data-i18n="brands_title"> Working with the most trust <br> worthy global brands </h3>
+            </div>
+
+            <div class="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-6 text-center">
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-emerald-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300">FIBARO</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-blue-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300">ring</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-purple-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300">Ksenia</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-yellow-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300">FERMAX</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-red-500 opacity-60 group-hover:opacity-100 transition-opacity duration-300">Klipsch</span>
+                </div>
+
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-white opacity-60 group-hover:opacity-100 transition-opacity duration-300">Control4</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-white opacity-60 group-hover:opacity-100 transition-opacity duration-300">ekinex</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-white opacity-60 group-hover:opacity-100 transition-opacity duration-300">Kaadas</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-amber-500 opacity-60 group-hover:opacity-100 transition-opacity duration-300">somfy</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-blue-500 opacity-60 group-hover:opacity-100 transition-opacity duration-300">EPSON</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-red-600 opacity-60 group-hover:opacity-100 transition-opacity duration-300">JVC</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-cyan-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300">Amazon Alexa</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-sky-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300">CISCO</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-slate-300 opacity-60 group-hover:opacity-100 transition-opacity duration-300">pakedge</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-teal-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300">araknis</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-red-500 opacity-60 group-hover:opacity-100 transition-opacity duration-300">ANTHEM</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-white opacity-60 group-hover:opacity-100 transition-opacity duration-300">ELITE SCREENS</span>
+                </div>
+                <div class="reveal bg-brand-card p-2 sm:p-5 rounded-xl border border-slate-800/80 flex flex-col items-center justify-center hover:border-brand-cyan hover:-translate-y-1 transition-all duration-300 group">
+                    <span class="text-[11px] leading-tight sm:text-2xl font-black tracking-normal sm:tracking-widest text-blue-400 opacity-60 group-hover:opacity-100 transition-opacity duration-300">GALLO ACOUSTICS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="py-14 sm:py-20 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal text-center max-w-2xl mx-auto mb-8 sm:mb-12">
+                <div class="inline-flex items-center gap-2 text-brand-cyan text-xs font-bold uppercase tracking-wider mb-3">
+                    <span class="w-6 h-px bg-brand-cyan/60"></span> <span data-i18n="nav_products">بەرهەمەکانمان</span> <span class="w-6 h-px bg-brand-cyan/60"></span>
+                </div>
+                <p class="text-slate-400 text-xs font-bold sm:text-xl mt-2" data-i18n="cat_desc"> Providing you with high end smart home solutions </p>
+            </div>
+
+            <!-- Full-Width Stacked Banner Tiles -->
+            <div class="grid grid-cols-2 gap-3 sm:gap-5">
+                <!-- 1. Smart Lighting Banner -->
+                <div onclick="openProductModelsModal('lighting')" class="reveal relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-brand-cyan/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
+                    <img id="img-cat-lighting" src="control.jpg" alt="Smart Lighting" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-[0.45] group-hover:brightness-[0.55]" onerror="this.src='https://placehold.co/1200x400/151C2C/00F0FF?text=Smart+Lighting'">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/55"></div>
+                    <div class="relative z-10 text-center px-1.5 sm:px-4">
+                        <h3 class="text-xs sm:text-xl md:text-3xl font-semibold tracking-wide text-white/90 drop-shadow-md group-hover:text-brand-cyan transition-colors" data-i18n="banner_lighting">
+                            ڕووناکی زیرەک
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- 2. Audio Systems Banner -->
+                <div onclick="openProductModelsModal('audio')" class="reveal relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-brand-neon/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
+                    <img id="img-cat-audio" src="spiker.jpg" alt="Audio Systems" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-[0.45] group-hover:brightness-[0.55]" onerror="this.src='https://placehold.co/1200x400/151C2C/00E676?text=Audio+Systems'">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/55"></div>
+                    <div class="relative z-10 text-center px-1.5 sm:px-4">
+                        <h3 class="text-xs sm:text-xl md:text-3xl font-semibold tracking-wide text-white/90 drop-shadow-md group-hover:text-brand-neon transition-colors" data-i18n="banner_audio">
+                            سیستەمی دەنگی
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- 3. Comfort Banner -->
+                <div onclick="openProductModelsModal('comfort')" class="reveal relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-yellow-400/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
+                    <img id="img-cat-comfort" src="splet.jpg" alt="Comfort" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-[0.45] group-hover:brightness-[0.55]" onerror="this.src='https://placehold.co/1200x400/151C2C/FACC15?text=Comfort'">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/55"></div>
+                    <div class="relative z-10 text-center px-1.5 sm:px-4">
+                        <h3 class="text-xs sm:text-xl md:text-3xl font-semibold tracking-wide text-white/90 drop-shadow-md group-hover:text-yellow-400 transition-colors" data-i18n="banner_comfort">
+                            ئاسودەیی
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- 4. Security and Safety Banner -->
+                <div onclick="openProductModelsModal('security')" class="reveal relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-emerald-400/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
+                    <img id="img-cat-security" src="camera.jpg" alt="Security and Safety" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-[0.45] group-hover:brightness-[0.55]" onerror="this.src='https://placehold.co/1200x400/151C2C/34D399?text=Security+and+Safety'">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/55"></div>
+                    <div class="relative z-10 text-center px-1.5 sm:px-4">
+                        <h3 class="text-xs sm:text-xl md:text-3xl font-semibold tracking-wide text-white/90 drop-shadow-md group-hover:text-emerald-400 transition-colors" data-i18n="banner_security">
+                            ئاسایش و سەلامەتی
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- 5. Home Cinema Banner -->
+                <div onclick="openProductModelsModal('cinema')" class="reveal relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-purple-400/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
+                    <img id="img-cat-cinema" src="cinema.jpg" alt="Home Cinema" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-[0.45] group-hover:brightness-[0.55]" onerror="this.src='https://placehold.co/1200x400/151C2C/C084FC?text=Home+Cinema'">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/55"></div>
+                    <div class="relative z-10 text-center px-1.5 sm:px-4">
+                        <h3 class="text-xs sm:text-xl md:text-3xl font-semibold tracking-wide text-white/90 drop-shadow-md group-hover:text-purple-400 transition-colors" data-i18n="banner_cinema">
+                            سینەمای ماڵ
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- 6. Intercom and Doors Banner -->
+                <div onclick="openProductModelsModal('doors')" class="reveal relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-brand-cyan/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
+                    <img id="img-cat-doors" src="lool.jpg" alt="Intercom and Doors" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-[0.45] group-hover:brightness-[0.55]" onerror="this.src='https://placehold.co/1200x400/151C2C/00F0FF?text=Intercom+and+Doors'">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/55"></div>
+                    <div class="relative z-10 text-center px-1.5 sm:px-4">
+                        <h3 class="text-xs sm:text-xl md:text-3xl font-semibold tracking-wide text-white/90 drop-shadow-md group-hover:text-brand-cyan transition-colors" data-i18n="banner_doors">
+                            ئینتەرکۆم و دەرگا
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-14 sm:py-20 bg-brand-dark relative section-divider">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="reveal text-center mb-8 sm:mb-12">
+                <div class="inline-flex items-center gap-2 text-brand-neon text-xs font-bold uppercase tracking-wider mb-3">
+                    <span class="w-6 h-px bg-brand-neon/60"></span> <span data-i18n="nav_services">خزمەتگوزارییەکان</span> <span class="w-6 h-px bg-brand-neon/60"></span>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-bold text-white" data-i18n="services_heading">خزمەتگوزارییەکانمان بۆ تۆ</h3>
+            </div>
+            <!-- Services Grid (all 6 cards together, 2 per row on mobile) -->
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8 text-right-auto">
+                <!-- Card 1 -->
+                <div class="reveal bg-brand-card p-3 sm:p-8 rounded-2xl border-glow transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-5">
+                        <div class="w-9 h-9 sm:w-14 sm:h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center overflow-hidden p-1.5 sm:p-2 shrink-0">
+                            <img src="coment2.jpg" alt="Service 1 Image" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-cyan-400 font-semibold text-xs sm:text-sm" data-i18n="srv_1_title">CONSULTATION</span>
+                    </div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed" data-i18n="srv_1_desc">
+                        Pre-meeting and discussion about everything that should be included in your smart home.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="reveal bg-brand-card p-3 sm:p-8 rounded-2xl border-glow transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-5">
+                        <div class="w-9 h-9 sm:w-14 sm:h-14 rounded-xl bg-emerald-500/10 flex items-center justify-center overflow-hidden p-1.5 sm:p-2 shrink-0">
+                            <img src="plais.jpg" alt="Service 2 Image" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-emerald-400 font-semibold text-xs sm:text-sm" data-i18n="srv_2_title">MAINTENANCE & SUPPORT</span>
+                    </div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed" data-i18n="srv_2_desc">
+                        High Smart's technical team is available on 8-5 hours to diagnose, update, replace, and repair any issues that can happen.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="reveal bg-brand-card p-3 sm:p-8 rounded-2xl border-glow transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-5">
+                        <div class="w-9 h-9 sm:w-14 sm:h-14 rounded-xl bg-blue-500/10 flex items-center justify-center overflow-hidden p-1.5 sm:p-2 shrink-0">
+                            <img src="coment.jpg" alt="Service 3 Image" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-blue-400 font-semibold text-xs sm:text-sm" data-i18n="srv_3_title">SYSTEM DOCUMENTATION</span>
+                    </div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed" data-i18n="srv_3_desc">
+                        We provide the documents that describes your smart home's requirements, capabilities, and specifications.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="reveal bg-brand-card p-3 sm:p-8 rounded-2xl border-glow transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-5">
+                        <div class="w-9 h-9 sm:w-14 sm:h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center overflow-hidden p-1.5 sm:p-2 shrink-0">
+                            <img src="qalam.jpg" alt="Service 4 Image" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-cyan-400 font-semibold text-xs sm:text-sm" data-i18n="srv_4_title">DESIGN & ENGINEERING</span>
+                    </div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed" data-i18n="srv_4_desc">
+                        Comprehensive and thoughtful system design and engineering up front leads to the best balance of functionality, reliability and aesthetics in the end result.
+                    </p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="reveal bg-brand-card p-3 sm:p-8 rounded-2xl border-glow transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-5">
+                        <div class="w-9 h-9 sm:w-14 sm:h-14 rounded-xl bg-emerald-500/10 flex items-center justify-center overflow-hidden p-1.5 sm:p-2 shrink-0">
+                            <img src="chekush.jpg" alt="Service 5 Image" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-emerald-400 font-semibold text-xs sm:text-sm" data-i18n="srv_5_title">IMPLEMENTATION</span>
+                    </div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed" data-i18n="srv_5_desc">
+                        Our technicians plan and implement all of your cabling needs in a new construction or when upgrading an existing space.
+                    </p>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="reveal bg-brand-card p-3 sm:p-8 rounded-2xl border-glow transition-all duration-300 hover:-translate-y-1">
+                    <div class="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-5">
+                        <div class="w-9 h-9 sm:w-14 sm:h-14 rounded-xl bg-blue-500/10 flex items-center justify-center overflow-hidden p-1.5 sm:p-2 shrink-0">
+                            <img src="siting.jpg" alt="Service 6 Image" class="w-full h-full object-contain">
+                        </div>
+                        <span class="text-blue-400 font-semibold text-xs sm:text-sm" data-i18n="srv_6_title">CUSTOMIZATION</span>
+                    </div>
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed" data-i18n="srv_6_desc">
+                        Your home is completely in your hands - we will provide you with multiple options depending on your taste for every system.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Sub-models Showcase Modal -->
+    <div id="product-models-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-md p-3 sm:p-6 hidden overflow-y-auto">
+        <div class="bg-brand-card border border-slate-700 rounded-2xl sm:rounded-3xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden shadow-2xl my-auto">
+            
+            <!-- Modal Header -->
+            <div class="p-4 sm:p-6 border-b border-slate-800 flex items-center justify-between bg-slate-900/80 shrink-0">
+                <div class="flex items-center gap-3">
+                    <div id="modal-cat-icon" class="w-10 h-10 rounded-xl bg-brand-cyan/20 text-brand-cyan flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                    </div>
+                    <div>
+                        <h3 id="modal-cat-title" class="text-base sm:text-xl font-extrabold text-white">جۆرەکانی بەرهەم</h3>
+                        <p id="modal-cat-subtitle" class="text-xs text-slate-400">مۆدێل و جۆرە جیاوازەکان هەڵبژێرە</p>
+                    </div>
+                </div>
+                <button onclick="closeProductModelsModal()" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-base transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content -->
+            <div class="overflow-y-auto">
+
+                <!-- Interactive Smart Bulb Widget -->
+                <div id="modal-bulb-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="bulb-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+
+                        <button onclick="closeBulbWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div class="relative flex items-center justify-center py-2">
+                                    <svg id="smart-bulb-svg" viewBox="0 0 200 300" class="w-36 h-56 sm:w-44 sm:h-64 transition-all duration-500 ease-out">
+                                        <defs>
+                                            <radialGradient id="bulbGlassGradient" cx="38%" cy="28%" r="70%">
+                                                <stop id="bulb-stop-1" offset="0%" stop-color="#94a3b8" stop-opacity="0.3"/>
+                                                <stop id="bulb-stop-2" offset="55%" stop-color="#475569" stop-opacity="0.2"/>
+                                                <stop id="bulb-stop-3" offset="100%" stop-color="#1e293b" stop-opacity="0.15"/>
+                                            </radialGradient>
+                                            <linearGradient id="bulbBaseGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                <stop offset="0%" stop-color="#94a3b8"/>
+                                                <stop offset="45%" stop-color="#e2e8f0"/>
+                                                <stop offset="100%" stop-color="#64748b"/>
+                                            </linearGradient>
+                                        </defs>
+
+                                        <path d="M100 8 C48 8 18 52 18 98 C18 138 42 162 63 183 C71 191 75 199 75 208 L125 208 C125 199 129 191 137 183 C158 162 182 138 182 98 C182 52 152 8 100 8 Z" fill="url(#bulbGlassGradient)" stroke="#475569" stroke-width="3"/>
+                                        <ellipse cx="70" cy="65" rx="18" ry="30" fill="#ffffff" opacity="0.12" transform="rotate(-20 70 65)"/>
+                                        <line x1="88" y1="208" x2="88" y2="145" stroke="#64748b" stroke-width="2.5"/>
+                                        <line x1="112" y1="208" x2="112" y2="145" stroke="#64748b" stroke-width="2.5"/>
+                                        <path id="bulb-filament" d="M88 145 L96 105 L104 135 L112 95 L112 145" fill="none" stroke="#475569" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <rect x="75" y="208" width="50" height="13" fill="url(#bulbBaseGradient)" stroke="#475569" stroke-width="1.2"/>
+                                        <rect x="75" y="225" width="50" height="7" fill="url(#bulbBaseGradient)" stroke="#475569" stroke-width="1.2"/>
+                                        <rect x="75" y="236" width="50" height="7" fill="url(#bulbBaseGradient)" stroke="#475569" stroke-width="1.2"/>
+                                        <rect x="75" y="247" width="50" height="7" fill="url(#bulbBaseGradient)" stroke="#475569" stroke-width="1.2"/>
+                                        <path d="M79 257 L121 257 L112 282 Q100 291 88 282 Z" fill="#334155" stroke="#475569" stroke-width="1.2"/>
+                                    </svg>
+                                </div>
+
+                                <div class="mt-4 text-center">
+                                    <span id="bulb-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
+                                        کوژاوەتەوە
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">کۆنترۆڵی ڕووناکی (Smart Bulb)</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">تەواوی کۆنترۆڵی ڕووناکی، قوەت و ڕەنگەکان بەدەست بهێنە</p>
+                                    </div>
+
+                                    <button id="bulb-power-btn" onclick="toggleSmartBulb()" class="px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                        <i class="fa-solid fa-power-off text-sm"></i>
+                                        <span id="power-btn-text">داگیرساندن</span>
+                                    </button>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center text-xs font-bold">
+                                        <span class="text-slate-300 flex items-center gap-2">
+                                            <i class="fa-solid fa-sun text-cyan-400"></i>
+                                            قوەتی ڕووناکی:
+                                        </span>
+                                        <span id="brightness-text" class="text-cyan-400 font-black text-sm">50%</span>
+                                    </div>
+                                    <input type="range" id="brightness-range" min="0" max="100" value="50" oninput="updateBulbBrightness(this.value)" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400 transition-all">
+                                </div>
+
+                                <div class="space-y-2 pt-1">
+                                    <span class="text-xs font-bold text-slate-300 flex items-center gap-2">
+                                        <i class="fa-solid fa-palette text-emerald-400"></i>
+                                        دیاریکردنی ڕەنگ:
+                                    </span>
+                                    <div class="flex items-center gap-3 pt-1">
+                                        <button onclick="changeBulbColor('#00F0FF')" class="w-8 h-8 rounded-full bg-[#00F0FF] border-2 border-white/20 hover:scale-110 transition-transform shadow-md focus:ring-2 focus:ring-cyan-400"></button>
+                                        <button onclick="changeBulbColor('#00E676')" class="w-8 h-8 rounded-full bg-[#00E676] border-2 border-white/20 hover:scale-110 transition-transform shadow-md focus:ring-2 focus:ring-emerald-400"></button>
+                                        <button onclick="changeBulbColor('#FFD700')" class="w-8 h-8 rounded-full bg-[#FFD700] border-2 border-white/20 hover:scale-110 transition-transform shadow-md focus:ring-2 focus:ring-yellow-400"></button>
+                                        <button onclick="changeBulbColor('#FF3366')" class="w-8 h-8 rounded-full bg-[#FF3366] border-2 border-white/20 hover:scale-110 transition-transform shadow-md focus:ring-2 focus:ring-pink-500"></button>
+                                        <button onclick="changeBulbColor('#A855F7')" class="w-8 h-8 rounded-full bg-[#A855F7] border-2 border-white/20 hover:scale-110 transition-transform shadow-md focus:ring-2 focus:ring-purple-500"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Smart Curtain Widget -->
+                <div id="modal-curtain-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <button onclick="closeCurtainWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div class="relative flex items-center justify-center py-2">
+                                    <svg id="smart-curtain-svg" viewBox="0 0 300 220" class="w-56 sm:w-72 h-auto drop-shadow-xl">
+                                        <defs>
+                                            <linearGradient id="curtainSkyGradient" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="0%" stop-color="#38bdf8"/>
+                                                <stop offset="100%" stop-color="#e0f2fe"/>
+                                            </linearGradient>
+                                            <pattern id="curtainPattern" width="14" height="10" patternUnits="userSpaceOnUse">
+                                                <rect id="curtain-pattern-bg" width="14" height="10" fill="#D8CBB8"/>
+                                                <line x1="0" y1="0" x2="0" y2="10" stroke="rgba(0,0,0,0.18)" stroke-width="2"/>
+                                                <line x1="7" y1="0" x2="7" y2="10" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+                                            </pattern>
+                                        </defs>
+
+                                        <rect x="15" y="20" width="270" height="170" rx="6" fill="#0f172a" stroke="#334155" stroke-width="4"/>
+                                        <rect x="22" y="27" width="256" height="156" fill="url(#curtainSkyGradient)"/>
+                                        <circle cx="228" cy="58" r="17" fill="#fde68a" opacity="0.9"/>
+                                        <rect x="22" y="150" width="256" height="33" fill="#86efac" opacity="0.5"/>
+                                        <line x1="150" y1="27" x2="150" y2="183" stroke="#334155" stroke-width="3"/>
+                                        <line x1="22" y1="105" x2="278" y2="105" stroke="#334155" stroke-width="3"/>
+
+                                        <rect x="5" y="9" width="290" height="6" rx="3" fill="#94a3b8"/>
+                                        <circle cx="9" cy="12" r="6" fill="#cbd5e1"/>
+                                        <circle cx="291" cy="12" r="6" fill="#cbd5e1"/>
+
+                                        <rect id="curtain-left" x="15" y="16" width="135" height="178" fill="url(#curtainPattern)" stroke="rgba(0,0,0,0.2)" style="transform-box: fill-box; transform-origin: 0% 50%; transition: transform 0.6s ease;"/>
+                                        <rect id="curtain-right" x="150" y="16" width="135" height="178" fill="url(#curtainPattern)" stroke="rgba(0,0,0,0.2)" style="transform-box: fill-box; transform-origin: 100% 50%; transition: transform 0.6s ease;"/>
+                                    </svg>
+                                </div>
+
+                                <div class="mt-4 text-center">
+                                    <span id="curtain-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
+                                        داخراوە
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">کۆنترۆڵی پەردە (Smart Curtain)</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">کردنەوە و داخستنی پەردەکانت بە یەک کلیک یان بە ئاستی دڵخواز کۆنترۆڵی بکە</p>
+                                    </div>
+
+                                    <button id="curtain-power-btn" onclick="toggleCurtain()" class="px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                        <i class="fa-solid fa-power-off text-sm"></i>
+                                        <span id="curtain-power-btn-text">کردنەوە</span>
+                                    </button>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center text-xs font-bold">
+                                        <span class="text-slate-300 flex items-center gap-2">
+                                            <i class="fa-solid fa-arrows-left-right text-cyan-400"></i>
+                                            ئاستی کردنەوە:
+                                        </span>
+                                        <span id="curtain-percent-text" class="text-cyan-400 font-black text-sm">0%</span>
+                                    </div>
+                                    <input type="range" id="curtain-range" min="0" max="100" value="0" oninput="updateCurtainPosition(this.value)" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400 transition-all">
+                                </div>
+
+                                <div class="space-y-2 pt-1">
+                                    <span class="text-xs font-bold text-slate-300 flex items-center gap-2">
+                                        <i class="fa-solid fa-palette text-emerald-400"></i>
+                                        دیاریکردنی ڕەنگی قوماش:
+                                    </span>
+                                    <div class="flex items-center gap-3 pt-1">
+                                        <button onclick="changeCurtainColor('#D8CBB8')" class="w-8 h-8 rounded-full bg-[#D8CBB8] border-2 border-white/20 hover:scale-110 transition-transform shadow-md focus:ring-2 focus:ring-cyan-400"></button>
+                                        <button onclick="changeCurtainColor('#3B4252')" class="w-8 h-8 rounded-full bg-[#3B4252] border-2 border-white/20 hover:scale-110 transition-transform shadow-md focus:ring-2 focus:ring-slate-400"></button>
+                                        <button onclick="changeCurtainColor('#7C6A57')" class="w-8 h-8 rounded-full bg-[#7C6A57] border-2 border-white/20 hover:scale-110 transition-transform shadow-md focus:ring-2 focus:ring-amber-500"></button>
+                                        <button onclick="changeCurtainColor('#7C2D2D')" class="w-8 h-8 rounded-full bg-[#7C2D2D] border-2 border-white/20 hover:scale-110 transition-transform shadow-md focus:ring-2 focus:ring-red-500"></button>
+                                        <button onclick="changeCurtainColor('#1F2A37')" class="w-8 h-8 rounded-full bg-[#1F2A37] border-2 border-white/20 hover:scale-110 transition-transform shadow-md focus:ring-2 focus:ring-slate-500"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Smart Thermostat Widget -->
+                <div id="modal-thermostat-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="thermo-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+
+                        <button onclick="closeThermostatWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div class="relative flex items-center justify-center py-2">
+                                    <svg id="thermo-svg" viewBox="0 0 220 220" class="w-48 h-48 sm:w-60 sm:h-60 transition-all duration-500 ease-out">
+                                        <circle cx="110" cy="110" r="98" fill="#151C2C" stroke="#1e293b" stroke-width="2"/>
+                                        <circle cx="110" cy="110" r="88" fill="none" stroke="#1e293b" stroke-width="14"/>
+                                        <circle id="thermo-progress-ring" cx="110" cy="110" r="88" fill="none" stroke="#00F0FF" stroke-width="14" stroke-linecap="round" stroke-dasharray="553" stroke-dashoffset="553" transform="rotate(-90 110 110)" style="transition: stroke-dashoffset 0.5s ease, stroke 0.4s ease;"/>
+                                        <text x="110" y="90" text-anchor="middle" fill="#64748b" font-size="11" font-weight="700" letter-spacing="1">CURRENT</text>
+                                        <text id="thermo-current-text" x="110" y="132" text-anchor="middle" fill="#ffffff" font-size="46" font-weight="900">77</text>
+                                        <text id="thermo-target-text" x="110" y="158" text-anchor="middle" fill="#FFD700" font-size="15" font-weight="800">63 • 75</text>
+                                    </svg>
+                                </div>
+
+                                <div class="mt-4 text-center">
+                                    <span id="thermo-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
+                                        کوژاوەتەوە
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">کۆنترۆڵی گەرمی (Smart Thermostat)</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">پلەی گەرمی ژووری خۆت بە ئاسانی ڕێکبخە</p>
+                                    </div>
+
+                                    <button id="thermo-power-btn" onclick="toggleThermostat()" class="px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                        <i class="fa-solid fa-power-off text-sm"></i>
+                                        <span id="thermo-power-btn-text">داگیرساندن</span>
+                                    </button>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center text-xs font-bold">
+                                        <span class="text-slate-300 flex items-center gap-2">
+                                            <i class="fa-solid fa-temperature-half text-cyan-400"></i>
+                                            پلەی گەرمی داوکراو:
+                                        </span>
+                                        <span id="thermo-target-out" class="text-cyan-400 font-black text-sm">75°F</span>
+                                    </div>
+                                    <input type="range" id="thermo-range" min="60" max="90" value="75" oninput="updateThermostatTarget(this.value)" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400 transition-all">
+                                </div>
+
+                                <div class="space-y-2 pt-1">
+                                    <span class="text-xs font-bold text-slate-300 flex items-center gap-2">
+                                        <i class="fa-solid fa-sliders text-emerald-400"></i>
+                                        دۆخ:
+                                    </span>
+                                    <div class="flex items-center gap-2 pt-1">
+                                        <button onclick="setThermostatMode('cool')" id="thermo-mode-cool" class="flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-cyan-400/10 text-cyan-300 border-cyan-400/40">
+                                            <i class="fa-solid fa-snowflake"></i> سارد
+                                        </button>
+                                        <button onclick="setThermostatMode('heat')" id="thermo-mode-heat" class="flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700">
+                                            <i class="fa-solid fa-fire"></i> گەرم
+                                        </button>
+                                        <button onclick="setThermostatMode('auto')" id="thermo-mode-auto" class="flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700">
+                                            <i class="fa-solid fa-rotate"></i> خۆکار
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Smart Alarm Widget -->
+                <div id="modal-alarm-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="alarm-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-red-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+
+                        <button onclick="closeAlarmWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div class="relative flex items-center justify-center">
+                                    <span id="alarm-radar-1" class="absolute w-40 h-40 sm:w-48 sm:h-48 rounded-full border-2 border-emerald-400/0 transition-all duration-500"></span>
+                                    <span id="alarm-radar-2" class="absolute w-40 h-40 sm:w-48 sm:h-48 rounded-full border-2 border-emerald-400/0 transition-all duration-500"></span>
+                                    <div id="alarm-icon-circle" class="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700">
+                                        <i id="alarm-icon" class="fa-solid fa-shield-halved text-6xl sm:text-7xl text-slate-500 transition-all duration-500"></i>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 text-center">
+                                    <span id="alarm-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
+                                        لابراوە
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">سیستەمی ئاسایش (Motion Sensors)</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">چەکدارکردنی سیستەمی ئاسایشی ماڵەکەت بە یەک کلیک</p>
+                                    </div>
+
+                                    <button id="alarm-power-btn" onclick="toggleAlarm()" class="px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                        <i class="fa-solid fa-power-off text-sm"></i>
+                                        <span id="alarm-power-btn-text">چەکدارکردن</span>
+                                    </button>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center text-xs font-bold">
+                                        <span class="text-slate-300 flex items-center gap-2">
+                                            <i class="fa-solid fa-wave-square text-cyan-400"></i>
+                                            ئاستی هەستیاری:
+                                        </span>
+                                        <span id="alarm-sensitivity-text" class="text-cyan-400 font-black text-sm">50%</span>
+                                    </div>
+                                    <input type="range" id="alarm-sensitivity-range" min="0" max="100" value="50" oninput="updateAlarmSensitivity(this.value)" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400 transition-all">
+                                </div>
+
+                                <div class="space-y-2 pt-1">
+                                    <span class="text-xs font-bold text-slate-300 flex items-center gap-2">
+                                        <i class="fa-solid fa-house-chimney text-emerald-400"></i>
+                                        دۆخ:
+                                    </span>
+                                    <div class="flex items-center gap-2 pt-1">
+                                        <button onclick="setAlarmMode('home')" id="alarm-mode-home" class="flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-cyan-400/10 text-cyan-300 border-cyan-400/40">
+                                            <i class="fa-solid fa-house"></i> ماڵ
+                                        </button>
+                                        <button onclick="setAlarmMode('away')" id="alarm-mode-away" class="flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700">
+                                            <i class="fa-solid fa-car-side"></i> دەرەوە
+                                        </button>
+                                        <button onclick="setAlarmMode('night')" id="alarm-mode-night" class="flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700">
+                                            <i class="fa-solid fa-moon"></i> شەو
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Home Cinema Widget -->
+                <div id="modal-cinema-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="cinema-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+
+                        <button onclick="closeCinemaWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div class="relative flex items-center justify-center py-2">
+                                    <svg id="cinema-svg" viewBox="0 0 260 170" class="w-56 sm:w-72 h-auto transition-all duration-500">
+                                        <defs>
+                                            <linearGradient id="cinemaWallGradient" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="0%" stop-color="#0b0f17"/>
+                                                <stop offset="100%" stop-color="#151c2c"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <rect x="0" y="0" width="260" height="170" fill="url(#cinemaWallGradient)"/>
+                                        <!-- Speaker towers -->
+                                        <rect x="2" y="46" width="12" height="78" rx="3" fill="#151c2c" stroke="#334155" stroke-width="1.5"/>
+                                        <circle cx="8" cy="60" r="3.5" fill="#0f172a" stroke="#334155"/>
+                                        <circle cx="8" cy="80" r="4.5" fill="#0f172a" stroke="#334155"/>
+                                        <rect x="246" y="46" width="12" height="78" rx="3" fill="#151c2c" stroke="#334155" stroke-width="1.5"/>
+                                        <circle cx="252" cy="60" r="3.5" fill="#0f172a" stroke="#334155"/>
+                                        <circle cx="252" cy="80" r="4.5" fill="#0f172a" stroke="#334155"/>
+                                        <!-- Screen -->
+                                        <rect x="20" y="10" width="220" height="115" rx="8" fill="#0f172a" stroke="#334155" stroke-width="4"/>
+                                        <rect id="cinema-screen" x="30" y="20" width="200" height="95" rx="4" fill="#1e293b"/>
+                                        <polygon id="cinema-beam" points="130,145 90,170 170,170" fill="#a855f7" opacity="0"/>
+                                        <rect x="105" y="140" width="50" height="13" rx="3" fill="#334155"/>
+                                        <rect x="70" y="153" width="120" height="7" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+                                        <!-- Sofa silhouettes -->
+                                        <path d="M18 170 L18 152 Q18 146 25 146 L55 146 Q62 146 62 152 L62 162 L14 162 Z" fill="#1e293b"/>
+                                        <path d="M242 170 L242 152 Q242 146 235 146 L205 146 Q198 146 198 152 L198 162 L246 162 Z" fill="#1e293b"/>
+                                    </svg>
+                                </div>
+
+                                <div class="mt-4 text-center">
+                                    <span id="cinema-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
+                                        کوژاوەتەوە
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">سینەمای ماڵ</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">هەموو ئامێرەکانی سینەماکەت بە یەک دوگمە کارپێبکە</p>
+                                    </div>
+
+                                    <button id="cinema-power-btn" onclick="toggleCinema()" class="px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                        <i class="fa-solid fa-power-off text-sm"></i>
+                                        <span id="cinema-power-btn-text">داگیرساندن</span>
+                                    </button>
+                                </div>
+
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center text-xs font-bold">
+                                        <span class="text-slate-300 flex items-center gap-2">
+                                            <i class="fa-solid fa-volume-high text-cyan-400"></i>
+                                            ئاستی دەنگ:
+                                        </span>
+                                        <span id="cinema-volume-text" class="text-cyan-400 font-black text-sm">40%</span>
+                                    </div>
+                                    <input type="range" id="cinema-volume-range" min="0" max="100" value="40" oninput="updateCinemaVolume(this.value)" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400 transition-all">
+                                </div>
+
+                                <div class="space-y-2 pt-1">
+                                    <span class="text-xs font-bold text-slate-300 flex items-center gap-2">
+                                        <i class="fa-solid fa-clapperboard text-emerald-400"></i>
+                                        سیناریۆ:
+                                    </span>
+                                    <div class="flex items-center gap-2 pt-1">
+                                        <button onclick="setCinemaScene('movie')" id="cinema-scene-movie" class="flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-purple-400/10 text-purple-300 border-purple-400/40">
+                                            <i class="fa-solid fa-film"></i> فیلم
+                                        </button>
+                                        <button onclick="setCinemaScene('sports')" id="cinema-scene-sports" class="flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700">
+                                            <i class="fa-solid fa-futbol"></i> وەرزش
+                                        </button>
+                                        <button onclick="setCinemaScene('gaming')" id="cinema-scene-gaming" class="flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700">
+                                            <i class="fa-solid fa-gamepad"></i> گەیم
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Smart Lock Widget -->
+                <div id="modal-lock-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="lock-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+
+                        <button onclick="closeLockWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div class="relative flex items-center justify-center">
+                                    <!-- Decorative door-plate bezel -->
+                                    <div class="absolute w-48 h-48 sm:w-56 sm:h-56 rounded-[2.5rem] bg-slate-900/70 border border-slate-800 -z-0"></div>
+                                    <span class="absolute top-6 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-slate-700"></span>
+                                    <span class="absolute bottom-6 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-slate-700"></span>
+                                    <span id="lock-led" class="absolute top-9 right-9 w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_2px_rgba(239,68,68,0.6)] transition-all duration-500"></span>
+
+                                    <div id="lock-icon-circle" class="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700">
+                                        <i id="lock-icon" class="fa-solid fa-lock text-6xl sm:text-7xl text-slate-500 transition-all duration-500"></i>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 text-center">
+                                    <span id="lock-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
+                                        قوفڵکراوە
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">کیلۆنی زیرەک (Smart Lock)</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">دەرگاکەت بکەرەوە بە کلیک یان بە کۆدی نهێنی</p>
+                                    </div>
+
+                                    <button id="lock-power-btn" onclick="toggleLock()" class="px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                        <i class="fa-solid fa-power-off text-sm"></i>
+                                        <span id="lock-power-btn-text">کردنەوە</span>
+                                    </button>
+                                </div>
+
+                                <div class="space-y-2">
+                                    <span class="text-xs font-bold text-slate-300 flex items-center gap-2">
+                                        <i class="fa-solid fa-hashtag text-cyan-400"></i>
+                                        کۆدی نهێنی:
+                                    </span>
+                                    <div id="lock-pin-display" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-3 text-center text-lg font-black tracking-[0.5em] text-cyan-400">
+                                        ----
+                                    </div>
+                                    <div class="grid grid-cols-3 gap-2 pt-1">
+                                        <button onclick="pressLockDigit('1')" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition-all active:scale-95">1</button>
+                                        <button onclick="pressLockDigit('2')" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition-all active:scale-95">2</button>
+                                        <button onclick="pressLockDigit('3')" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition-all active:scale-95">3</button>
+                                        <button onclick="pressLockDigit('4')" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition-all active:scale-95">4</button>
+                                        <button onclick="pressLockDigit('5')" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition-all active:scale-95">5</button>
+                                        <button onclick="pressLockDigit('6')" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition-all active:scale-95">6</button>
+                                        <button onclick="pressLockDigit('7')" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition-all active:scale-95">7</button>
+                                        <button onclick="pressLockDigit('8')" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition-all active:scale-95">8</button>
+                                        <button onclick="pressLockDigit('9')" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition-all active:scale-95">9</button>
+                                        <button onclick="clearLockPin()" class="py-2.5 rounded-xl bg-slate-800 hover:bg-red-500/20 text-red-400 font-bold text-sm border border-slate-700 transition-all active:scale-95"><i class="fa-solid fa-xmark"></i></button>
+                                        <button onclick="pressLockDigit('0')" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition-all active:scale-95">0</button>
+                                        <button onclick="submitLockPin()" class="py-2.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500 hover:text-slate-950 text-emerald-400 font-bold text-sm border border-emerald-500/40 transition-all active:scale-95"><i class="fa-solid fa-check"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub Models Grid -->
+                <div id="modal-models-grid" class="p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 text-right-auto">
+                    <!-- Dynamically Populated Sub-models Cards -->
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 border-t border-slate-800 bg-slate-900/90 flex justify-between items-center text-xs text-slate-400 shrink-0">
+                <button onclick="closeProductModelsModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-xl font-bold transition-all">
+                    داخستن
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+
+
+
+
+
+
+
+        let currentLang = 'ckb';
+        let currentCategory = null;
+
+        // Translation Dictionary for Web UI Elements
+        const translations = {
+            ckb: {
+                nav_services: "خزمەتگوزارییەکان",
+                nav_brands: "براندە جیهانییەکان",
+                nav_products: "بەرهەمەکانمان",
+                nav_contact: "پەیوەندی",
+                hero_title: "ماڵ و شوێنی کارت بکە بە <br><span class=\"text-gradient\">زیرەکتری سیستەمی سەردەمیانە</span>",
+                hero_desc: "کۆمپانیای های سمارت دابینکەری سەرەکی نوێترین تەکنەلۆجیای جیهانییە بۆ ئۆتۆماتیکردنی ماڵ، ئاسایش، پەردە، ڕووناکی، و دەنگ بە براندە نێودەوڵەتیییەکان.",
+                brands_title: "کارکردن لەگەڵ باوەڕپێکراوترین براندە جیهانییەکان",
+                cat_desc: "دابینکردنی نوێترین چارەسەرەکانی ماڵی زیرەک بۆ تۆ",
+                banner_lighting: "ڕووناکی زیرەک",
+                banner_audio: "سیستەمی دەنگی",
+                banner_comfort: "ئاسودەیی",
+                banner_security: "ئاسایش و سەلامەتی",
+                banner_cinema: "سینەمای ماڵ",
+                banner_doors: "ئینتەرکۆم و دەرگا",
+                srv_1_title: "ڕاوێژکاری",
+                srv_1_desc: "کۆبوونەوەی پێشوەختە و گفتوگۆکردن دەربارەی هەموو ئەو شتانەی پێویستە لە ماڵە زیرەکەکەتدا هەبێت.",
+                srv_2_title: "چاککردنەوە و پشتیوانی",
+                srv_2_desc: "تیمی تەکنیکی های سمارت بەردەوام لە ئامادەباشیدایە بۆ دەستنیشانکردن، نوێکردنەوە، و چاککردنەوەی هەر کێشەیەک.",
+                srv_3_title: "بەڵگەنامەکردنی سیستەم",
+                srv_3_desc: "ئێمە بەڵگەنامەی ڕوون دابین دەکەین کە وەسفی پێداویستی و تایبەتمەندییەکانی ماڵە زیرەکەکەت دەکات.",
+                srv_4_title: "دیزاین و ئەندازیاری",
+                srv_4_desc: "دیزاین و ئەندازیاریی ورد لە سەرەتاوە دەبێتە هۆی بەدەستهێنانی باشترین هاوسەنگی لە نێوان کارایی و جوانی.",
+                srv_5_title: "جێبەجێکردن",
+                srv_5_desc: "تەکنیکارەکانمان پلاندانان و جێبەجێکردنی تەواوی بەستنی وایەر و کێبڵەکانت بۆ ئەنجام دەدەن.",
+                srv_6_title: "تایبەتمەندکردن",
+                srv_6_desc: "ماڵەکەت بە تەواوی لەژێر کۆنترۆڵی خۆتدا دەبێت، ئێمە هەڵبژاردەی زۆرت پێشکەش دەکەین بەپێی ئارەزووی خۆت.",
+                services_heading: "خزمەتگوزارییەکانمان بۆ تۆ",
+                contact_badge: "پەیوەندیمان پێوە بکەن",
+                contact_title: "ئامادەین بۆ بەدیهێنانی ماڵە زیرەکەکەت",
+                contact_desc: "سەردانمان بکە لە شۆڕوم بۆ دیدەنی نوێترین تەکنەلۆجیاکانی ماڵی زیرەک، یان زانیارییەکانت بنێرە بۆ داواکردنی ڕاوێژکاری خۆڕایی.",
+                contact_phone_lbl: "ژمارەی پەیوەندی",
+                contact_addr_lbl: "ناونیشان",
+                contact_address: "کوردستان، عێراق - شۆڕومی سەرەکی های سمارت",
+                form_title: "داواکردنی ڕاوێژکاری و خەمڵاندنی تێچوو",
+                lbl_fullname: "ناوی تەواو",
+                lbl_phone: "ژمارەی مۆبایل",
+                lbl_service: "جۆری خزمەتگوزاری",
+                opt_1: "تەواوی ماڵێکی زیرەک",
+                opt_2: "کیلۆنی زیرەکی دەرگا",
+                opt_3: "سیستەمی ئاسایش و کامێرا",
+                opt_5: "سیستەمی دەنگ و سپیکەر",
+                btn_submit: "ناردنی داواکاری ڕاوێژکاری",
+                visit_title: "سەردانمان بکەن",
+                visit_hours: "شۆڕومەکانمان کراوەیە لە یەکشەممە تا پێنجشەممە، لە کاتژمێر ٩ی بەیانی تا ٩ی شەو",
+                loc_slemani: "سلێمانی",
+                loc_hawler: "هەولێر",
+                loc_baghdad: "بەغدا",
+                footer_copy: "© 2014 High Smart. هەموو مافەکان پارێزراون."
+            },
+            en: {
+                nav_services: "Services",
+                nav_brands: "Global Brands",
+                nav_products: "Products",
+                nav_contact: "Contact Us",
+                hero_title: "Make Your Home & Office <br><span class=\"text-gradient\">Smarter & Modern</span>",
+                hero_desc: "HIGH SMART is the leading provider of cutting-edge global smart home automation, security, shading, lighting, and audio solutions with top international brands.",
+                brands_title: "Working with the most trustworthy global brands",
+                cat_desc: "Providing you with high end smart home solutions",
+                banner_lighting: "Smart Lighting",
+                banner_audio: "Audio Systems",
+                banner_comfort: "Comfort",
+                banner_security: "Security & Safety",
+                banner_cinema: "Home Cinema",
+                banner_doors: "Intercom & Doors",
+                srv_1_title: "CONSULTATION",
+                srv_1_desc: "Pre-meeting and discussion about everything that should be included in your smart home.",
+                srv_2_title: "MAINTENANCE & SUPPORT",
+                srv_2_desc: "High Smart's technical team is available on 8-5 hours to diagnose, update, replace, and repair any issues that can happen.",
+                srv_3_title: "SYSTEM DOCUMENTATION",
+                srv_3_desc: "We provide the documents that describes your smart home's requirements, capabilities, and specifications.",
+                srv_4_title: "DESIGN & ENGINEERING",
+                srv_4_desc: "Comprehensive and thoughtful system design and engineering up front leads to the best balance of functionality, reliability and aesthetics in the end result.",
+                srv_5_title: "IMPLEMENTATION",
+                srv_5_desc: "Our technicians plan and implement all of your cabling needs in a new construction or when upgrading an existing space.",
+                srv_6_title: "CUSTOMIZATION",
+                srv_6_desc: "Your home is completely in your hands - we will provide you with multiple options depending on your taste for every system.",
+                services_heading: "Our Services For You",
+                contact_badge: "Get In Touch",
+                contact_title: "Ready to Realize Your Smart Home",
+                contact_desc: "Visit our showroom to experience the latest Smart Home technologies, or send us your details to request a free consultation from our engineers.",
+                contact_phone_lbl: "Phone Number",
+                contact_addr_lbl: "Address",
+                contact_address: "Kurdistan, Iraq - High Smart Main Showroom (High Smart Building)",
+                form_title: "Request Consultation & Cost Estimation",
+                lbl_fullname: "Full Name",
+                lbl_phone: "Phone Number",
+                lbl_service: "Service Type",
+                opt_1: "Complete Smart Home",
+                opt_2: "Smart Door Lock",
+                opt_3: "Security System & Cameras",
+                opt_5: "Audio & Speaker System",
+                btn_submit: "Submit Consultation Request",
+                visit_title: "Visit Us",
+                visit_hours: "Our showrooms are open Sunday to Thursday, from 9 AM to 9 PM",
+                loc_slemani: "Sulaymaniyah",
+                loc_hawler: "Erbil",
+                loc_baghdad: "Baghdad",
+                footer_copy: "© 2014 High Smart. All rights reserved."
+            },
+            ar: {
+                nav_services: "الخدمات",
+                nav_brands: "العلامات التجارية",
+                nav_products: "منتجاتنا",
+                nav_contact: "اتصل بنا",
+                hero_title: "اجعل منزلك ومكتبك <br><span class=\"text-gradient\">أكثر ذكاءً وعصرية</span>",
+                hero_desc: "شركة هاي سمارت هي المزود الرئيسي لأحدث التقنيات العالمية لأتمتة المنازل، والأمان، والستائر، والإضاءة، والصوتيات بأرقى العلامات التجارية الدولية.",
+                brands_title: "نعمل مع أكثر العلامات التجارية العالمية موثوقية",
+                cat_desc: "نوفر لك أحدث حلول المنازل الذكية الفاخرة",
+                banner_lighting: "الإضاءة الذكية",
+                banner_audio: "الأنظمة الصوتية",
+                banner_comfort: "الراحة والتحكم",
+                banner_security: "الأمان والسلامة",
+                banner_cinema: "السينما المنزلية",
+                banner_doors: "الأقفال والانتركوم",
+                srv_1_title: "الاستشارات",
+                srv_1_desc: "اجتماع أولي ومناقشة كل ما يجب تضمينه في منزلك الذكي.",
+                srv_2_title: "الصيانة والدعم",
+                srv_2_desc: "فريق هاي سمارت الفني متواجد لتشخيص وتحديث وإصلاح أي مشكلة قد تحدث.",
+                srv_3_title: "توثيق النظام",
+                srv_3_desc: "نقدم الوثائق التي توضح متطلبات وقدرات ومواصفات منزلك الذكي.",
+                srv_4_title: "التصميم والهندسة",
+                srv_4_desc: "التصميم والتخطيط الهندسي الشامل يؤدي إلى أفضل توازن بين الأداء والمظهر الجمالي.",
+                srv_5_title: "التنفيذ والتركيب",
+                srv_5_desc: "يقوم فنيونا بتخطيط وتنفيذ جميع احتياجات التمديدات والكابلات للمباني الجديدة أو المحدثة.",
+                srv_6_title: "التخصيص",
+                srv_6_desc: "منزلك بين يديك بالكامل - سنوفر لك خيارات متعددة تناسب ذوقك لكل نظام.",
+                services_heading: "خدماتنا لأجلك",
+                contact_badge: "تواصل معنا",
+                contact_title: "مستعدون لتحقيق منزلك الذكي",
+                contact_desc: "تفضل بزيارة معرضنا لمشاهدة أحدث تقنيات المنازل الذكية، أو أرسل بياناتك لطلب استشارة مجانية من مهندسينا.",
+                contact_phone_lbl: "رقم الهاتف",
+                contact_addr_lbl: "العنوان",
+                contact_address: "كوردستان، العراق - معرض هاي سمارت الرئيسي",
+                form_title: "طلب استشارة وتقدير التكلفة",
+                lbl_fullname: "الاسم الكامل",
+                lbl_phone: "رقم الهاتف",
+                lbl_service: "نوع الخدمة",
+                opt_1: "منزل ذكي بالكامل",
+                opt_2: "أقفال أبواب ذكية",
+                opt_3: "نظام أمان وكاميرات",
+                opt_5: "أنظمة صوتية وسماعات",
+                btn_submit: "إرسال طلب الاستشارة",
+                visit_title: "قوموا بزيارتنا",
+                visit_hours: "معارضنا مفتوحة من الأحد إلى الخميس، من الساعة ٩ صباحاً حتى ٩ مساءً",
+                loc_slemani: "السليمانية",
+                loc_hawler: "أربيل",
+                loc_baghdad: "بغداد",
+                footer_copy: "© 2014 High Smart. جميع الحقوق محفوظة."
+            }
+        };
+
+        // Expanded Sub-models Database for all 6 Banner Categories
+        const productModelsDatabase = {
+            lighting: {
+                title: { ckb: "ڕووناکی زیرەک", en: "Smart Lighting", ar: "الإضاءة الذكية والمفاتيح" },
+                subtitle: { ckb: "کۆنترۆڵی تەواوی ڕووناکی ماڵەکەت بکه", en: "Complete control over your home lighting", ar: "تحكم كامل بإضاءة منزلك" },
+                icon: "fa-lightbulb",
+                colorClass: "text-brand-cyan",
+                models: [
+                    {
+                        title: { ckb: "ڕووناکی بێ وایەر", en: "Wireless Lighting", ar: "الإضاءة اللاسلكية" },
+                        img: "lid.jpg",
+                        interactive: 'bulb',
+                        desc: { 
+                            ckb: "لەو شوێنانەی پێت خۆشە دیوارەکان نەشکێنیت بۆ ڕاکێشانی وایەر، دیمەرە بێ وایەرەکان، سویچەکان و کیپادەکان دەبنە باشترین ڕێگای کۆنترۆڵکردن. زۆرجار ڕووناکی بێ وایەر گونجاوترە بۆ پڕۆژەی نۆژەنکردنەوە و لە بواری تێچووندا ئاسانترە لە دانانی سیستەمی وایەری نوێ.", 
+                            en: "In areas where you would prefer not to cut open walls for cable running, wireless dimmers, switches, and keypads make for an ideal control interface. Wireless lighting is often favorable for remodel projects and can be more cost-effective than retrofitting a wired system.", 
+                            ar: "في المناطق التي تفضل عدم تكسير الجدران لتمرير الكابلات، توفر المفاتيح والمداهم اللاسلكية واجهة تحكم مثالية ومناسبة للتجديدات." 
+                        }
+                    },
+                    {
+                        title: { ckb: "دیمەنە ئۆتۆماتیکییەکان", en: "Automatic Scenes", ar: "المشاهد التلقائية" },
+                        img: "lid-panjara.jpg",
+                        interactive: 'curtain',
+                        desc: { 
+                            ckb: "کاتێک شەو دادێت، پەردەکانت خۆیان دادەخرێن و ڕووناکی حەوشەکەت خۆی کاردەکات. کاتێک دەچیتە ژوورەوە ڕووناکییەکان خۆیان کاردەکەن، ڕەنگیشیان دەگۆڕدرێت بەگوێرەی کەشوهەوا. کاتێک ڕووناکی زیرەکت هەیە، ئەگەرەکانت بێ سنوورن.", 
+                            en: "Your curtains will close and your yard lights will turn on when it's night time. Your lights will turn on automatically when you enter the room, they can change color based on the weather. Your possibilities are endless when you have Smart Lighting.", 
+                            ar: "ستغلق الستائر وتعمل إضاءة الحديقة تلقائياً عند حلول الليل. وتعمل الإضاءة بمجرد دخولك الغرفة، إمكانيات لا حصر لها." 
+                        }
+                    }
+                ]
+            },
+            audio: {
+                title: { ckb: "سیستەمی دەنگ", en: "Audio Systems", ar: "الأنظمة الصوتية" },
+                subtitle: { ckb: "بەرزترین کوالێتی دەنگ بۆ ماڵەکەت", en: "High fidelity audio systems for your home", ar: "أعلى جودة صوت لمنزلك" },
+                icon: "fa-volume-high",
+                colorClass: "text-brand-neon",
+                models: [
+                    {
+                        title: { ckb: "بڵندگۆکان", en: "Speakers", ar: "السماعات الذكية" },
+                        img: "spikaar.jpg",
+                        badge: "",
+                        desc: { 
+                            ckb: "بەخاترنابوون بکە لەگەڵ بڵندگۆی هەرزانی بازاڕ و بەخێرهاتن بکە بۆ کوالێتی دەنگی بەرزی ڕاستەقینە. هاوکاری براندە جیهانییە بەرزترینەکانمان کردووە بۆ ئەوەی دڵنیابین لەوەی ئەو موزیکەی لە ماڵەکەتدا لێیدەدەیت دەنگێکی نایاب دەدات.", 
+                            en: "Say goodbye to cheap speakers from the market and say hello to high fidelity audio quality. We have partnered with global brands of the highest end to make sure the music you play in your home sounds amazing.", 
+                            ar: "قل وداعًا للسماعات العادية واستمتع بنقاء صوت استثنائي مع شركائنا من أرقى العلامات التجارية العالمية." 
+                        }
+                    },
+                    {
+                        title: { ckb: "ئامپلیفایەرەکان", en: "Amplifiers", ar: "مكبرات الصوت" },
+                        img: "Amplifiers.jpg",
+                        badge: "",
+                        desc: { 
+                            ckb: "زۆرینەی خەڵک دەزانن پێویستیان بە بڵندگۆی باش هەیە بۆ دەنگێکی باش، بەڵام ئەوەی هەروەها گرنگە هەبوونی ئامپلیفایەری کوالێتی بەرزی گونجاوە لەگەڵ ماڵەکەت. بە ئامپلیفایەرە بەرزترینەکانمان دەتوانیت باشترین کوالێتی لە بڵندگۆکانت وەربگریت، هەروەها هەڵبژاردنمان هەیە بۆ هەموو جۆرە بینایەک، بۆ ئەوەی شتێکی گونجاو و نەرم بۆ ژمارەی ژوور و ناوچەکانی دەنگ بەدەست بهێنیت.", 
+                            en: "Most people know that they need good speakers for good audio, but what's just as important is having high quality amplifiers that are appropriate for your home. With our top of the line amplifiers you can get the highest quality possible out of your speakers, and we provide options for every type of building so you can get something suitable and flexible for the amount of rooms and audio zones you desire.", 
+                            ar: "تعد مكبرات الصوت الفاخرة عنصرًا أساسيًا للحصول على أقصى أداء ونقاء من السماعات الخاصة بك عبر مختلف مناطق المنزل." 
+                        }
+                    }
+                ]
+            },
+            comfort: {
+                title: { ckb: "سیستەمی ئاسوودەیی", en: "Comfort Systems", ar: "أنظمة الراحة والتكييف" },
+                subtitle: { ckb: "کۆنترۆڵی گەرمی و ئاسودەیی ماڵەکەت", en: "Control your climate and indoor comfort", ar: "التحكم بالحرارة والراحة الداخلية" },
+                icon: "fa-fan",
+                colorClass: "text-yellow-400",
+                models: [
+                    {
+                        title: { ckb: "بێ کۆنترۆڵ - تەنها مۆبایلەکەت", en: "No Remotes - Just Your Phone", ar: "بدون أجهزة تحكم - هاتف فقط" },
+                        img: "mobil.jpg",
+                        interactive: 'thermostat',
+                        badge: "",
+                        desc: { 
+                            ckb: "چیتر پێویست ناکات بەناو هەموو ژوورەکانی ماڵدا ڕابکەیت بۆ کارکردن و ڕاگرتنی ئامێرەکانی ساردکەرەوەت. هەموویان لە مۆبایلەکەتەوە کۆنترۆڵ بکە تەنانەت کاتێک لە دەرەوەی ماڵیشیت.", 
+                            en: "You no longer need to run around every room of the house to turn on and turn off your multiple air conditioning devices. Control them all from your phone even if you are outside the house.", 
+                            ar: "لم تعد بحاجة للركض بين الغرف لتشغيل أو إطفاء أجهزة التكييف. تحكم بها جميعًا من هاتفك حتى عندما تكون خارج المنزل." 
+                        }
+                    },
+                    {
+                        title: { ckb: "کۆنترۆڵی ئۆتۆماتیکی کەش", en: "Automated Climate", ar: "التكييف الآلي" },
+                        img: "Automated.jpg",
+                        badge: "",
+                        desc: { 
+                            ckb: "هەموو ئامێرەکانی گەرمکردن و ساردکردنەوەت داماخە کاتێک کارت دەستپێدەکات، دووبارە کاریان پێبکەرەوە کاتێک گەڕایتەوە ماڵ، ژوورە پێویستنەکانیش داماخە کاتێک دەچیتە خەو. چیتر پێویست ناکات نیگەران بیت لە پسوولەی وزە و بە دەستی کۆنترۆڵیان بکەیت، تەنها خشتەیەکیان بۆ دابنێ و خۆیان بەشێوەی ئۆتۆماتیکی کاردەکەن.", 
+                            en: "Turn off all of your HVAC when your work begins, turn them back on when you're back in the house, turn off the unnecessary rooms when you go to sleep. You no longer need to worry about your power bill and micromanage your devices, just set a schedule for them and they'll automatically work.", 
+                            ar: "قم بضبط أجهزة التكييف لتعمل تلقائياً حسب جدولك اليومي، مما يوفر استهلاك الطاقة ويمنحك الراحة التامة." 
+                        }
+                    }
+                ]
+            },
+            security: {
+                title: { ckb: "ئاسایش و سەلامەتی", en: "Security & Safety", ar: "الأمان والسلامة" },
+                subtitle: { ckb: "پاراستنی ماڵەکەت بە نوێترین تەکنەلۆجیا", en: "Protect your home with advanced security", ar: "حماية منزلك بأحدث التقنيات" },
+                icon: "fa-shield-halved",
+                colorClass: "text-emerald-400",
+                models: [
+                    {
+                        title: { ckb: "سێنسەری جوڵە", en: "Motion Sensors", ar: "مستشعرات الحركة" },
+                        img: "motion.jpg",
+                        interactive: 'alarm',
+                        badge: "",
+                        desc: { 
+                            ckb: "بە چەند سێنسەرێکی جوڵە و پەیوەندی کە بەوردی دانراون، دەتوانیت بەدەم جێگادا ئاگادار بیتەوە کاتێک هێرشبەرێک هاتووەتە ماڵەکەت، سایرین و ڕووناکییە فریاگوزارییەکانت یەکسەر کاردەکەن و هەر دزێکی ئاسایی دەترسێنن.", 
+                            en: "With a few carefully placed motion sensors and contact sensors you can be instantly notified when there is an intruder in your home and your sirens and emergency light scenes will instantly trigger, scaring away any potential robber.", 
+                            ar: "احصل على تنبيهات فورية عند وجود أي حركة غريبة في منزلك مع تفعيل أجهزة الإنذار والإضاءة الطارئة لإخافة الدخلاء." 
+                        }
+                    },
+                    {
+                        title: { ckb: "تۆماری چالاکی", en: "History Record", ar: "سجل الأنشطة" },
+                        img: "history.jpg",
+                        badge: "",
+                        desc: { 
+                            ckb: "ئامێرەکانمان تەنها ئاگادارت ناکەنەوە کاتێک ڕووداوێک ڕوودەدات، بەڵکو تۆماری هەموو جارێکی چالاکی لە دەوروبەری ماڵەکەتیش دەپارێزن، بۆ ئەوەی هەمیشە دڵنیابیت هەموو شتێک لەژێر کۆنترۆڵدایە.", 
+                            en: "Not only do our devices notify you in case of an event happening, they also keep a log of every time there has been activity around your house, so you can always be sure that everything is under control.", 
+                            ar: "تحتفظ أجهزتنا بسجل كامل لجميع الأنشطة والحركات حول منزلك لتكون دائماً على اطلاع وتأكد من أن كل شيء تحت السيطرة." 
+                        }
+                    },
+                    {
+                        title: { ckb: "سێنسەرەکانی سەلامەتی", en: "Safety Sensors", ar: "مستشعرات السلامة" },
+                        img: "safty.jpg",
+                        badge: "",
+                        desc: { 
+                            ckb: "سیستەمی سەلامەتی یەکێکە لە گرنگترین شتەکان کە پێویستە لە ماڵەکەتدا هەبێت، بۆیە تەنها باشترین و متمانەپێکراوترین چارەسەرەکان دەهێنین. بە سێنسەرەکانی دووکەڵ، CO2، گەرمی و لافاومان دەتوانیت هەمیشە دڵنیابیت لەوەی ماڵەکەت پارێزراوە - تەنانەت کاتێک لەوێ نیت.", 
+                            en: "A safety system is one of the most important things to have in your home which is why we bring only the best and most reliable solutions. With our Smoke, CO2, Heat and Flood sensors you can always be sure that your home is safe at all times - Even if you’re not there.", 
+                            ar: "احمِ منزلك من أخطار الحريق، والدخان، وتسرب الغاز، وتسرب المياه من خلال أحدث مستشعرات السلامة الموثوقة." 
+                        }
+                    }
+                ]
+            },
+            cinema: {
+                title: { ckb: "سینەمای ماڵ", en: "Home Cinema", ar: "السينما المنزلية" },
+                subtitle: { ckb: "ئەزموونی سینەما لەناو ژووری خۆتدا", en: "Bring the cinema experience to your room", ar: "تجربة السينما الحقيقية في منزلك" },
+                icon: "fa-film",
+                colorClass: "text-purple-400",
+                models: [
+                    {
+                        title: { ckb: "سیستەمی سینەمای ماڵ", en: "Home Cinema Systems", ar: "أنظمة السينما المنزلية" },
+                        img: "hcinama.jpg",
+                        badge: "",
+                        desc: { 
+                            ckb: "هەبوونی تەلەفزیۆن شتێکی خۆشە، بەڵام خۆشترە هەبوونی سینەمایەکی ماڵی تەواو لە ژوورەکەتدا - جا کۆمەڵێک بڵندگۆی ٤ دانەیی بێت بۆ ژووری دانیشتنەکەت یان ژوورێکی تەواو تەرخانکراو بۆ فیلم بە پرۆژێکتەر، شاشە و دەنگی 7.1، های سمارت هەموو شتێکت بۆ ئامادەیە.", 
+                            en: "Having a TV is nice but what’s nicer is having a complete home cinema in your room - whether it’s a set of 4 speakers for your living room or a full room dedicated to movies in your home with a projector, screen, and 7.1 audio, High Smart has you covered.", 
+                            ar: "امتلاك تلفزيون أمر رائع، لكن امتلاك نظام سينما منزلي كامل مع صوت محيطي وشاشة عرض هو التجربة المثالية." 
+                        }
+                    },
+                    {
+                        title: { ckb: "پرۆژێکتەرەکان", en: "Projectors", ar: "أجهزة العرض" },
+                        img: "Projectors.jpg",
+                        badge: "",
+                        desc: { 
+                            ckb: "سەیرکردنی فیلم یان یاری کۆتایی تۆپی پێ لەسەر تەلەفزیۆن خۆشە، بەڵام هەبوونی پرۆژێکتەر خۆشترە - نزیک لەگەڵ ئێپسۆن و JVC کاردەکەین بۆ هێنانی باشترین کوالێتی پرۆژێکتەری سینەمای ماڵ بۆ ناوچەکە.", 
+                            en: "Watching a movie or the latest football match on a TV is nice, but having a projector is nicer - We work closely with Epson and JVC to bring the highest quality home cinema projectors to the region.", 
+                            ar: "نعمل بثريد مع Epson و JVC لتقديم أحدث وأعلى أجهزة العرض السينمائي جودة للمشاهدة الفائقة." 
+                        }
+                    },
+                    {
+                        title: { ckb: "سینەمای ئۆتۆماتیکی", en: "Automated Cinema", ar: "السينما المؤتمتة" },
+                        img: "contol.jpg",
+                        interactive: 'cinema',
+                        badge: "",
+                        desc: { 
+                            ckb: "کاتێک ژووری سینەمای ماڵت هەیە، دەکرێت زەحمەت بێت هەر ئامێرێک بە تاک بە تاکی کاری پێبکەیت، بەڵام بە تەکنەلۆژیای ماڵی زیرەکمان دەتوانیت شاشە، پرۆژێکتەر، سیستەمی دەنگ و ئامێری ڤیدیۆکەت بە پەلکێشانی تەنها یەک دوگمە کاری پێبکەیت.", 
+                            en: "Once you have a home cinema room it can be daunting to turn every device on one by one, with our smart home technology you can turn on your screen, projector, audio system and video device with the press of one button.", 
+                            ar: "بنقرة زر واحدة، يمكنك إنزال الشاشة، وتشغيل البروجيكتور، وضبط الإضاءة، وتفعيل الصوت المحيطي لبدء العرض فوراً." 
+                        }
+                    }
+                ]
+            },
+            doors: {
+                title: { ckb: "ئینتەرکۆم و دەرگا", en: "Intercom & Doors", ar: "الأقفال والانتركوم" },
+                subtitle: { ckb: "چوونە ژوورەوەی زیرەک و ئاسان", en: "Smart and secure access solutions", ar: "أنظمة دخول ذكية وآمنة" },
+                icon: "fa-lock",
+                colorClass: "text-brand-cyan",
+                models: [
+                    {
+                        title: { ckb: "بێ کلیل", en: "No More Keys", ar: "بدون مفاتيح تقليدية" },
+                        img: "keys.jpg",
+                        interactive: 'lock',
+                        badge: "",
+                        desc: { 
+                            ckb: "بە دەرگا زیرەکەکانمان چیتر پێویست ناکات نیگەران بیت لەوەی ئایا دەرگاکەت داخستووە کاتێک ماڵت بەجێهێشتووە یان کێ کلیلی هەیە و کێ نیە، لەبری ئەوە دەرگاکەت بکەرەوە بە کۆدی پین، شوێن پەنجە، کارتی کلیل، یان مۆبایلەکەت.", 
+                            en: "With our smart doors you do not have to worry about if you locked the door when you left the house and worry about who has the keys and who doesn’t, instead open your door with a pin code, fingerprint, keycard, or your phone.", 
+                            ar: "افتح بابك ببصمة الأصبع، أو رمز سري، أو البطاقة، أو من خلال هاتفك دون الحاجة للقلق بشأن فقدان المفاتيح." 
+                        }
+                    },
+                    {
+                        title: { ckb: "چوونەژوورەوەی سەلامەت", en: "Secure Access", ar: "دخول آمن" },
+                        img: "Secure.jpg",
+                        badge: "",
+                        desc: { 
+                            ckb: "ئینتەرکۆمە دەرەوەییەکانمان بە ئامێری کامیرای چاودێری دەبەستنەوە بۆ ئەوەی بینینی ڕاستەوخۆ لە دەرگای پێشەوەت وەربگریت، هەروەها دەرگاکانمان تۆماری کاتی کردنەوەیان دەپارێزن و ئاگادارت دەکەنەوە کاتێک هەوڵی دەستکاریکردن یان شکاندنیان دەدرێت - بۆیە هەمیشە دڵنیایت لەوەی ماڵەکەت پارێزراوە.", 
+                            en: "Our outdoor intercoms integrate with your CCTV station to get you a live view of your front door, and our doors keep a record of when they opened and warn you when someone tries to tamper with them or break them - so you can always be sure your home is safe.", 
+                            ar: "تتكامل أجهزة الانتركوم الخارجية مع كاميرات المراقبة لتمنحك رؤية مباشرة ومسجلة لجميع عمليات فتح الباب أو محاولات العبث." 
+                        }
+                    },
+                    {
+                        title: { ckb: "وەڵامدانەوە لە هەرکوێ", en: "Answer Anywhere", ar: "الرد من أي مكان" },
+                        img: "anywhere.jpg",
+                        desc: { 
+                            ckb: "هەمیشە بزانە کێ لەبەردەم دەرگاکەتە و بیکەرەوە بە پەلکێشانی دوگمەیەک لە هەرشوێنێکی جیهان.", 
+                            en: "Know who is at your door at all times and open it with the touch of a button from anywhere in the world.", 
+                            ar: "اعرف من يقف عند بابك في أي وقت وافتح له الباب بنقرة زر واحدة من أي مكان في العالم." 
+                        }
+                    }
+                ]
+            }
+        };
+
+        function openProductModelsModal(catKey) {
+            currentCategory = catKey;
+            const catData = productModelsDatabase[catKey];
+            if (!catData) return;
+
+            const modal = document.getElementById('product-models-modal');
+            const iconContainer = document.getElementById('modal-cat-icon');
+            const titleEl = document.getElementById('modal-cat-title');
+            const subEl = document.getElementById('modal-cat-subtitle');
+            const bulbWidget = document.getElementById('modal-bulb-widget');
+            const curtainWidget = document.getElementById('modal-curtain-widget');
+            const thermoWidget = document.getElementById('modal-thermostat-widget');
+            const alarmWidget = document.getElementById('modal-alarm-widget');
+            const cinemaWidget = document.getElementById('modal-cinema-widget');
+            const lockWidget = document.getElementById('modal-lock-widget');
+
+            if (iconContainer) {
+                iconContainer.innerHTML = `<i class="fa-solid ${catData.icon}"></i>`;
+            }
+            
+            if (titleEl) titleEl.textContent = catData.title[currentLang] || catData.title['ckb'];
+            if (subEl) subEl.textContent = catData.subtitle[currentLang] || catData.subtitle['ckb'];
+
+            if (bulbWidget) bulbWidget.classList.add('hidden');
+            if (curtainWidget) curtainWidget.classList.add('hidden');
+            if (thermoWidget) thermoWidget.classList.add('hidden');
+            if (alarmWidget) alarmWidget.classList.add('hidden');
+            if (cinemaWidget) cinemaWidget.classList.add('hidden');
+            if (lockWidget) lockWidget.classList.add('hidden');
+
+            renderModelsGrid(catData.models);
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProductModelsModal() {
+            const modal = document.getElementById('product-models-modal');
+            if (modal) modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openBulbWidget() {
+            const widget = document.getElementById('modal-bulb-widget');
+            if (!widget) return;
+            widget.classList.remove('hidden');
+            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function closeBulbWidget() {
+            const widget = document.getElementById('modal-bulb-widget');
+            if (widget) widget.classList.add('hidden');
+        }
+
+        function openCurtainWidget() {
+            const widget = document.getElementById('modal-curtain-widget');
+            if (!widget) return;
+            widget.classList.remove('hidden');
+            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function closeCurtainWidget() {
+            const widget = document.getElementById('modal-curtain-widget');
+            if (widget) widget.classList.add('hidden');
+        }
+
+        function openThermostatWidget() {
+            const widget = document.getElementById('modal-thermostat-widget');
+            if (!widget) return;
+            widget.classList.remove('hidden');
+            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function closeThermostatWidget() {
+            const widget = document.getElementById('modal-thermostat-widget');
+            if (widget) widget.classList.add('hidden');
+        }
+
+        function openAlarmWidget() {
+            const widget = document.getElementById('modal-alarm-widget');
+            if (!widget) return;
+            widget.classList.remove('hidden');
+            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function closeAlarmWidget() {
+            const widget = document.getElementById('modal-alarm-widget');
+            if (widget) widget.classList.add('hidden');
+        }
+
+        function openCinemaWidget() {
+            const widget = document.getElementById('modal-cinema-widget');
+            if (!widget) return;
+            widget.classList.remove('hidden');
+            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function closeCinemaWidget() {
+            const widget = document.getElementById('modal-cinema-widget');
+            if (widget) widget.classList.add('hidden');
+        }
+
+        function openLockWidget() {
+            const widget = document.getElementById('modal-lock-widget');
+            if (!widget) return;
+            widget.classList.remove('hidden');
+            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function closeLockWidget() {
+            const widget = document.getElementById('modal-lock-widget');
+            if (widget) widget.classList.add('hidden');
+        }
+
+        function renderModelsGrid(modelsList) {
+            const grid = document.getElementById('modal-models-grid');
+            if (!grid) return;
+
+            grid.innerHTML = modelsList.map((item) => {
+                const titleText = item.title[currentLang] || item.title['ckb'];
+                const descText = item.desc[currentLang] || item.desc['ckb'];
+                
+                return `
+                    <div class="bg-slate-900/90 rounded-2xl border border-slate-800 p-4 flex flex-col justify-between hover:border-brand-cyan/60 transition-all shadow-lg group">
+                        <div class="space-y-3">
+                            <div class="relative h-40 rounded-xl overflow-hidden bg-brand-dark">
+                                <img src="${item.img}" alt="${titleText}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" onerror="this.src='https://placehold.co/600x400/151C2C/00F0FF?text=High+Smart'">
+                            </div>
+                            <div>
+                                <h4 class="text-sm sm:text-base font-bold text-white group-hover:text-brand-cyan transition-colors">${titleText}</h4>
+                                <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">${descText}</p>
+                            </div>
+                        </div>
+                        <div class="pt-4 mt-3 border-t border-slate-800/80 flex flex-col gap-2">
+                            ${item.interactive === 'bulb' ? `
+                            <button onclick="openBulbWidget()" class="w-full bg-yellow-400/10 hover:bg-yellow-400 hover:text-slate-950 text-yellow-300 border border-yellow-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-lightbulb"></i>
+                                <span>تاقیکردنەوەی گڵۆپی زیرەک</span>
+                            </button>` : ''}
+                            ${item.interactive === 'curtain' ? `
+                            <button onclick="openCurtainWidget()" class="w-full bg-sky-400/10 hover:bg-sky-400 hover:text-slate-950 text-sky-300 border border-sky-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-window-maximize"></i>
+                                <span>تاقیکردنەوەی پەردەی زیرەک</span>
+                            </button>` : ''}
+                            ${item.interactive === 'thermostat' ? `
+                            <button onclick="openThermostatWidget()" class="w-full bg-orange-400/10 hover:bg-orange-400 hover:text-slate-950 text-orange-300 border border-orange-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-temperature-half"></i>
+                                <span>تاقیکردنەوەی تەرمۆستاتی زیرەک</span>
+                            </button>` : ''}
+                            ${item.interactive === 'alarm' ? `
+                            <button onclick="openAlarmWidget()" class="w-full bg-red-400/10 hover:bg-red-400 hover:text-slate-950 text-red-300 border border-red-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-shield-halved"></i>
+                                <span>تاقیکردنەوەی سیستەمی ئاسایش</span>
+                            </button>` : ''}
+                            ${item.interactive === 'cinema' ? `
+                            <button onclick="openCinemaWidget()" class="w-full bg-purple-400/10 hover:bg-purple-400 hover:text-slate-950 text-purple-300 border border-purple-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-clapperboard"></i>
+                                <span>تاقیکردنەوەی سینەمای زیرەک</span>
+                            </button>` : ''}
+                            ${item.interactive === 'lock' ? `
+                            <button onclick="openLockWidget()" class="w-full bg-cyan-400/10 hover:bg-cyan-400 hover:text-slate-950 text-cyan-300 border border-cyan-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>تاقیکردنەوەی کیلۆنی زیرەک</span>
+                            </button>` : ''}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function openLogoModal() {}
+
+        function toggleMobileMenu() {
+            const panel = document.getElementById('mobile-nav-panel');
+            const icon = document.getElementById('mobile-menu-icon');
+            const btn = document.getElementById('mobile-menu-btn');
+            if (!panel) return;
+            const isOpen = !panel.classList.contains('hidden');
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                panel.classList.remove('hidden');
+                if (icon) { icon.className = 'fa-solid fa-xmark text-sm'; }
+                if (btn) { btn.setAttribute('aria-expanded', 'true'); }
+            }
+        }
+
+        function closeMobileMenu() {
+            const panel = document.getElementById('mobile-nav-panel');
+            const icon = document.getElementById('mobile-menu-icon');
+            const btn = document.getElementById('mobile-menu-btn');
+            if (!panel) return;
+            panel.classList.add('hidden');
+            if (icon) { icon.className = 'fa-solid fa-bars text-sm'; }
+            if (btn) { btn.setAttribute('aria-expanded', 'false'); }
+        }
+
+        function toggleLangMenu() {
+            const menu = document.getElementById('lang-menu');
+            const chevron = document.getElementById('lang-trigger-chevron');
+            const btn = document.getElementById('lang-trigger-btn');
+            if (!menu) return;
+            const isOpen = !menu.classList.contains('hidden');
+            if (isOpen) {
+                closeLangMenu();
+            } else {
+                menu.classList.remove('hidden');
+                if (chevron) chevron.style.transform = 'rotate(180deg)';
+                if (btn) btn.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        function closeLangMenu() {
+            const menu = document.getElementById('lang-menu');
+            const chevron = document.getElementById('lang-trigger-chevron');
+            const btn = document.getElementById('lang-trigger-btn');
+            if (!menu) return;
+            menu.classList.add('hidden');
+            if (chevron) chevron.style.transform = '';
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+
+        document.addEventListener('click', function (e) {
+            const menu = document.getElementById('lang-menu');
+            const trigger = document.getElementById('lang-trigger-btn');
+            if (!menu || menu.classList.contains('hidden')) return;
+            if (!menu.contains(e.target) && !trigger.contains(e.target)) {
+                closeLangMenu();
+            }
+        });
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+
+            const labels = { ckb: 'کوردی', en: 'English', ar: 'عربي' };
+            const triggerLabel = document.getElementById('lang-trigger-label');
+            if (triggerLabel) triggerLabel.innerText = labels[lang] || lang;
+
+            ['ckb', 'en', 'ar'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (btn) {
+                    const check = btn.querySelector('.fa-check');
+                    if (l === lang) {
+                        btn.className = "w-full flex items-center justify-between px-3 py-2 text-[11px] font-bold text-white bg-slate-800/70 transition-colors";
+                        if (check) check.classList.remove('hidden');
+                    } else {
+                        btn.className = "w-full flex items-center justify-between px-3 py-2 text-[11px] font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-colors";
+                        if (check) check.classList.add('hidden');
+                    }
+                }
+            });
+
+            closeLangMenu();
+
+            if (lang === 'en') {
+                document.documentElement.setAttribute('dir', 'ltr');
+                document.documentElement.setAttribute('lang', 'en');
+            } else {
+                document.documentElement.setAttribute('dir', 'rtl');
+                document.documentElement.setAttribute('lang', lang);
+            }
+
+            const dict = translations[lang] || translations['ckb'];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.innerHTML = dict[key];
+                }
+            });
+
+            if (currentCategory && !document.getElementById('product-models-modal').classList.contains('hidden')) {
+                openProductModelsModal(currentCategory);
+            }
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const msg = currentLang === 'en' ? 'Thank you! Your request has been registered successfully.' : (currentLang === 'ar' ? 'شكراً لك! تم تسجيل طلبك بنجاح.' : 'سوپاس! داواکارییەکەت بەسەرکەوتوویی تۆمارکرا.');
+            alert(msg);
+            e.target.reset();
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeProductModelsModal();
+            }
+        });
+
+        // ---------- Smart Bulb Widget ----------
+        let isBulbOn = false;
+        let currentColor = '#00F0FF';
+
+        function renderBulbVisual() {
+            const svg = document.getElementById('smart-bulb-svg');
+            const stop1 = document.getElementById('bulb-stop-1');
+            const stop2 = document.getElementById('bulb-stop-2');
+            const stop3 = document.getElementById('bulb-stop-3');
+            const filament = document.getElementById('bulb-filament');
+            const bgGlow = document.getElementById('bulb-bg-glow');
+            const slider = document.getElementById('brightness-range');
+            if (!svg || !stop1 || !stop2 || !stop3 || !filament) return;
+
+            const ratio = slider ? (slider.value / 100) : 0.5;
+
+            if (isBulbOn) {
+                stop1.setAttribute('stop-color', '#ffffff');
+                stop1.setAttribute('stop-opacity', (0.55 + ratio * 0.4).toFixed(2));
+                stop2.setAttribute('stop-color', currentColor);
+                stop2.setAttribute('stop-opacity', (0.25 + ratio * 0.55).toFixed(2));
+                stop3.setAttribute('stop-color', currentColor);
+                stop3.setAttribute('stop-opacity', (0.12 + ratio * 0.4).toFixed(2));
+
+                filament.setAttribute('stroke', currentColor);
+                filament.style.filter = `drop-shadow(0 0 ${(2 + ratio * 5).toFixed(1)}px ${currentColor})`;
+
+                const glowPx = Math.round(6 + ratio * 26);
+                svg.style.filter = `drop-shadow(0 0 ${glowPx}px ${currentColor})`;
+
+                if (bgGlow) {
+                    bgGlow.style.backgroundColor = currentColor;
+                    bgGlow.style.opacity = (ratio * 0.35).toFixed(2);
+                }
+            } else {
+                stop1.setAttribute('stop-color', '#94a3b8');
+                stop1.setAttribute('stop-opacity', '0.3');
+                stop2.setAttribute('stop-color', '#475569');
+                stop2.setAttribute('stop-opacity', '0.2');
+                stop3.setAttribute('stop-color', '#1e293b');
+                stop3.setAttribute('stop-opacity', '0.15');
+
+                filament.setAttribute('stroke', '#475569');
+                filament.style.filter = 'none';
+                svg.style.filter = 'none';
+
+                if (bgGlow) {
+                    bgGlow.style.backgroundColor = 'transparent';
+                    bgGlow.style.opacity = '0';
+                }
+            }
+        }
+
+        function toggleSmartBulb() {
+            isBulbOn = !isBulbOn;
+            const statusBadge = document.getElementById('bulb-status-badge');
+            const powerBtnText = document.getElementById('power-btn-text');
+            const powerBtn = document.getElementById('bulb-power-btn');
+
+            if (isBulbOn) {
+                statusBadge.innerText = currentLang === 'en' ? 'ON' : (currentLang === 'ar' ? 'مفعل' : 'داگیرساوە');
+                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
+                powerBtnText.innerText = currentLang === 'en' ? 'Turn Off' : (currentLang === 'ar' ? 'إطفاء' : 'کوژاندنەوە');
+                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
+            } else {
+                statusBadge.innerText = currentLang === 'en' ? 'OFF' : (currentLang === 'ar' ? 'معطل' : 'کوژاوەتەوە');
+                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                powerBtnText.innerText = currentLang === 'en' ? 'Turn On' : (currentLang === 'ar' ? 'تشغيل' : 'داگیرساندن');
+                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+            }
+
+            renderBulbVisual();
+        }
+
+        function updateBulbBrightness(value) {
+            document.getElementById('brightness-text').innerText = value + '%';
+            renderBulbVisual();
+        }
+
+        function changeBulbColor(colorHex) {
+            currentColor = colorHex;
+            if (!isBulbOn) {
+                toggleSmartBulb();
+            } else {
+                renderBulbVisual();
+            }
+        }
+
+        // ---------- Smart Curtain Widget ----------
+        let isCurtainOpen = false;
+        let curtainColor = '#D8CBB8';
+
+        function renderCurtainVisual() {
+            const leftPanel = document.getElementById('curtain-left');
+            const rightPanel = document.getElementById('curtain-right');
+            const patternBg = document.getElementById('curtain-pattern-bg');
+            const slider = document.getElementById('curtain-range');
+            if (!leftPanel || !rightPanel) return;
+
+            const value = slider ? slider.value : 0;
+            const ratio = value / 100;
+            const scale = (1 - ratio * 0.85).toFixed(3);
+
+            leftPanel.style.transform = `scaleX(${scale})`;
+            rightPanel.style.transform = `scaleX(${scale})`;
+
+            if (patternBg) patternBg.setAttribute('fill', curtainColor);
+        }
+
+        function setCurtainStatus(value) {
+            const statusBadge = document.getElementById('curtain-status-badge');
+            const powerBtnText = document.getElementById('curtain-power-btn-text');
+            const powerBtn = document.getElementById('curtain-power-btn');
+            if (!statusBadge || !powerBtnText || !powerBtn) return;
+
+            if (value > 0) {
+                statusBadge.innerText = currentLang === 'en' ? 'OPEN' : (currentLang === 'ar' ? 'مفتوح' : 'کراوەتەوە');
+                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
+                powerBtnText.innerText = currentLang === 'en' ? 'Close' : (currentLang === 'ar' ? 'إغلاق' : 'داخستن');
+                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
+            } else {
+                statusBadge.innerText = currentLang === 'en' ? 'CLOSED' : (currentLang === 'ar' ? 'مغلق' : 'داخراوە');
+                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                powerBtnText.innerText = currentLang === 'en' ? 'Open' : (currentLang === 'ar' ? 'فتح' : 'کردنەوە');
+                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+            }
+        }
+
+        function toggleCurtain() {
+            isCurtainOpen = !isCurtainOpen;
+            const slider = document.getElementById('curtain-range');
+            const percentText = document.getElementById('curtain-percent-text');
+            if (slider) slider.value = isCurtainOpen ? 100 : 0;
+            if (percentText) percentText.innerText = (isCurtainOpen ? 100 : 0) + '%';
+
+            setCurtainStatus(isCurtainOpen ? 100 : 0);
+            renderCurtainVisual();
+        }
+
+        function updateCurtainPosition(value) {
+            const percentText = document.getElementById('curtain-percent-text');
+            if (percentText) percentText.innerText = value + '%';
+
+            isCurtainOpen = value > 0;
+            setCurtainStatus(value);
+            renderCurtainVisual();
+        }
+
+        function changeCurtainColor(hex) {
+            curtainColor = hex;
+            renderCurtainVisual();
+        }
+
+        // ---------- Smart Thermostat Widget ----------
+        let isThermostatOn = false;
+        let thermoMode = 'cool';
+        const thermoColors = { cool: '#00F0FF', heat: '#FF6B35', auto: '#00E676' };
+        const THERMO_RING_CIRCUMFERENCE = 553;
+
+        function renderThermostatVisual() {
+            const ring = document.getElementById('thermo-progress-ring');
+            const glow = document.getElementById('thermo-bg-glow');
+            const slider = document.getElementById('thermo-range');
+            const svg = document.getElementById('thermo-svg');
+            if (!ring || !slider) return;
+
+            const value = parseInt(slider.value);
+            const ratio = (value - 60) / (90 - 60);
+            const color = thermoColors[thermoMode];
+
+            if (isThermostatOn) {
+                ring.setAttribute('stroke', color);
+                ring.setAttribute('stroke-dashoffset', THERMO_RING_CIRCUMFERENCE - (ratio * THERMO_RING_CIRCUMFERENCE));
+                if (svg) svg.style.filter = `drop-shadow(0 0 14px ${color}88)`;
+                if (glow) { glow.style.backgroundColor = color; glow.style.opacity = '0.3'; }
+            } else {
+                ring.setAttribute('stroke', '#334155');
+                ring.setAttribute('stroke-dashoffset', THERMO_RING_CIRCUMFERENCE);
+                if (svg) svg.style.filter = 'none';
+                if (glow) { glow.style.opacity = '0'; }
+            }
+        }
+
+        function toggleThermostat() {
+            isThermostatOn = !isThermostatOn;
+            const statusBadge = document.getElementById('thermo-status-badge');
+            const powerBtnText = document.getElementById('thermo-power-btn-text');
+            const powerBtn = document.getElementById('thermo-power-btn');
+
+            if (isThermostatOn) {
+                statusBadge.innerText = currentLang === 'en' ? 'ON' : (currentLang === 'ar' ? 'مفعل' : 'داگیرساوە');
+                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
+                powerBtnText.innerText = currentLang === 'en' ? 'Turn Off' : (currentLang === 'ar' ? 'إطفاء' : 'کوژاندنەوە');
+                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
+            } else {
+                statusBadge.innerText = currentLang === 'en' ? 'OFF' : (currentLang === 'ar' ? 'معطل' : 'کوژاوەتەوە');
+                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                powerBtnText.innerText = currentLang === 'en' ? 'Turn On' : (currentLang === 'ar' ? 'تشغيل' : 'داگیرساندن');
+                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+            }
+
+            renderThermostatVisual();
+        }
+
+        function updateThermostatTarget(value) {
+            document.getElementById('thermo-target-out').innerText = value + '°F';
+            document.getElementById('thermo-target-text').textContent = (parseInt(value) - 12) + ' • ' + value;
+            renderThermostatVisual();
+        }
+
+        function setThermostatMode(mode) {
+            thermoMode = mode;
+            ['cool', 'heat', 'auto'].forEach(m => {
+                const btn = document.getElementById('thermo-mode-' + m);
+                if (!btn) return;
+                if (m === mode) {
+                    btn.className = 'flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-cyan-400/10 text-cyan-300 border-cyan-400/40';
+                } else {
+                    btn.className = 'flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700';
+                }
+            });
+
+            if (!isThermostatOn) {
+                toggleThermostat();
+            } else {
+                renderThermostatVisual();
+            }
+        }
+
+        // ---------- Smart Alarm Widget ----------
+        let isAlarmArmed = false;
+        let alarmMode = 'home';
+
+        function renderAlarmVisual() {
+            const iconCircle = document.getElementById('alarm-icon-circle');
+            const icon = document.getElementById('alarm-icon');
+            const glow = document.getElementById('alarm-bg-glow');
+            const radar1 = document.getElementById('alarm-radar-1');
+            const radar2 = document.getElementById('alarm-radar-2');
+            if (!iconCircle || !icon) return;
+
+            if (isAlarmArmed) {
+                iconCircle.className = 'relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-emerald-500/20 border-emerald-400 shadow-xl shadow-emerald-500/20';
+                icon.className = 'fa-solid fa-shield-halved text-6xl sm:text-7xl text-emerald-400 transition-all duration-500';
+                if (glow) { glow.style.backgroundColor = '#00E676'; glow.style.opacity = '0.3'; }
+                if (radar1) radar1.classList.add('radar-active');
+                if (radar2) radar2.classList.add('radar-active');
+            } else {
+                iconCircle.className = 'relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700';
+                icon.className = 'fa-solid fa-shield-halved text-6xl sm:text-7xl text-slate-500 transition-all duration-500';
+                if (glow) { glow.style.opacity = '0'; }
+                if (radar1) radar1.classList.remove('radar-active');
+                if (radar2) radar2.classList.remove('radar-active');
+            }
+        }
+
+        function toggleAlarm() {
+            isAlarmArmed = !isAlarmArmed;
+            const statusBadge = document.getElementById('alarm-status-badge');
+            const powerBtnText = document.getElementById('alarm-power-btn-text');
+            const powerBtn = document.getElementById('alarm-power-btn');
+
+            if (isAlarmArmed) {
+                statusBadge.innerText = currentLang === 'en' ? 'ARMED' : (currentLang === 'ar' ? 'مفعل' : 'چەکدارکراوە');
+                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
+                powerBtnText.innerText = currentLang === 'en' ? 'Disarm' : (currentLang === 'ar' ? 'إلغاء التفعيل' : 'لابردنی چەکدار');
+                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
+            } else {
+                statusBadge.innerText = currentLang === 'en' ? 'DISARMED' : (currentLang === 'ar' ? 'غير مفعل' : 'لابراوە');
+                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                powerBtnText.innerText = currentLang === 'en' ? 'Arm System' : (currentLang === 'ar' ? 'تفعيل النظام' : 'چەکدارکردن');
+                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+            }
+
+            renderAlarmVisual();
+        }
+
+        function updateAlarmSensitivity(val) {
+            document.getElementById('alarm-sensitivity-text').innerText = val + '%';
+        }
+
+        function setAlarmMode(mode) {
+            alarmMode = mode;
+            ['home', 'away', 'night'].forEach(m => {
+                const btn = document.getElementById('alarm-mode-' + m);
+                if (!btn) return;
+                if (m === mode) {
+                    btn.className = 'flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-cyan-400/10 text-cyan-300 border-cyan-400/40';
+                } else {
+                    btn.className = 'flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700';
+                }
+            });
+        }
+
+        // ---------- Smart Cinema Widget ----------
+        let isCinemaOn = false;
+
+        function renderCinemaVisual() {
+            const screen = document.getElementById('cinema-screen');
+            const beam = document.getElementById('cinema-beam');
+            const glow = document.getElementById('cinema-bg-glow');
+            if (!screen || !beam) return;
+
+            if (isCinemaOn) {
+                screen.setAttribute('fill', '#a855f7');
+                beam.setAttribute('opacity', '0.6');
+                if (glow) { glow.style.backgroundColor = '#a855f7'; glow.style.opacity = '0.35'; }
+            } else {
+                screen.setAttribute('fill', '#1e293b');
+                beam.setAttribute('opacity', '0');
+                if (glow) { glow.style.opacity = '0'; }
+            }
+        }
+
+        function toggleCinema() {
+            isCinemaOn = !isCinemaOn;
+            const statusBadge = document.getElementById('cinema-status-badge');
+            const powerBtnText = document.getElementById('cinema-power-btn-text');
+            const powerBtn = document.getElementById('cinema-power-btn');
+
+            if (isCinemaOn) {
+                statusBadge.innerText = currentLang === 'en' ? 'PLAYING' : (currentLang === 'ar' ? 'يعمل' : 'داگیرساوە');
+                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-lg shadow-purple-500/10 tracking-wide uppercase';
+                powerBtnText.innerText = currentLang === 'en' ? 'Turn Off' : (currentLang === 'ar' ? 'إطفاء' : 'کوژاندنەوە');
+                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-purple-500 text-slate-950 hover:bg-purple-400 transition-all border border-purple-400 flex items-center gap-2 shadow-lg shadow-purple-500/20 active:scale-95 shrink-0';
+            } else {
+                statusBadge.innerText = currentLang === 'en' ? 'OFF' : (currentLang === 'ar' ? 'معطل' : 'کوژاوەتەوە');
+                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                powerBtnText.innerText = currentLang === 'en' ? 'Turn On' : (currentLang === 'ar' ? 'تشغيل' : 'داگیرساندن');
+                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+            }
+
+            renderCinemaVisual();
+        }
+
+        function updateCinemaVolume(val) {
+            document.getElementById('cinema-volume-text').innerText = val + '%';
+        }
+
+        function setCinemaScene(scene) {
+            ['movie', 'sports', 'gaming'].forEach(s => {
+                const btn = document.getElementById('cinema-scene-' + s);
+                if (!btn) return;
+                if (s === scene) {
+                    btn.className = 'flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-purple-400/10 text-purple-300 border-purple-400/40';
+                } else {
+                    btn.className = 'flex-1 py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700';
+                }
+            });
+
+            if (!isCinemaOn) toggleCinema();
+        }
+
+        // ---------- Smart Lock Widget ----------
+        let isUnlocked = false;
+        let enteredPin = "";
+
+        function renderLockVisual() {
+            const iconCircle = document.getElementById('lock-icon-circle');
+            const icon = document.getElementById('lock-icon');
+            const glow = document.getElementById('lock-bg-glow');
+            const led = document.getElementById('lock-led');
+            if (!iconCircle || !icon) return;
+
+            if (isUnlocked) {
+                iconCircle.className = 'relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-emerald-500/20 border-emerald-400 shadow-xl shadow-emerald-500/20';
+                icon.className = 'fa-solid fa-lock-open text-6xl sm:text-7xl text-emerald-400 transition-all duration-500';
+                if (glow) { glow.style.backgroundColor = '#00E676'; glow.style.opacity = '0.3'; }
+                if (led) { led.className = 'absolute top-9 right-9 w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_2px_rgba(52,211,153,0.6)] transition-all duration-500'; }
+            } else {
+                iconCircle.className = 'relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700';
+                icon.className = 'fa-solid fa-lock text-6xl sm:text-7xl text-slate-500 transition-all duration-500';
+                if (glow) { glow.style.opacity = '0'; }
+                if (led) { led.className = 'absolute top-9 right-9 w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_2px_rgba(239,68,68,0.6)] transition-all duration-500'; }
+            }
+        }
+
+        function toggleLock() {
+            isUnlocked = !isUnlocked;
+            const statusBadge = document.getElementById('lock-status-badge');
+            const powerBtnText = document.getElementById('lock-power-btn-text');
+            const powerBtn = document.getElementById('lock-power-btn');
+
+            if (isUnlocked) {
+                statusBadge.innerText = currentLang === 'en' ? 'UNLOCKED' : (currentLang === 'ar' ? 'مفتوح' : 'کراوەتەوە');
+                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
+                powerBtnText.innerText = currentLang === 'en' ? 'Lock' : (currentLang === 'ar' ? 'قفل' : 'قوفڵکردن');
+                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
+            } else {
+                statusBadge.innerText = currentLang === 'en' ? 'LOCKED' : (currentLang === 'ar' ? 'مقفل' : 'قوفڵکراوە');
+                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                powerBtnText.innerText = currentLang === 'en' ? 'Unlock' : (currentLang === 'ar' ? 'فتح القفل' : 'کردنەوە');
+                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+            }
+
+            renderLockVisual();
+        }
+
+        function pressLockDigit(num) {
+            if (enteredPin.length < 4) {
+                enteredPin += num;
+                updatePinDisplay();
+            }
+        }
+
+        function clearLockPin() {
+            enteredPin = "";
+            updatePinDisplay();
+        }
+
+        function updatePinDisplay() {
+            const display = document.getElementById('lock-pin-display');
+            if (display) {
+                display.innerText = enteredPin.padEnd(4, '-');
+            }
+        }
+
+        function submitLockPin() {
+            if (enteredPin.length === 4) {
+                toggleLock();
+                clearLockPin();
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+<section class="visit-us-section">
+    <div class="reveal">
+    <h2 data-i18n="visit_title">سەردانمان بکەن</h2>
+    <p class="working-hours" data-i18n="visit_hours">شۆڕومەکانمان کراوەیە لە یەکشەممە تا پێنجشەممە، لە کاتژمێر ٩ی بەیانی تا ٩ی شەو</p>
+    </div>
+
+    <div class="locations-grid">
+        <!-- 1. لقی سلێمانی -->
+        <a href="https://maps.app.goo.gl/fiZ8w6MyTqGrqwdq7" target="_blank" class="reveal location-card-img">
+            <img src="Slemani.jpg" alt="لقی سلێمانی" onerror="this.src='https://placehold.co/600x400/151C2C/00E676?text=Sulaymaniyah'">
+            <span class="location-overlay-title" data-i18n="loc_slemani">سلێمانی</span>
+        </a>
+
+        <!-- 2. لقی هەولێر -->
+        <a href="https://maps.app.goo.gl/xJm7bJmX8i5SFMbS9" target="_blank" class="reveal location-card-img">
+            <img src="erbil.jpg" alt="لقی هەولێر" onerror="this.src='https://placehold.co/600x400/151C2C/00F0FF?text=Erbil'">
+            <span class="location-overlay-title" data-i18n="loc_hawler">هەولێر</span>
+        </a>
+
+        <!-- 3. لقی بەغدا -->
+        <a href="https://maps.google.com/?q=Baghdad" target="_blank" class="reveal location-card-img">
+            <img src="Baghdad.jpg" alt="لقی بەغدا" onerror="this.src='https://placehold.co/600x400/151C2C/38BDF8?text=Baghdad'">
+            <span class="location-overlay-title" data-i18n="loc_baghdad">بەغداد</span>
+        </a>
+    </div>
+</section>
+
+
+
+
+
+<!-- Font Awesome Link بۆ هێنانی ئایکۆنەکان -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<div class="reveal social-links">
+  <a href="https://www.facebook.com/share/1FKdrAUHut/?mibextid=wwXIfr" class="social-icon facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.instagram.com/high_smart?igsh=MW4xZjhicW5ybWVvZg==" class="social-icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.tiktok.com/@high__smart?_r=1&_t=ZS-98Q2VNYlqVk" class="social-icon tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+<!-- بەستەری جیمەیڵ - ئیمەیڵەکەی خۆت بنووسە لەبری example@gmail.com -->
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@hi-smart.co" target="_blank" class="social-icon gmail" title="Gmail">
+  <i class="fas fa-envelope"></i>
+ 
+</a> 
+</div>
+
+<p class="footer-copy" data-i18n="footer_copy" style="text-align:center; margin-top:16px;">© 2014 High Smart. هەموو مافەکان پارێزراون.</p>
+</div>
+
+
+
+
+<script>
+(function () {
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || items.length === 0) {
+        items.forEach(function (el) { el.classList.add('in-view'); });
+        return;
+    }
+    var groupCounters = new Map();
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                var el = entry.target;
+                var parent = el.parentElement;
+                var count = groupCounters.get(parent) || 0;
+                groupCounters.set(parent, count + 1);
+                el.style.transitionDelay = Math.min(count * 90, 360) + 'ms';
+                el.classList.add('in-view');
+                observer.unobserve(el);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function (el) { observer.observe(el); });
+})();
+
+// Ensure all [data-i18n] elements (banners, product names, etc.) are synced
+// to the correct language on first load instead of showing raw fallback text.
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof switchLanguage === 'function') {
+        switchLanguage(currentLang || 'ckb');
+    }
+});
+</script>
+
+</body>
+</html>
