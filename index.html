@@ -71,6 +71,174 @@
             touch-action: manipulation;
         }
 
+        /* ---- Interactive Widget Animations ---- */
+        @keyframes eqBounce {
+            0%, 100% { transform: scaleY(0.35); }
+            50% { transform: scaleY(1); }
+        }
+        .eq-bar { transform-origin: bottom; transition: opacity .3s ease; opacity: .35; }
+        .eq-playing .eq-bar { animation: eqBounce 0.9s ease-in-out infinite; opacity: 1; }
+        .eq-playing .eq-bar:nth-child(1) { animation-delay: 0s; }
+        .eq-playing .eq-bar:nth-child(2) { animation-delay: .12s; }
+        .eq-playing .eq-bar:nth-child(3) { animation-delay: .24s; }
+        .eq-playing .eq-bar:nth-child(4) { animation-delay: .06s; }
+        .eq-playing .eq-bar:nth-child(5) { animation-delay: .18s; }
+
+        @keyframes vuBounce {
+            0%, 100% { height: 15%; }
+            50% { height: 85%; }
+        }
+        .vu-playing .vu-bar { animation: vuBounce 0.7s ease-in-out infinite; }
+
+        @keyframes pulseRing {
+            0% { transform: scale(0.8); opacity: 0.7; }
+            100% { transform: scale(1.9); opacity: 0; }
+        }
+        .pulse-ring { animation: pulseRing 1.6s ease-out infinite; }
+
+        @keyframes scanLine {
+            0% { top: 6%; }
+            50% { top: 92%; }
+            100% { top: 6%; }
+        }
+        .scan-line { animation: scanLine 2.8s ease-in-out infinite; }
+
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .spin-slow { animation: spinSlow 3.5s linear infinite; }
+
+        @keyframes beamFlicker {
+            0%, 100% { opacity: 0.55; }
+            50% { opacity: 0.85; }
+        }
+        .beam-on { animation: beamFlicker 2s ease-in-out infinite; }
+
+        /* Subtle brightness flicker so a "playing" screen doesn't look like a
+           static color fill — mimics real video light output. */
+        @keyframes screenFlicker {
+            0%, 100% { opacity: 1; }
+            45% { opacity: 0.93; }
+            60% { opacity: 1; }
+            80% { opacity: 0.96; }
+        }
+        .screen-playing { animation: screenFlicker 2.6s ease-in-out infinite; }
+
+        @keyframes ballDrift {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(28px); }
+        }
+        #cinema-ball.ball-active { animation: ballDrift 3.4s ease-in-out infinite; }
+
+        @keyframes bulbFlickerOn {
+            0% { opacity: 0.2; }
+            8% { opacity: 0.9; }
+            14% { opacity: 0.25; }
+            22% { opacity: 1; }
+            30% { opacity: 0.5; }
+            40%, 100% { opacity: 1; }
+        }
+        .bulb-flicker-on { animation: bulbFlickerOn 0.6s ease-out; }
+
+        @keyframes shakeX {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(7px); }
+            60% { transform: translateX(-5px); }
+            80% { transform: translateX(4px); }
+        }
+        .shake-error { animation: shakeX 0.4s ease-in-out; }
+
+        input[type="range"]:disabled {
+            accent-color: #475569;
+        }
+        input[type="range"]:disabled::-webkit-slider-thumb {
+            cursor: not-allowed;
+        }
+
+        /* ---- Realistic Device-Card Polish (applies to every interactive test widget) ---- */
+        .hs-device-card {
+            box-shadow:
+                0 30px 60px -20px rgba(0, 0, 0, 0.65),
+                0 10px 25px -10px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+        }
+        .hs-device-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            border-radius: inherit;
+            background:
+                radial-gradient(120% 55% at 50% -8%, rgba(255, 255, 255, 0.07), transparent 60%),
+                radial-gradient(60% 40% at 100% 100%, rgba(0, 240, 255, 0.05), transparent 70%);
+        }
+        .hs-device-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            border-radius: inherit;
+            box-shadow: inset 0 -40px 60px -40px rgba(0, 0, 0, 0.5);
+        }
+        .hs-control-panel {
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.05),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.02),
+                0 14px 30px -14px rgba(0, 0, 0, 0.6);
+        }
+        .hs-icon-plate {
+            background-image: radial-gradient(circle at 34% 28%, rgba(148, 163, 184, 0.16), rgba(11, 15, 23, 0) 60%);
+            box-shadow:
+                inset 0 3px 8px 0 rgba(255, 255, 255, 0.07),
+                inset 0 -10px 20px 0 rgba(0, 0, 0, 0.55),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+                0 18px 30px -12px rgba(0, 0, 0, 0.65);
+        }
+        .hs-status-badge {
+            box-shadow:
+                0 4px 14px -3px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+        }
+        .hs-power-btn {
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.07),
+                0 8px 18px -8px rgba(0, 0, 0, 0.65);
+        }
+        .hs-power-btn:hover {
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+                0 10px 22px -8px rgba(0, 0, 0, 0.7);
+        }
+        /* Realistic soft-glass reflection behind every device illustration */
+        .hs-visual-frame {
+            position: relative;
+        }
+        .hs-visual-frame::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -6px;
+            width: 62%;
+            height: 18px;
+            transform: translateX(-50%);
+            background: radial-gradient(closest-side, rgba(0, 0, 0, 0.45), transparent 75%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        input[type="range"] {
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 0 3px rgba(255, 255, 255, 0.08);
+        }
+
     </style>
 
 <style>
@@ -777,7 +945,7 @@
 
                 <!-- Interactive Smart Bulb Widget -->
                 <div id="modal-bulb-widget" class="hidden p-4 sm:p-6 pb-0">
-                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
                         <div id="bulb-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
 
                         <button onclick="closeBulbWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
@@ -786,7 +954,7 @@
 
                         <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
                             <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
-                                <div class="relative flex items-center justify-center py-2">
+                                <div class="hs-visual-frame relative flex items-center justify-center py-2">
                                     <svg id="smart-bulb-svg" viewBox="0 0 200 300" class="w-36 h-56 sm:w-44 sm:h-64 transition-all duration-500 ease-out">
                                         <defs>
                                             <radialGradient id="bulbGlassGradient" cx="38%" cy="28%" r="70%">
@@ -815,20 +983,21 @@
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <span id="bulb-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
+                                    <span id="bulb-status-badge" class="hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
                                         کوژاوەتەوە
                                     </span>
                                 </div>
                             </div>
 
-                            <div class="w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
                                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                                     <div>
                                         <h3 class="text-base sm:text-lg font-black text-white">کۆنترۆڵی ڕووناکی (Smart Bulb)</h3>
                                         <p class="text-slate-400 text-[11px] mt-1">تەواوی کۆنترۆڵی ڕووناکی، قوەت و ڕەنگەکان بەدەست بهێنە</p>
+                                        <span class="inline-flex items-center gap-1 text-[10px] text-emerald-400 font-bold mt-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> ئامێر پەیوەستە بە وایفای</span>
                                     </div>
 
-                                    <button id="bulb-power-btn" onclick="toggleSmartBulb()" class="px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                    <button id="bulb-power-btn" onclick="toggleSmartBulb()" class="px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
                                         <i class="fa-solid fa-power-off text-sm"></i>
                                         <span id="power-btn-text">داگیرساندن</span>
                                     </button>
@@ -865,14 +1034,15 @@
 
                 <!-- Interactive Smart Curtain Widget -->
                 <div id="modal-curtain-widget" class="hidden p-4 sm:p-6 pb-0">
-                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="curtain-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-sky-400/10 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
                         <button onclick="closeCurtainWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
 
                         <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
                             <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
-                                <div class="relative flex items-center justify-center py-2">
+                                <div class="hs-visual-frame relative flex items-center justify-center py-2">
                                     <svg id="smart-curtain-svg" viewBox="0 0 300 220" class="w-56 sm:w-72 h-auto drop-shadow-xl">
                                         <defs>
                                             <linearGradient id="curtainSkyGradient" x1="0" y1="0" x2="0" y2="1">
@@ -903,20 +1073,21 @@
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <span id="curtain-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
+                                    <span id="curtain-status-badge" class="hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
                                         داخراوە
                                     </span>
                                 </div>
                             </div>
 
-                            <div class="w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
                                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                                     <div>
                                         <h3 class="text-base sm:text-lg font-black text-white">کۆنترۆڵی پەردە (Smart Curtain)</h3>
                                         <p class="text-slate-400 text-[11px] mt-1">کردنەوە و داخستنی پەردەکانت بە یەک کلیک یان بە ئاستی دڵخواز کۆنترۆڵی بکە</p>
+                                        <span class="inline-flex items-center gap-1 text-[10px] text-emerald-400 font-bold mt-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> ئامێر پەیوەستە بە وایفای</span>
                                     </div>
 
-                                    <button id="curtain-power-btn" onclick="toggleCurtain()" class="px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                    <button id="curtain-power-btn" onclick="toggleCurtain()" class="px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
                                         <i class="fa-solid fa-power-off text-sm"></i>
                                         <span id="curtain-power-btn-text">کردنەوە</span>
                                     </button>
@@ -953,7 +1124,7 @@
 
                 <!-- Interactive Smart Thermostat Widget -->
                 <div id="modal-thermostat-widget" class="hidden p-4 sm:p-6 pb-0">
-                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
                         <div id="thermo-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
 
                         <button onclick="closeThermostatWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
@@ -962,7 +1133,7 @@
 
                         <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
                             <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
-                                <div class="relative flex items-center justify-center py-2">
+                                <div class="hs-visual-frame relative flex items-center justify-center py-2">
                                     <svg id="thermo-svg" viewBox="0 0 220 220" class="w-48 h-48 sm:w-60 sm:h-60 transition-all duration-500 ease-out">
                                         <circle cx="110" cy="110" r="98" fill="#151C2C" stroke="#1e293b" stroke-width="2"/>
                                         <circle cx="110" cy="110" r="88" fill="none" stroke="#1e293b" stroke-width="14"/>
@@ -974,20 +1145,21 @@
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <span id="thermo-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
+                                    <span id="thermo-status-badge" class="hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
                                         کوژاوەتەوە
                                     </span>
                                 </div>
                             </div>
 
-                            <div class="w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
                                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                                     <div>
                                         <h3 class="text-base sm:text-lg font-black text-white">کۆنترۆڵی گەرمی (Smart Thermostat)</h3>
                                         <p class="text-slate-400 text-[11px] mt-1">پلەی گەرمی ژووری خۆت بە ئاسانی ڕێکبخە</p>
+                                        <span class="inline-flex items-center gap-1 text-[10px] text-emerald-400 font-bold mt-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> ئامێر پەیوەستە بە وایفای</span>
                                     </div>
 
-                                    <button id="thermo-power-btn" onclick="toggleThermostat()" class="px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                    <button id="thermo-power-btn" onclick="toggleThermostat()" class="px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
                                         <i class="fa-solid fa-power-off text-sm"></i>
                                         <span id="thermo-power-btn-text">داگیرساندن</span>
                                     </button>
@@ -1028,7 +1200,7 @@
 
                 <!-- Interactive Smart Alarm Widget -->
                 <div id="modal-alarm-widget" class="hidden p-4 sm:p-6 pb-0">
-                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
                         <div id="alarm-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-red-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
 
                         <button onclick="closeAlarmWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
@@ -1040,26 +1212,27 @@
                                 <div class="relative flex items-center justify-center">
                                     <span id="alarm-radar-1" class="absolute w-40 h-40 sm:w-48 sm:h-48 rounded-full border-2 border-emerald-400/0 transition-all duration-500"></span>
                                     <span id="alarm-radar-2" class="absolute w-40 h-40 sm:w-48 sm:h-48 rounded-full border-2 border-emerald-400/0 transition-all duration-500"></span>
-                                    <div id="alarm-icon-circle" class="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700">
+                                    <div id="alarm-icon-circle" class="relative w-40 h-40 sm:w-48 sm:h-48 hs-icon-plate rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700">
                                         <i id="alarm-icon" class="fa-solid fa-shield-halved text-6xl sm:text-7xl text-slate-500 transition-all duration-500"></i>
                                     </div>
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <span id="alarm-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
+                                    <span id="alarm-status-badge" class="hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
                                         لابراوە
                                     </span>
                                 </div>
                             </div>
 
-                            <div class="w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
                                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                                     <div>
                                         <h3 class="text-base sm:text-lg font-black text-white">سیستەمی ئاسایش (Motion Sensors)</h3>
                                         <p class="text-slate-400 text-[11px] mt-1">چەکدارکردنی سیستەمی ئاسایشی ماڵەکەت بە یەک کلیک</p>
+                                        <span class="inline-flex items-center gap-1 text-[10px] text-emerald-400 font-bold mt-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> ئامێر پەیوەستە بە وایفای</span>
                                     </div>
 
-                                    <button id="alarm-power-btn" onclick="toggleAlarm()" class="px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                    <button id="alarm-power-btn" onclick="toggleAlarm()" class="px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
                                         <i class="fa-solid fa-power-off text-sm"></i>
                                         <span id="alarm-power-btn-text">چەکدارکردن</span>
                                     </button>
@@ -1100,7 +1273,7 @@
 
                 <!-- Interactive Home Cinema Widget -->
                 <div id="modal-cinema-widget" class="hidden p-4 sm:p-6 pb-0">
-                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
                         <div id="cinema-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
 
                         <button onclick="closeCinemaWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
@@ -1109,7 +1282,7 @@
 
                         <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
                             <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
-                                <div class="relative flex items-center justify-center py-2">
+                                <div class="hs-visual-frame relative flex items-center justify-center py-2">
                                     <svg id="cinema-svg" viewBox="0 0 260 170" class="w-56 sm:w-72 h-auto transition-all duration-500">
                                         <defs>
                                             <linearGradient id="cinemaWallGradient" x1="0" y1="0" x2="0" y2="1">
@@ -1128,6 +1301,32 @@
                                         <!-- Screen -->
                                         <rect x="20" y="10" width="220" height="115" rx="8" fill="#0f172a" stroke="#334155" stroke-width="4"/>
                                         <rect id="cinema-screen" x="30" y="20" width="200" height="95" rx="4" fill="#1e293b"/>
+                                        <clipPath id="cinemaScreenClip"><rect x="30" y="20" width="200" height="95" rx="4"/></clipPath>
+                                        <g id="cinema-screen-movie" clip-path="url(#cinemaScreenClip)" opacity="0">
+                                            <rect x="30" y="20" width="200" height="95" fill="#2e1065"/>
+                                            <rect x="30" y="20" width="200" height="14" fill="#0f172a" opacity="0.7"/>
+                                            <rect x="30" y="101" width="200" height="14" fill="#0f172a" opacity="0.7"/>
+                                            <circle cx="90" cy="67" r="20" fill="#a855f7" opacity="0.35"/>
+                                            <circle cx="160" cy="55" r="12" fill="#f472b6" opacity="0.3"/>
+                                        </g>
+                                        <g id="cinema-screen-sports" clip-path="url(#cinemaScreenClip)" opacity="0">
+                                            <rect x="30" y="20" width="200" height="95" fill="#15803d"/>
+                                            <rect x="30" y="20" width="200" height="95" fill="#16a34a" opacity="0.35"/>
+                                            <rect x="30" y="20" width="20" height="95" fill="#166534" opacity="0.6"/>
+                                            <rect x="70" y="20" width="20" height="95" fill="#166534" opacity="0.6"/>
+                                            <rect x="110" y="20" width="20" height="95" fill="#166534" opacity="0.6"/>
+                                            <rect x="150" y="20" width="20" height="95" fill="#166534" opacity="0.6"/>
+                                            <rect x="190" y="20" width="20" height="95" fill="#166534" opacity="0.6"/>
+                                            <circle id="cinema-ball" cx="130" cy="67" r="4" fill="#fde68a"/>
+                                        </g>
+                                        <g id="cinema-screen-gaming" clip-path="url(#cinemaScreenClip)" opacity="0">
+                                            <rect x="30" y="20" width="200" height="95" fill="#0c1330"/>
+                                            <rect x="30" y="20" width="200" height="95" fill="#0891b2" opacity="0.18"/>
+                                            <rect x="55" y="40" width="30" height="55" fill="#22d3ee" opacity="0.5"/>
+                                            <rect x="100" y="55" width="30" height="40" fill="#a855f7" opacity="0.5"/>
+                                            <rect x="145" y="35" width="30" height="60" fill="#00E676" opacity="0.4"/>
+                                            <rect x="190" y="50" width="20" height="45" fill="#22d3ee" opacity="0.5"/>
+                                        </g>
                                         <polygon id="cinema-beam" points="130,145 90,170 170,170" fill="#a855f7" opacity="0"/>
                                         <rect x="105" y="140" width="50" height="13" rx="3" fill="#334155"/>
                                         <rect x="70" y="153" width="120" height="7" rx="3" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
@@ -1138,20 +1337,21 @@
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <span id="cinema-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
+                                    <span id="cinema-status-badge" class="hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
                                         کوژاوەتەوە
                                     </span>
                                 </div>
                             </div>
 
-                            <div class="w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
                                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                                     <div>
                                         <h3 class="text-base sm:text-lg font-black text-white">سینەمای ماڵ</h3>
                                         <p class="text-slate-400 text-[11px] mt-1">هەموو ئامێرەکانی سینەماکەت بە یەک دوگمە کارپێبکە</p>
+                                        <span class="inline-flex items-center gap-1 text-[10px] text-emerald-400 font-bold mt-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> ئامێر پەیوەستە بە وایفای</span>
                                     </div>
 
-                                    <button id="cinema-power-btn" onclick="toggleCinema()" class="px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                    <button id="cinema-power-btn" onclick="toggleCinema()" class="px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
                                         <i class="fa-solid fa-power-off text-sm"></i>
                                         <span id="cinema-power-btn-text">داگیرساندن</span>
                                     </button>
@@ -1192,7 +1392,7 @@
 
                 <!-- Interactive Smart Lock Widget -->
                 <div id="modal-lock-widget" class="hidden p-4 sm:p-6 pb-0">
-                    <div class="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
                         <div id="lock-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
 
                         <button onclick="closeLockWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
@@ -1208,26 +1408,27 @@
                                     <span class="absolute bottom-6 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-slate-700"></span>
                                     <span id="lock-led" class="absolute top-9 right-9 w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_2px_rgba(239,68,68,0.6)] transition-all duration-500"></span>
 
-                                    <div id="lock-icon-circle" class="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700">
+                                    <div id="lock-icon-circle" class="relative w-40 h-40 sm:w-48 sm:h-48 hs-icon-plate rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700">
                                         <i id="lock-icon" class="fa-solid fa-lock text-6xl sm:text-7xl text-slate-500 transition-all duration-500"></i>
                                     </div>
                                 </div>
 
                                 <div class="mt-4 text-center">
-                                    <span id="lock-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
+                                    <span id="lock-status-badge" class="hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">
                                         قوفڵکراوە
                                     </span>
                                 </div>
                             </div>
 
-                            <div class="w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
                                 <div class="flex items-center justify-between border-b border-slate-800 pb-3">
                                     <div>
                                         <h3 class="text-base sm:text-lg font-black text-white">کیلۆنی زیرەک (Smart Lock)</h3>
                                         <p class="text-slate-400 text-[11px] mt-1">دەرگاکەت بکەرەوە بە کلیک یان بە کۆدی نهێنی</p>
+                                        <span class="inline-flex items-center gap-1 text-[10px] text-emerald-400 font-bold mt-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> ئامێر پەیوەستە بە وایفای</span>
                                     </div>
 
-                                    <button id="lock-power-btn" onclick="toggleLock()" class="px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                    <button id="lock-power-btn" onclick="toggleLock()" class="px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
                                         <i class="fa-solid fa-power-off text-sm"></i>
                                         <span id="lock-power-btn-text">کردنەوە</span>
                                     </button>
@@ -1255,6 +1456,423 @@
                                         <button onclick="pressLockDigit('0')" class="py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition-all active:scale-95">0</button>
                                         <button onclick="submitLockPin()" class="py-2.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500 hover:text-slate-950 text-emerald-400 font-bold text-sm border border-emerald-500/40 transition-all active:scale-95"><i class="fa-solid fa-check"></i></button>
                                     </div>
+                                    <p class="text-[10px] text-slate-500 text-center pt-1">کۆدی تاقیکردنەوە: <span class="text-slate-300 font-bold tracking-widest">1234</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Smart Speakers Widget -->
+                <div id="modal-speaker-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="speaker-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-emerald-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+                        <button onclick="closeSpeakerWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div id="speaker-icon-circle" class="hs-icon-plate relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-slate-800/60 border-4 border-slate-700 transition-all duration-500">
+                                    <i id="speaker-icon" class="fa-solid fa-volume-high text-6xl sm:text-7xl text-slate-500 transition-all duration-500"></i>
+                                    <div id="speaker-eq" class="absolute inset-0 flex items-end justify-center gap-1.5 pb-7">
+                                        <span class="eq-bar w-1.5 h-3 rounded-full bg-emerald-400"></span>
+                                        <span class="eq-bar w-1.5 h-5 rounded-full bg-emerald-400"></span>
+                                        <span class="eq-bar w-1.5 h-2.5 rounded-full bg-emerald-400"></span>
+                                        <span class="eq-bar w-1.5 h-6 rounded-full bg-emerald-400"></span>
+                                        <span class="eq-bar w-1.5 h-4 rounded-full bg-emerald-400"></span>
+                                    </div>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <span id="speaker-status-badge" class="hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">وەستاوە</span>
+                                </div>
+                                <p id="speaker-track-text" class="text-slate-500 text-[11px] mt-2 text-center px-2">هیچ مۆزیکێک ناژەنرێت</p>
+                            </div>
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">بڵندگۆی زیرەک (Smart Speakers)</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">مۆزیک لە هەموو ژوورەکانی ماڵەکەت کۆنترۆڵ بکە</p>
+                                    </div>
+                                    <button id="speaker-power-btn" onclick="toggleSpeaker()" class="px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                        <i id="speaker-power-icon" class="fa-solid fa-play text-sm"></i>
+                                        <span id="speaker-power-btn-text">لێدان</span>
+                                    </button>
+                                </div>
+                                <div class="space-y-2">
+                                    <span class="text-xs font-bold text-slate-300 flex items-center gap-2"><i class="fa-solid fa-door-open text-emerald-400"></i> ژوورەکان:</span>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <button onclick="setSpeakerRoom('living', this)" class="speaker-room-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-emerald-400/10 text-emerald-300 border-emerald-400/40">دانیشتن</button>
+                                        <button onclick="setSpeakerRoom('kitchen', this)" class="speaker-room-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700">چێشتخانە</button>
+                                        <button onclick="setSpeakerRoom('bedroom', this)" class="speaker-room-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700">نوستن</button>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center text-xs font-bold">
+                                        <span class="text-slate-300 flex items-center gap-2"><i class="fa-solid fa-volume-high text-emerald-400"></i> ئاستی دەنگ:</span>
+                                        <span id="speaker-volume-text" class="text-emerald-400 font-black text-sm">40%</span>
+                                    </div>
+                                    <input type="range" id="speaker-volume-range" min="0" max="100" value="40" oninput="updateSpeakerVolume(this.value)" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400 transition-all">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Smart Amplifier Widget -->
+                <div id="modal-amplifier-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="amp-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-indigo-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+                        <button onclick="closeAmplifierWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div id="amp-icon-circle" class="hs-icon-plate relative flex flex-col items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-slate-800/60 border-4 border-slate-700 transition-all duration-500 gap-1">
+                                    <i id="amp-icon" class="fa-solid fa-sliders text-4xl sm:text-5xl text-slate-500 transition-all duration-500 mb-2"></i>
+                                    <div id="amp-vu" class="flex items-end justify-center gap-1.5 h-8">
+                                        <span class="vu-bar w-2 rounded-t-sm bg-indigo-400" style="height:15%"></span>
+                                        <span class="vu-bar w-2 rounded-t-sm bg-indigo-400" style="height:15%"></span>
+                                        <span class="vu-bar w-2 rounded-t-sm bg-indigo-400" style="height:15%"></span>
+                                        <span class="vu-bar w-2 rounded-t-sm bg-indigo-400" style="height:15%"></span>
+                                    </div>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <span id="amp-status-badge" class="hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">کوژاوەتەوە</span>
+                                </div>
+                                <p id="amp-zone-text" class="text-slate-500 text-[11px] mt-2 text-center px-2">زۆنێک هەڵنەبژێردراوە</p>
+                            </div>
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">ئامپلیفایەری زیرەک (Smart Amplifier)</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">کۆنترۆڵی زۆن و سەرچاوەی دەنگ بۆ باشترین کوالێتی</p>
+                                    </div>
+                                    <button id="amp-power-btn" onclick="toggleAmplifier()" class="px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                        <i class="fa-solid fa-power-off text-sm"></i>
+                                        <span id="amp-power-btn-text">داگیرساندن</span>
+                                    </button>
+                                </div>
+                                <div class="space-y-2">
+                                    <span class="text-xs font-bold text-slate-300 flex items-center gap-2"><i class="fa-solid fa-layer-group text-indigo-400"></i> زۆنی دەنگ:</span>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <button onclick="setAmpZone('1', this)" class="amp-zone-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-indigo-400/10 text-indigo-300 border-indigo-400/40">زۆنی ١</button>
+                                        <button onclick="setAmpZone('2', this)" class="amp-zone-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700">زۆنی ٢</button>
+                                        <button onclick="setAmpZone('3', this)" class="amp-zone-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700">زۆنی ٣</button>
+                                    </div>
+                                </div>
+                                <div class="space-y-2">
+                                    <span class="text-xs font-bold text-slate-300 flex items-center gap-2"><i class="fa-solid fa-plug-circle-bolt text-indigo-400"></i> سەرچاوەی دەنگ:</span>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <button onclick="setAmpSource('tv', this)" class="amp-source-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-indigo-400/10 text-indigo-300 border-indigo-400/40"><i class="fa-solid fa-tv"></i> TV</button>
+                                        <button onclick="setAmpSource('bt', this)" class="amp-source-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700"><i class="fa-brands fa-bluetooth-b"></i> بلوتوس</button>
+                                        <button onclick="setAmpSource('phone', this)" class="amp-source-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700"><i class="fa-solid fa-mobile-screen"></i> مۆبایل</button>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center text-xs font-bold">
+                                        <span class="text-slate-300 flex items-center gap-2"><i class="fa-solid fa-volume-high text-indigo-400"></i> ئاستی دەنگ:</span>
+                                        <span id="amp-volume-text" class="text-indigo-400 font-black text-sm">35%</span>
+                                    </div>
+                                    <input type="range" id="amp-volume-range" min="0" max="100" value="35" oninput="updateAmpVolume(this.value)" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-400 transition-all">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Automated Climate Widget -->
+                <div id="modal-climate-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="climate-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-amber-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+                        <button onclick="closeClimateWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div id="climate-icon-circle" class="hs-icon-plate relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-slate-800/60 border-4 border-slate-700 transition-all duration-500">
+                                    <i id="climate-icon" class="fa-solid fa-fan text-6xl sm:text-7xl text-slate-500 transition-all duration-500"></i>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <span id="climate-status-badge" class="hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">مانوواڵ</span>
+                                </div>
+                                <p id="climate-mode-text" class="text-slate-500 text-[11px] mt-2 text-center px-2">خشتەیەک چالاک نییە</p>
+                            </div>
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">کۆنترۆڵی ئۆتۆماتیکی کەش (Automated Climate)</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">خشتەی کاتی بۆ هەموو ئامێرەکانی گەرمکردن و ساردکردنەوە دابنێ</p>
+                                    </div>
+                                    <button id="climate-power-btn" onclick="toggleClimate()" class="px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                        <i class="fa-solid fa-power-off text-sm"></i>
+                                        <span id="climate-power-btn-text">چالاککردنی ئۆتۆماتیک</span>
+                                    </button>
+                                </div>
+                                <div class="space-y-2">
+                                    <span class="text-xs font-bold text-slate-300 flex items-center gap-2"><i class="fa-solid fa-calendar-day text-amber-400"></i> دۆخی خشتە:</span>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <button onclick="setClimateMode('morning', this)" class="climate-mode-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-amber-400/10 text-amber-300 border-amber-400/40"><i class="fa-solid fa-sun"></i> بەیانی</button>
+                                        <button onclick="setClimateMode('away', this)" class="climate-mode-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700"><i class="fa-solid fa-suitcase"></i> دەرەوە</button>
+                                        <button onclick="setClimateMode('night', this)" class="climate-mode-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700"><i class="fa-solid fa-moon"></i> شەو</button>
+                                    </div>
+                                </div>
+                                <div class="space-y-2 pt-1">
+                                    <span class="text-xs font-bold text-slate-300 flex items-center gap-2"><i class="fa-solid fa-house text-amber-400"></i> ژوورە چالاکەکان:</span>
+                                    <div class="space-y-2" id="climate-zones">
+                                        <div class="flex items-center justify-between bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5">
+                                            <span class="text-xs font-bold text-slate-300">ژووری دانیشتن</span>
+                                            <button onclick="toggleClimateZone(this)" data-on="true" class="climate-zone-toggle w-11 h-6 rounded-full bg-amber-400 relative transition-all"><span class="absolute top-0.5 right-0.5 w-5 h-5 rounded-full bg-white transition-all"></span></button>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5">
+                                            <span class="text-xs font-bold text-slate-300">ژووری نوستن</span>
+                                            <button onclick="toggleClimateZone(this)" data-on="true" class="climate-zone-toggle w-11 h-6 rounded-full bg-amber-400 relative transition-all"><span class="absolute top-0.5 right-0.5 w-5 h-5 rounded-full bg-white transition-all"></span></button>
+                                        </div>
+                                        <div class="flex items-center justify-between bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5">
+                                            <span class="text-xs font-bold text-slate-300">چێشتخانە</span>
+                                            <button onclick="toggleClimateZone(this)" data-on="false" class="climate-zone-toggle w-11 h-6 rounded-full bg-slate-700 relative transition-all"><span class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white transition-all"></span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Activity History Widget -->
+                <div id="modal-history-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="history-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-lime-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+                        <button onclick="closeHistoryWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div class="hs-icon-plate relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-lime-500/10 border-4 border-lime-500/40">
+                                    <span class="absolute inset-0 rounded-full border-4 border-lime-400/40 pulse-ring"></span>
+                                    <i class="fa-solid fa-clock-rotate-left text-6xl sm:text-7xl text-lime-400"></i>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <span id="history-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-lime-500/20 text-lime-400 border border-lime-500/40 tracking-wide uppercase">چالاک — ڕاستەوخۆ</span>
+                                </div>
+                                <p class="text-slate-500 text-[11px] mt-2 text-center px-2" id="history-count-text">٤ ڕووداو لە دوایین ٢٤ کاتژمێر</p>
+                            </div>
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-4 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">تۆماری چالاکی (History Record)</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">هەموو ڕووداوەکانی دەوروبەری ماڵەکەت بە زانیاری کات</p>
+                                    </div>
+                                </div>
+                                <div id="history-log-list" class="space-y-2.5 max-h-64 overflow-y-auto pr-1">
+                                    <div class="flex items-start gap-3 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5">
+                                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-lock-open text-xs"></i></div>
+                                        <div class="flex-1"><p class="text-xs font-bold text-slate-200">دەرگای سەرەکی کرایەوە</p><p class="text-[10px] text-slate-500 mt-0.5">ئەمڕۆ — ٠٨:١٢ بەیانی</p></div>
+                                    </div>
+                                    <div class="flex items-start gap-3 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5">
+                                        <div class="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-person-walking text-xs"></i></div>
+                                        <div class="flex-1"><p class="text-xs font-bold text-slate-200">جوڵە دۆزرایەوە — حەوشە</p><p class="text-[10px] text-slate-500 mt-0.5">ئەمڕۆ — ٠٧:٤٥ بەیانی</p></div>
+                                    </div>
+                                    <div class="flex items-start gap-3 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5">
+                                        <div class="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-temperature-half text-xs"></i></div>
+                                        <div class="flex-1"><p class="text-xs font-bold text-slate-200">تەرمۆستات گۆڕدرا بۆ ٢٢°C</p><p class="text-[10px] text-slate-500 mt-0.5">دوێنێ — ١٠:٣٠ شەو</p></div>
+                                    </div>
+                                    <div class="flex items-start gap-3 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5">
+                                        <div class="w-8 h-8 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center shrink-0"><i class="fa-solid fa-triangle-exclamation text-xs"></i></div>
+                                        <div class="flex-1"><p class="text-xs font-bold text-slate-200">ئاگاداری سیستەمی ئاسایش</p><p class="text-[10px] text-slate-500 mt-0.5">دوێنێ — ١١:٥٠ شەو</p></div>
+                                    </div>
+                                </div>
+                                <button onclick="simulateHistoryEvent()" class="w-full bg-lime-400/10 hover:bg-lime-400 hover:text-slate-950 text-lime-300 border border-lime-400/40 font-bold py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-rotate"></i> تاقیکردنەوەی ڕووداوێکی نوێ
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Home Cinema Systems (Scene) Widget -->
+                <div id="modal-homecinema-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="hc-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-fuchsia-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+                        <button onclick="closeHomeCinemaWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div id="hc-icon-circle" class="hs-icon-plate relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-slate-800/60 border-4 border-slate-700 transition-all duration-500">
+                                    <i id="hc-icon" class="fa-solid fa-clapperboard text-6xl sm:text-7xl text-slate-500 transition-all duration-500"></i>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <span id="hc-status-badge" class="hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">ئامادە نییە</span>
+                                </div>
+                            </div>
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">سیستەمی سینەمای ماڵ (Home Cinema Systems)</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">بە یەک پەلکێش هەموو ئامێرەکان ئامادە بکە بۆ فیلم</p>
+                                    </div>
+                                </div>
+                                <button id="hc-start-btn" onclick="startMovieScene()" class="w-full bg-fuchsia-500/10 hover:bg-fuchsia-500 hover:text-white text-fuchsia-300 border border-fuchsia-500/40 font-black py-3 rounded-xl text-sm transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95">
+                                    <i class="fa-solid fa-play"></i> <span id="hc-start-text">دەستپێکردنی شەوی فیلم</span>
+                                </button>
+                                <div class="grid grid-cols-2 gap-2.5" id="hc-steps">
+                                    <div class="hc-step flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 transition-all" data-step="lights">
+                                        <i class="fa-solid fa-lightbulb text-slate-500 hc-step-icon" data-icon="fa-lightbulb"></i>
+                                        <span class="text-[11px] font-bold text-slate-400 hc-step-text">کەمکردنەوەی ڕووناکی</span>
+                                    </div>
+                                    <div class="hc-step flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 transition-all" data-step="curtain">
+                                        <i class="fa-solid fa-window-maximize text-slate-500 hc-step-icon" data-icon="fa-window-maximize"></i>
+                                        <span class="text-[11px] font-bold text-slate-400 hc-step-text">داخستنی پەردە</span>
+                                    </div>
+                                    <div class="hc-step flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 transition-all" data-step="screen">
+                                        <i class="fa-solid fa-tv text-slate-500 hc-step-icon" data-icon="fa-tv"></i>
+                                        <span class="text-[11px] font-bold text-slate-400 hc-step-text">دابەزینی شاشە</span>
+                                    </div>
+                                    <div class="hc-step flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 transition-all" data-step="audio">
+                                        <i class="fa-solid fa-volume-high text-slate-500 hc-step-icon" data-icon="fa-volume-high"></i>
+                                        <span class="text-[11px] font-bold text-slate-400 hc-step-text">چالاککردنی دەنگی 7.1</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Projector Widget -->
+                <div id="modal-projector-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="proj-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-violet-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+                        <button onclick="closeProjectorWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div class="relative w-44 h-32 sm:w-52 sm:h-36 flex items-center justify-center">
+                                    <div id="proj-beam" class="absolute right-6 sm:right-8 top-1/2 -translate-y-1/2 w-0 h-0 opacity-0 transition-all duration-500" style="border-top: 55px solid transparent; border-bottom: 55px solid transparent; border-right: 130px solid rgba(167,139,250,0.18);"></div>
+                                    <div class="absolute left-2 top-1/2 -translate-y-1/2 w-16 h-10 sm:w-20 sm:h-12 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center z-10">
+                                        <span id="proj-lens" class="w-5 h-5 rounded-full bg-slate-950 border-2 border-slate-600 transition-all duration-500"></span>
+                                    </div>
+                                    <div class="absolute right-1 top-1/2 -translate-y-1/2 w-16 sm:w-20 rounded bg-slate-950 border border-slate-700 transition-all duration-500 overflow-hidden" id="proj-screen" style="height:6px;">
+                                        <div id="proj-screen-image" class="absolute inset-0 bg-gradient-to-br from-violet-500/0 via-fuchsia-400/0 to-cyan-400/0 transition-all duration-500"></div>
+                                    </div>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <span id="proj-status-badge" class="hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">کوژاوەتەوە</span>
+                                </div>
+                            </div>
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">کۆنترۆڵی پرۆژێکتەر (Projector)</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">شاشە و ڕووناکی پرۆژێکتەرەکەت کۆنترۆڵ بکە</p>
+                                    </div>
+                                    <button id="proj-power-btn" onclick="toggleProjector()" class="px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0">
+                                        <i class="fa-solid fa-power-off text-sm"></i>
+                                        <span id="proj-power-btn-text">داگیرساندن</span>
+                                    </button>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center text-xs font-bold">
+                                        <span class="text-slate-300 flex items-center gap-2"><i class="fa-solid fa-arrow-down-wide-short text-violet-400"></i> دابەزینی شاشە:</span>
+                                        <span id="proj-screen-text" class="text-violet-400 font-black text-sm">0%</span>
+                                    </div>
+                                    <input type="range" id="proj-screen-range" min="0" max="100" value="0" oninput="updateProjectorScreen(this.value)" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-violet-400 transition-all">
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center text-xs font-bold">
+                                        <span class="text-slate-300 flex items-center gap-2"><i class="fa-solid fa-sun text-violet-400"></i> ڕووناکی وێنە:</span>
+                                        <span id="proj-brightness-text" class="text-violet-400 font-black text-sm">70%</span>
+                                    </div>
+                                    <input type="range" id="proj-brightness-range" min="0" max="100" value="70" oninput="updateProjectorBrightness(this.value)" class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-violet-400 transition-all">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Secure Access (Camera + Intercom) Widget -->
+                <div id="modal-secureaccess-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="sa-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-400/10 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+                        <button onclick="closeSecureAccessWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div class="relative w-full max-w-[260px] aspect-video rounded-xl overflow-hidden border border-slate-700 bg-gradient-to-br from-slate-800 via-slate-900 to-black shadow-xl">
+                                    <span class="absolute top-2 right-2 flex items-center gap-1.5 bg-black/60 px-2 py-1 rounded-md text-[10px] font-black text-red-400 z-10">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> LIVE
+                                    </span>
+                                    <span class="absolute bottom-2 left-2 text-[9px] font-bold text-slate-400 z-10" id="sa-timestamp">دەرگای سەرەکی</span>
+                                    <i class="fa-solid fa-house-user absolute inset-0 m-auto text-4xl text-slate-600/50"></i>
+                                    <div class="scan-line absolute left-0 right-0 h-8 bg-gradient-to-b from-cyan-400/0 via-cyan-400/10 to-cyan-400/0"></div>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <span id="sa-status-badge" class="hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase">قوفڵکراوە</span>
+                                </div>
+                            </div>
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-5 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                                    <div>
+                                        <h3 class="text-base sm:text-lg font-black text-white">چوونەژوورەوەی سەلامەت (Secure Access)</h3>
+                                        <p class="text-slate-400 text-[11px] mt-1">بینینی ڕاستەوخۆ و کۆنترۆڵی دەرگا لەگەڵ ئینتەرکۆم</p>
+                                    </div>
+                                </div>
+                                <button id="sa-unlock-btn" onclick="toggleSecureAccessLock()" class="w-full bg-blue-500/10 hover:bg-blue-500 hover:text-white text-blue-300 border border-blue-500/40 font-black py-3 rounded-xl text-sm transition-all flex items-center justify-center gap-2 active:scale-95">
+                                    <i class="fa-solid fa-unlock text-sm" id="sa-unlock-icon"></i> <span id="sa-unlock-text">کردنەوەی دەرگا</span>
+                                </button>
+                                <button id="sa-talk-btn" onclick="toggleSecureAccessTalk()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-black py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-2 active:scale-95">
+                                    <i class="fa-solid fa-microphone text-sm"></i> <span id="sa-talk-text">دەستپێکردنی قسەکردن</span>
+                                </button>
+                                <div class="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 flex items-center gap-2.5">
+                                    <i class="fa-solid fa-video text-blue-400 text-xs"></i>
+                                    <p class="text-[11px] text-slate-400">تۆماری کۆدکردنی هاتووچۆ خۆکارانە پارێزراوە</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Answer Anywhere (Intercom Call) Widget -->
+                <div id="modal-answercall-widget" class="hidden p-4 sm:p-6 pb-0">
+                    <div class="hs-device-card bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-5 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+                        <div id="ac-bg-glow" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-teal-400/0 rounded-full blur-[100px] pointer-events-none transition-all duration-700"></div>
+                        <button onclick="closeAnswerCallWidget()" class="absolute top-3 left-3 z-20 w-8 h-8 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center text-sm transition-colors">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10">
+                            <div class="flex flex-col items-center justify-center w-full lg:w-1/2">
+                                <div class="relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48">
+                                    <span id="ac-ring-1" class="absolute inset-0 rounded-full border-4 border-teal-400/0 pulse-ring"></span>
+                                    <span id="ac-ring-2" class="absolute inset-4 rounded-full border-4 border-teal-400/0 pulse-ring" style="animation-delay:.4s"></span>
+                                    <div id="ac-icon-circle" class="relative w-32 h-32 sm:w-36 sm:h-36 hs-icon-plate rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700">
+                                        <i id="ac-icon" class="fa-solid fa-house text-5xl sm:text-6xl text-slate-500 transition-all duration-500"></i>
+                                    </div>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <span id="ac-status-badge" class="px-4 py-1.5 rounded-full text-xs font-black bg-slate-700/40 text-slate-400 border border-slate-600/40 tracking-wide uppercase">وەستاوە</span>
+                                </div>
+                            </div>
+                            <div class="hs-control-panel w-full lg:w-1/2 space-y-4 bg-slate-900/50 p-5 sm:p-6 rounded-2xl border border-slate-800/60 backdrop-blur-sm">
+                                <div class="border-b border-slate-800 pb-3">
+                                    <h3 class="text-base sm:text-lg font-black text-white">وەڵامدانەوە لە هەرکوێ (Answer Anywhere)</h3>
+                                    <p class="text-slate-400 text-[11px] mt-1">بزانە کێ لەبەردەم دەرگاکەتە و لە هەرشوێنێک وەڵامی بدەوە</p>
+                                </div>
+                                <div id="ac-idle-panel">
+                                    <button onclick="simulateIntercomCall()" class="w-full bg-teal-500/10 hover:bg-teal-500 hover:text-slate-950 text-teal-300 border border-teal-500/40 font-black py-3 rounded-xl text-sm transition-all flex items-center justify-center gap-2 active:scale-95">
+                                        <i class="fa-solid fa-phone"></i> تاقیکردنەوەی پەیوەندی دەرگا
+                                    </button>
+                                </div>
+                                <div id="ac-ringing-panel" class="hidden grid grid-cols-2 gap-2.5">
+                                    <button onclick="answerIntercomCall()" class="bg-emerald-500/10 hover:bg-emerald-500 hover:text-slate-950 text-emerald-300 border border-emerald-500/40 font-black py-2.5 rounded-xl text-xs transition-all active:scale-95"><i class="fa-solid fa-phone"></i> وەڵامدانەوە</button>
+                                    <button onclick="declineIntercomCall()" class="bg-red-500/10 hover:bg-red-500 hover:text-white text-red-300 border border-red-500/40 font-black py-2.5 rounded-xl text-xs transition-all active:scale-95"><i class="fa-solid fa-phone-slash"></i> ڕەتکردنەوە</button>
+                                </div>
+                                <div id="ac-answered-panel" class="hidden space-y-2.5">
+                                    <div class="bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 text-center">
+                                        <p class="text-xs font-bold text-teal-300"><i class="fa-solid fa-microphone"></i> پەیوەندی چالاکە — <span id="ac-timer">٠٠:٠٠</span></p>
+                                    </div>
+                                    <button onclick="openDoorFromCall()" class="w-full bg-cyan-500/10 hover:bg-cyan-500 hover:text-slate-950 text-cyan-300 border border-cyan-500/40 font-black py-2.5 rounded-xl text-xs transition-all active:scale-95"><i class="fa-solid fa-door-open"></i> کردنەوەی دەرگا</button>
+                                    <button onclick="declineIntercomCall()" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-bold py-2 rounded-xl text-xs transition-all active:scale-95"><i class="fa-solid fa-phone-slash"></i> کۆتاییهێنان بە پەیوەندی</button>
                                 </div>
                             </div>
                         </div>
@@ -1482,6 +2100,7 @@
                     {
                         title: { ckb: "بڵندگۆکان", en: "Speakers", ar: "السماعات الذكية" },
                         img: "spikaar.jpg",
+                        interactive: 'speaker',
                         badge: "",
                         desc: { 
                             ckb: "بەخاترنابوون بکە لەگەڵ بڵندگۆی هەرزانی بازاڕ و بەخێرهاتن بکە بۆ کوالێتی دەنگی بەرزی ڕاستەقینە. هاوکاری براندە جیهانییە بەرزترینەکانمان کردووە بۆ ئەوەی دڵنیابین لەوەی ئەو موزیکەی لە ماڵەکەتدا لێیدەدەیت دەنگێکی نایاب دەدات.", 
@@ -1492,6 +2111,7 @@
                     {
                         title: { ckb: "ئامپلیفایەرەکان", en: "Amplifiers", ar: "مكبرات الصوت" },
                         img: "Amplifiers.jpg",
+                        interactive: 'amplifier',
                         badge: "",
                         desc: { 
                             ckb: "زۆرینەی خەڵک دەزانن پێویستیان بە بڵندگۆی باش هەیە بۆ دەنگێکی باش، بەڵام ئەوەی هەروەها گرنگە هەبوونی ئامپلیفایەری کوالێتی بەرزی گونجاوە لەگەڵ ماڵەکەت. بە ئامپلیفایەرە بەرزترینەکانمان دەتوانیت باشترین کوالێتی لە بڵندگۆکانت وەربگریت، هەروەها هەڵبژاردنمان هەیە بۆ هەموو جۆرە بینایەک، بۆ ئەوەی شتێکی گونجاو و نەرم بۆ ژمارەی ژوور و ناوچەکانی دەنگ بەدەست بهێنیت.", 
@@ -1521,6 +2141,7 @@
                     {
                         title: { ckb: "کۆنترۆڵی ئۆتۆماتیکی کەش", en: "Automated Climate", ar: "التكييف الآلي" },
                         img: "Automated.jpg",
+                        interactive: 'climate',
                         badge: "",
                         desc: { 
                             ckb: "هەموو ئامێرەکانی گەرمکردن و ساردکردنەوەت داماخە کاتێک کارت دەستپێدەکات، دووبارە کاریان پێبکەرەوە کاتێک گەڕایتەوە ماڵ، ژوورە پێویستنەکانیش داماخە کاتێک دەچیتە خەو. چیتر پێویست ناکات نیگەران بیت لە پسوولەی وزە و بە دەستی کۆنترۆڵیان بکەیت، تەنها خشتەیەکیان بۆ دابنێ و خۆیان بەشێوەی ئۆتۆماتیکی کاردەکەن.", 
@@ -1550,6 +2171,7 @@
                     {
                         title: { ckb: "تۆماری چالاکی", en: "History Record", ar: "سجل الأنشطة" },
                         img: "history.jpg",
+                        interactive: 'history',
                         badge: "",
                         desc: { 
                             ckb: "ئامێرەکانمان تەنها ئاگادارت ناکەنەوە کاتێک ڕووداوێک ڕوودەدات، بەڵکو تۆماری هەموو جارێکی چالاکی لە دەوروبەری ماڵەکەتیش دەپارێزن، بۆ ئەوەی هەمیشە دڵنیابیت هەموو شتێک لەژێر کۆنترۆڵدایە.", 
@@ -1578,6 +2200,7 @@
                     {
                         title: { ckb: "سیستەمی سینەمای ماڵ", en: "Home Cinema Systems", ar: "أنظمة السينما المنزلية" },
                         img: "hcinama.jpg",
+                        interactive: 'homecinema',
                         badge: "",
                         desc: { 
                             ckb: "هەبوونی تەلەفزیۆن شتێکی خۆشە، بەڵام خۆشترە هەبوونی سینەمایەکی ماڵی تەواو لە ژوورەکەتدا - جا کۆمەڵێک بڵندگۆی ٤ دانەیی بێت بۆ ژووری دانیشتنەکەت یان ژوورێکی تەواو تەرخانکراو بۆ فیلم بە پرۆژێکتەر، شاشە و دەنگی 7.1، های سمارت هەموو شتێکت بۆ ئامادەیە.", 
@@ -1588,6 +2211,7 @@
                     {
                         title: { ckb: "پرۆژێکتەرەکان", en: "Projectors", ar: "أجهزة العرض" },
                         img: "Projectors.jpg",
+                        interactive: 'projector',
                         badge: "",
                         desc: { 
                             ckb: "سەیرکردنی فیلم یان یاری کۆتایی تۆپی پێ لەسەر تەلەفزیۆن خۆشە، بەڵام هەبوونی پرۆژێکتەر خۆشترە - نزیک لەگەڵ ئێپسۆن و JVC کاردەکەین بۆ هێنانی باشترین کوالێتی پرۆژێکتەری سینەمای ماڵ بۆ ناوچەکە.", 
@@ -1628,6 +2252,7 @@
                     {
                         title: { ckb: "چوونەژوورەوەی سەلامەت", en: "Secure Access", ar: "دخول آمن" },
                         img: "Secure.jpg",
+                        interactive: 'secureaccess',
                         badge: "",
                         desc: { 
                             ckb: "ئینتەرکۆمە دەرەوەییەکانمان بە ئامێری کامیرای چاودێری دەبەستنەوە بۆ ئەوەی بینینی ڕاستەوخۆ لە دەرگای پێشەوەت وەربگریت، هەروەها دەرگاکانمان تۆماری کاتی کردنەوەیان دەپارێزن و ئاگادارت دەکەنەوە کاتێک هەوڵی دەستکاریکردن یان شکاندنیان دەدرێت - بۆیە هەمیشە دڵنیایت لەوەی ماڵەکەت پارێزراوە.", 
@@ -1638,6 +2263,7 @@
                     {
                         title: { ckb: "وەڵامدانەوە لە هەرکوێ", en: "Answer Anywhere", ar: "الرد من أي مكان" },
                         img: "anywhere.jpg",
+                        interactive: 'answercall',
                         desc: { 
                             ckb: "هەمیشە بزانە کێ لەبەردەم دەرگاکەتە و بیکەرەوە بە پەلکێشانی دوگمەیەک لە هەرشوێنێکی جیهان.", 
                             en: "Know who is at your door at all times and open it with the touch of a button from anywhere in the world.", 
@@ -1648,6 +2274,11 @@
             }
         };
 
+        // All interactive test-widget ids, in one place so every product's demo
+        // is opened/closed and reset the same reliable way.
+        const ALL_WIDGET_IDS = ['bulb', 'curtain', 'thermostat', 'alarm', 'cinema', 'lock',
+            'speaker', 'amplifier', 'climate', 'history', 'homecinema', 'projector', 'secureaccess', 'answercall'];
+
         function openProductModelsModal(catKey) {
             currentCategory = catKey;
             const catData = productModelsDatabase[catKey];
@@ -1657,12 +2288,6 @@
             const iconContainer = document.getElementById('modal-cat-icon');
             const titleEl = document.getElementById('modal-cat-title');
             const subEl = document.getElementById('modal-cat-subtitle');
-            const bulbWidget = document.getElementById('modal-bulb-widget');
-            const curtainWidget = document.getElementById('modal-curtain-widget');
-            const thermoWidget = document.getElementById('modal-thermostat-widget');
-            const alarmWidget = document.getElementById('modal-alarm-widget');
-            const cinemaWidget = document.getElementById('modal-cinema-widget');
-            const lockWidget = document.getElementById('modal-lock-widget');
 
             if (iconContainer) {
                 iconContainer.innerHTML = `<i class="fa-solid ${catData.icon}"></i>`;
@@ -1671,12 +2296,10 @@
             if (titleEl) titleEl.textContent = catData.title[currentLang] || catData.title['ckb'];
             if (subEl) subEl.textContent = catData.subtitle[currentLang] || catData.subtitle['ckb'];
 
-            if (bulbWidget) bulbWidget.classList.add('hidden');
-            if (curtainWidget) curtainWidget.classList.add('hidden');
-            if (thermoWidget) thermoWidget.classList.add('hidden');
-            if (alarmWidget) alarmWidget.classList.add('hidden');
-            if (cinemaWidget) cinemaWidget.classList.add('hidden');
-            if (lockWidget) lockWidget.classList.add('hidden');
+            ALL_WIDGET_IDS.forEach(id => {
+                const el = document.getElementById('modal-' + id + '-widget');
+                if (el) el.classList.add('hidden');
+            });
 
             renderModelsGrid(catData.models);
 
@@ -1690,77 +2313,70 @@
             document.body.style.overflow = 'auto';
         }
 
-        function openBulbWidget() {
-            const widget = document.getElementById('modal-bulb-widget');
+        function openTestWidget(id) {
+            ALL_WIDGET_IDS.forEach(otherId => {
+                if (otherId === id) return;
+                const el = document.getElementById('modal-' + otherId + '-widget');
+                if (el) el.classList.add('hidden');
+            });
+            const widget = document.getElementById('modal-' + id + '-widget');
             if (!widget) return;
             widget.classList.remove('hidden');
             widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        function closeBulbWidget() {
-            const widget = document.getElementById('modal-bulb-widget');
+        function closeTestWidget(id) {
+            const widget = document.getElementById('modal-' + id + '-widget');
             if (widget) widget.classList.add('hidden');
         }
 
-        function openCurtainWidget() {
-            const widget = document.getElementById('modal-curtain-widget');
-            if (!widget) return;
-            widget.classList.remove('hidden');
-            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        function openBulbWidget() { openTestWidget('bulb'); }
+        function closeBulbWidget() { closeTestWidget('bulb'); }
+        function openCurtainWidget() { openTestWidget('curtain'); }
+        function closeCurtainWidget() { closeTestWidget('curtain'); }
+        function openThermostatWidget() { openTestWidget('thermostat'); }
+        function closeThermostatWidget() { closeTestWidget('thermostat'); }
+        function openAlarmWidget() { openTestWidget('alarm'); }
+        function closeAlarmWidget() { closeTestWidget('alarm'); }
+        function openCinemaWidget() { openTestWidget('cinema'); }
+        function closeCinemaWidget() { closeTestWidget('cinema'); }
+        function openLockWidget() { openTestWidget('lock'); }
+        function closeLockWidget() { closeTestWidget('lock'); }
+        function openSpeakerWidget() { openTestWidget('speaker'); }
+        function closeSpeakerWidget() { closeTestWidget('speaker'); }
+        function openAmplifierWidget() { openTestWidget('amplifier'); }
+        function closeAmplifierWidget() { closeTestWidget('amplifier'); }
+        function openClimateWidget() { openTestWidget('climate'); }
+        function closeClimateWidget() { closeTestWidget('climate'); }
+        function openHistoryWidget() { openTestWidget('history'); }
+        function closeHistoryWidget() { closeTestWidget('history'); }
+        function openHomeCinemaWidget() { openTestWidget('homecinema'); }
+        function closeHomeCinemaWidget() { closeTestWidget('homecinema'); }
+        function openProjectorWidget() { openTestWidget('projector'); }
+        function closeProjectorWidget() { closeTestWidget('projector'); }
+        function openSecureAccessWidget() { openTestWidget('secureaccess'); }
+        function closeSecureAccessWidget() { closeTestWidget('secureaccess'); }
+        function openAnswerCallWidget() { openTestWidget('answercall'); }
+        function closeAnswerCallWidget() { closeTestWidget('answercall'); }
 
-        function closeCurtainWidget() {
-            const widget = document.getElementById('modal-curtain-widget');
-            if (widget) widget.classList.add('hidden');
-        }
-
-        function openThermostatWidget() {
-            const widget = document.getElementById('modal-thermostat-widget');
-            if (!widget) return;
-            widget.classList.remove('hidden');
-            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        function closeThermostatWidget() {
-            const widget = document.getElementById('modal-thermostat-widget');
-            if (widget) widget.classList.add('hidden');
-        }
-
-        function openAlarmWidget() {
-            const widget = document.getElementById('modal-alarm-widget');
-            if (!widget) return;
-            widget.classList.remove('hidden');
-            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        function closeAlarmWidget() {
-            const widget = document.getElementById('modal-alarm-widget');
-            if (widget) widget.classList.add('hidden');
-        }
-
-        function openCinemaWidget() {
-            const widget = document.getElementById('modal-cinema-widget');
-            if (!widget) return;
-            widget.classList.remove('hidden');
-            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        function closeCinemaWidget() {
-            const widget = document.getElementById('modal-cinema-widget');
-            if (widget) widget.classList.add('hidden');
-        }
-
-        function openLockWidget() {
-            const widget = document.getElementById('modal-lock-widget');
-            if (!widget) return;
-            widget.classList.remove('hidden');
-            widget.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        function closeLockWidget() {
-            const widget = document.getElementById('modal-lock-widget');
-            if (widget) widget.classList.add('hidden');
-        }
+        // One entry per interactive demo. Adding a new testable product only
+        // requires a new line here plus its widget markup + logic functions.
+        const INTERACTIVE_TEST_BUTTONS = {
+            bulb:         { open: 'openBulbWidget()',         icon: 'fa-lightbulb',          color: 'yellow',  label: 'تاقیکردنەوەی گڵۆپی زیرەک' },
+            curtain:      { open: 'openCurtainWidget()',      icon: 'fa-window-maximize',    color: 'sky',     label: 'تاقیکردنەوەی پەردەی زیرەک' },
+            thermostat:   { open: 'openThermostatWidget()',   icon: 'fa-temperature-half',   color: 'orange',  label: 'تاقیکردنەوەی تەرمۆستاتی زیرەک' },
+            alarm:        { open: 'openAlarmWidget()',        icon: 'fa-shield-halved',      color: 'red',     label: 'تاقیکردنەوەی سیستەمی ئاسایش' },
+            cinema:       { open: 'openCinemaWidget()',       icon: 'fa-clapperboard',       color: 'purple',  label: 'تاقیکردنەوەی سینەمای زیرەک' },
+            lock:         { open: 'openLockWidget()',         icon: 'fa-lock',               color: 'cyan',    label: 'تاقیکردنەوەی کیلۆنی زیرەک' },
+            speaker:      { open: 'openSpeakerWidget()',      icon: 'fa-volume-high',        color: 'emerald', label: 'تاقیکردنەوەی بڵندگۆی زیرەک' },
+            amplifier:    { open: 'openAmplifierWidget()',    icon: 'fa-sliders',            color: 'indigo',  label: 'تاقیکردنەوەی ئامپلیفایەر' },
+            climate:      { open: 'openClimateWidget()',      icon: 'fa-fan',                color: 'amber',   label: 'تاقیکردنەوەی خشتەی ئۆتۆماتیکی کەش' },
+            history:      { open: 'openHistoryWidget()',      icon: 'fa-clock-rotate-left',  color: 'lime',    label: 'بینینی تۆماری چالاکی' },
+            homecinema:   { open: 'openHomeCinemaWidget()',   icon: 'fa-clapperboard',       color: 'fuchsia', label: 'تاقیکردنەوەی شەوی فیلم' },
+            projector:    { open: 'openProjectorWidget()',    icon: 'fa-video',              color: 'violet',  label: 'تاقیکردنەوەی پرۆژێکتەر' },
+            secureaccess: { open: 'openSecureAccessWidget()', icon: 'fa-camera',             color: 'blue',    label: 'تاقیکردنەوەی بینین و کردنەوەی دەرگا' },
+            answercall:   { open: 'openAnswerCallWidget()',   icon: 'fa-phone-volume',       color: 'teal',    label: 'تاقیکردنەوەی پەیوەندی دەرگا' }
+        };
 
         function renderModelsGrid(modelsList) {
             const grid = document.getElementById('modal-models-grid');
@@ -1769,7 +2385,8 @@
             grid.innerHTML = modelsList.map((item) => {
                 const titleText = item.title[currentLang] || item.title['ckb'];
                 const descText = item.desc[currentLang] || item.desc['ckb'];
-                
+                const t = INTERACTIVE_TEST_BUTTONS[item.interactive];
+
                 return `
                     <div class="bg-slate-900/90 rounded-2xl border border-slate-800 p-4 flex flex-col justify-between hover:border-brand-cyan/60 transition-all shadow-lg group">
                         <div class="space-y-3">
@@ -1782,35 +2399,10 @@
                             </div>
                         </div>
                         <div class="pt-4 mt-3 border-t border-slate-800/80 flex flex-col gap-2">
-                            ${item.interactive === 'bulb' ? `
-                            <button onclick="openBulbWidget()" class="w-full bg-yellow-400/10 hover:bg-yellow-400 hover:text-slate-950 text-yellow-300 border border-yellow-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-lightbulb"></i>
-                                <span>تاقیکردنەوەی گڵۆپی زیرەک</span>
-                            </button>` : ''}
-                            ${item.interactive === 'curtain' ? `
-                            <button onclick="openCurtainWidget()" class="w-full bg-sky-400/10 hover:bg-sky-400 hover:text-slate-950 text-sky-300 border border-sky-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-window-maximize"></i>
-                                <span>تاقیکردنەوەی پەردەی زیرەک</span>
-                            </button>` : ''}
-                            ${item.interactive === 'thermostat' ? `
-                            <button onclick="openThermostatWidget()" class="w-full bg-orange-400/10 hover:bg-orange-400 hover:text-slate-950 text-orange-300 border border-orange-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-temperature-half"></i>
-                                <span>تاقیکردنەوەی تەرمۆستاتی زیرەک</span>
-                            </button>` : ''}
-                            ${item.interactive === 'alarm' ? `
-                            <button onclick="openAlarmWidget()" class="w-full bg-red-400/10 hover:bg-red-400 hover:text-slate-950 text-red-300 border border-red-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-shield-halved"></i>
-                                <span>تاقیکردنەوەی سیستەمی ئاسایش</span>
-                            </button>` : ''}
-                            ${item.interactive === 'cinema' ? `
-                            <button onclick="openCinemaWidget()" class="w-full bg-purple-400/10 hover:bg-purple-400 hover:text-slate-950 text-purple-300 border border-purple-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-clapperboard"></i>
-                                <span>تاقیکردنەوەی سینەمای زیرەک</span>
-                            </button>` : ''}
-                            ${item.interactive === 'lock' ? `
-                            <button onclick="openLockWidget()" class="w-full bg-cyan-400/10 hover:bg-cyan-400 hover:text-slate-950 text-cyan-300 border border-cyan-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
-                                <i class="fa-solid fa-lock"></i>
-                                <span>تاقیکردنەوەی کیلۆنی زیرەک</span>
+                            ${t ? `
+                            <button onclick="${t.open}" class="w-full bg-${t.color}-400/10 hover:bg-${t.color}-400 hover:text-slate-950 text-${t.color}-300 border border-${t.color}-400/40 font-bold py-2 rounded-xl text-xs transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid ${t.icon}"></i>
+                                <span>${t.label}</span>
                             </button>` : ''}
                         </div>
                     </div>
@@ -1936,6 +2528,44 @@
             }
         });
 
+        // ---------- Shared helper: simulate real device pairing/connect delay ----------
+        // Real smart-home devices take a brief moment to respond over wifi when
+        // switching ON. We fake that latency for realism (switching OFF stays instant).
+        function powerDelay(btnId, badgeId, run) {
+            const btn = document.getElementById(btnId);
+            const badge = document.getElementById(badgeId);
+            const connectingLabel = currentLang === 'en' ? 'CONNECTING...' : (currentLang === 'ar' ? 'جارٍ الاتصال...' : 'پەیوەستبوون...');
+            let icon = null, iconPrevClass = '';
+            if (btn) {
+                btn.disabled = true;
+                btn.classList.add('opacity-80', 'pointer-events-none');
+                icon = btn.querySelector('i');
+                if (icon) { iconPrevClass = icon.className; icon.className = 'fa-solid fa-circle-notch fa-spin text-sm'; }
+            }
+            if (badge) {
+                badge.innerText = connectingLabel;
+                badge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-slate-700/40 text-slate-300 border border-slate-600/40 tracking-wide uppercase animate-pulse';
+            }
+            // Randomised, slightly variable latency reads more like a real wifi
+            // round-trip than a fixed timer would.
+            const latency = 380 + Math.round(Math.random() * 260);
+            setTimeout(() => {
+                if (btn) { btn.disabled = false; btn.classList.remove('opacity-80', 'pointer-events-none'); }
+                if (icon) { icon.className = iconPrevClass; }
+                run();
+            }, latency);
+        }
+
+        // Grey out and disable a slider when its device is powered off, since a
+        // real device won't accept level changes while off.
+        function setSliderEnabled(sliderId, enabled) {
+            const el = document.getElementById(sliderId);
+            if (!el) return;
+            el.disabled = !enabled;
+            el.classList.toggle('opacity-40', !enabled);
+            el.classList.toggle('cursor-not-allowed', !enabled);
+        }
+
         // ---------- Smart Bulb Widget ----------
         let isBulbOn = false;
         let currentColor = '#00F0FF';
@@ -1990,24 +2620,41 @@
         }
 
         function toggleSmartBulb() {
+            const turningOn = !isBulbOn;
+            if (turningOn) {
+                powerDelay('bulb-power-btn', 'bulb-status-badge', _commitToggleSmartBulb);
+            } else {
+                _commitToggleSmartBulb();
+            }
+        }
+
+        function _commitToggleSmartBulb() {
+            const wasOff = !isBulbOn;
             isBulbOn = !isBulbOn;
             const statusBadge = document.getElementById('bulb-status-badge');
             const powerBtnText = document.getElementById('power-btn-text');
             const powerBtn = document.getElementById('bulb-power-btn');
+            const svg = document.getElementById('smart-bulb-svg');
 
             if (isBulbOn) {
+                if (wasOff && svg) {
+                    svg.classList.remove('bulb-flicker-on');
+                    void svg.offsetWidth; // restart animation
+                    svg.classList.add('bulb-flicker-on');
+                }
                 statusBadge.innerText = currentLang === 'en' ? 'ON' : (currentLang === 'ar' ? 'مفعل' : 'داگیرساوە');
-                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
                 powerBtnText.innerText = currentLang === 'en' ? 'Turn Off' : (currentLang === 'ar' ? 'إطفاء' : 'کوژاندنەوە');
-                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
+                powerBtn.className = 'hs-power-btn px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
             } else {
                 statusBadge.innerText = currentLang === 'en' ? 'OFF' : (currentLang === 'ar' ? 'معطل' : 'کوژاوەتەوە');
-                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
                 powerBtnText.innerText = currentLang === 'en' ? 'Turn On' : (currentLang === 'ar' ? 'تشغيل' : 'داگیرساندن');
-                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+                powerBtn.className = 'px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
             }
 
             renderBulbVisual();
+            setSliderEnabled('brightness-range', isBulbOn);
         }
 
         function updateBulbBrightness(value) {
@@ -2053,18 +2700,27 @@
 
             if (value > 0) {
                 statusBadge.innerText = currentLang === 'en' ? 'OPEN' : (currentLang === 'ar' ? 'مفتوح' : 'کراوەتەوە');
-                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
                 powerBtnText.innerText = currentLang === 'en' ? 'Close' : (currentLang === 'ar' ? 'إغلاق' : 'داخستن');
-                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
+                powerBtn.className = 'hs-power-btn px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
             } else {
                 statusBadge.innerText = currentLang === 'en' ? 'CLOSED' : (currentLang === 'ar' ? 'مغلق' : 'داخراوە');
-                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
                 powerBtnText.innerText = currentLang === 'en' ? 'Open' : (currentLang === 'ar' ? 'فتح' : 'کردنەوە');
-                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+                powerBtn.className = 'px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
             }
         }
 
         function toggleCurtain() {
+            const turningOn = !isCurtainOpen;
+            if (turningOn) {
+                powerDelay('curtain-power-btn', 'curtain-status-badge', _commitToggleCurtain);
+            } else {
+                _commitToggleCurtain();
+            }
+        }
+
+        function _commitToggleCurtain() {
             isCurtainOpen = !isCurtainOpen;
             const slider = document.getElementById('curtain-range');
             const percentText = document.getElementById('curtain-percent-text');
@@ -2120,6 +2776,15 @@
         }
 
         function toggleThermostat() {
+            const turningOn = !isThermostatOn;
+            if (turningOn) {
+                powerDelay('thermo-power-btn', 'thermo-status-badge', _commitToggleThermostat);
+            } else {
+                _commitToggleThermostat();
+            }
+        }
+
+        function _commitToggleThermostat() {
             isThermostatOn = !isThermostatOn;
             const statusBadge = document.getElementById('thermo-status-badge');
             const powerBtnText = document.getElementById('thermo-power-btn-text');
@@ -2127,14 +2792,14 @@
 
             if (isThermostatOn) {
                 statusBadge.innerText = currentLang === 'en' ? 'ON' : (currentLang === 'ar' ? 'مفعل' : 'داگیرساوە');
-                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
                 powerBtnText.innerText = currentLang === 'en' ? 'Turn Off' : (currentLang === 'ar' ? 'إطفاء' : 'کوژاندنەوە');
-                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
+                powerBtn.className = 'hs-power-btn px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
             } else {
                 statusBadge.innerText = currentLang === 'en' ? 'OFF' : (currentLang === 'ar' ? 'معطل' : 'کوژاوەتەوە');
-                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
                 powerBtnText.innerText = currentLang === 'en' ? 'Turn On' : (currentLang === 'ar' ? 'تشغيل' : 'داگیرساندن');
-                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+                powerBtn.className = 'px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
             }
 
             renderThermostatVisual();
@@ -2178,13 +2843,13 @@
             if (!iconCircle || !icon) return;
 
             if (isAlarmArmed) {
-                iconCircle.className = 'relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-emerald-500/20 border-emerald-400 shadow-xl shadow-emerald-500/20';
+                iconCircle.className = 'hs-icon-plate relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-emerald-500/20 border-emerald-400 shadow-xl shadow-emerald-500/20';
                 icon.className = 'fa-solid fa-shield-halved text-6xl sm:text-7xl text-emerald-400 transition-all duration-500';
                 if (glow) { glow.style.backgroundColor = '#00E676'; glow.style.opacity = '0.3'; }
                 if (radar1) radar1.classList.add('radar-active');
                 if (radar2) radar2.classList.add('radar-active');
             } else {
-                iconCircle.className = 'relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700';
+                iconCircle.className = 'relative w-40 h-40 sm:w-48 sm:h-48 hs-icon-plate rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700';
                 icon.className = 'fa-solid fa-shield-halved text-6xl sm:text-7xl text-slate-500 transition-all duration-500';
                 if (glow) { glow.style.opacity = '0'; }
                 if (radar1) radar1.classList.remove('radar-active');
@@ -2193,6 +2858,15 @@
         }
 
         function toggleAlarm() {
+            const turningOn = !isAlarmArmed;
+            if (turningOn) {
+                powerDelay('alarm-power-btn', 'alarm-status-badge', _commitToggleAlarm);
+            } else {
+                _commitToggleAlarm();
+            }
+        }
+
+        function _commitToggleAlarm() {
             isAlarmArmed = !isAlarmArmed;
             const statusBadge = document.getElementById('alarm-status-badge');
             const powerBtnText = document.getElementById('alarm-power-btn-text');
@@ -2200,17 +2874,18 @@
 
             if (isAlarmArmed) {
                 statusBadge.innerText = currentLang === 'en' ? 'ARMED' : (currentLang === 'ar' ? 'مفعل' : 'چەکدارکراوە');
-                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
                 powerBtnText.innerText = currentLang === 'en' ? 'Disarm' : (currentLang === 'ar' ? 'إلغاء التفعيل' : 'لابردنی چەکدار');
-                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
+                powerBtn.className = 'hs-power-btn px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
             } else {
                 statusBadge.innerText = currentLang === 'en' ? 'DISARMED' : (currentLang === 'ar' ? 'غير مفعل' : 'لابراوە');
-                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
                 powerBtnText.innerText = currentLang === 'en' ? 'Arm System' : (currentLang === 'ar' ? 'تفعيل النظام' : 'چەکدارکردن');
-                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+                powerBtn.className = 'px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
             }
 
             renderAlarmVisual();
+            setSliderEnabled('alarm-sensitivity-range', isAlarmArmed);
         }
 
         function updateAlarmSensitivity(val) {
@@ -2232,25 +2907,49 @@
 
         // ---------- Smart Cinema Widget ----------
         let isCinemaOn = false;
+        let cinemaScene = 'movie';
+        const cinemaSceneColors = { movie: '#a855f7', sports: '#22c55e', gaming: '#22d3ee' };
+        const CINEMA_SCENES = ['movie', 'sports', 'gaming'];
 
         function renderCinemaVisual() {
             const screen = document.getElementById('cinema-screen');
             const beam = document.getElementById('cinema-beam');
             const glow = document.getElementById('cinema-bg-glow');
+            const ball = document.getElementById('cinema-ball');
             if (!screen || !beam) return;
 
+            const beamColor = cinemaSceneColors[cinemaScene] || '#a855f7';
+
             if (isCinemaOn) {
-                screen.setAttribute('fill', '#a855f7');
-                beam.setAttribute('opacity', '0.6');
-                if (glow) { glow.style.backgroundColor = '#a855f7'; glow.style.opacity = '0.35'; }
+                screen.setAttribute('fill', '#0f172a');
+                screen.classList.add('screen-playing');
+                beam.setAttribute('fill', beamColor);
+                beam.setAttribute('opacity', '0.55');
+                if (glow) { glow.style.backgroundColor = beamColor; glow.style.opacity = '0.35'; }
             } else {
                 screen.setAttribute('fill', '#1e293b');
+                screen.classList.remove('screen-playing');
                 beam.setAttribute('opacity', '0');
                 if (glow) { glow.style.opacity = '0'; }
             }
+
+            CINEMA_SCENES.forEach(s => {
+                const g = document.getElementById('cinema-screen-' + s);
+                if (g) g.setAttribute('opacity', (isCinemaOn && s === cinemaScene) ? '1' : '0');
+            });
+            if (ball) ball.classList.toggle('ball-active', isCinemaOn && cinemaScene === 'sports');
         }
 
         function toggleCinema() {
+            const turningOn = !isCinemaOn;
+            if (turningOn) {
+                powerDelay('cinema-power-btn', 'cinema-status-badge', _commitToggleCinema);
+            } else {
+                _commitToggleCinema();
+            }
+        }
+
+        function _commitToggleCinema() {
             isCinemaOn = !isCinemaOn;
             const statusBadge = document.getElementById('cinema-status-badge');
             const powerBtnText = document.getElementById('cinema-power-btn-text');
@@ -2258,17 +2957,18 @@
 
             if (isCinemaOn) {
                 statusBadge.innerText = currentLang === 'en' ? 'PLAYING' : (currentLang === 'ar' ? 'يعمل' : 'داگیرساوە');
-                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-lg shadow-purple-500/10 tracking-wide uppercase';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-purple-500/20 text-purple-300 border border-purple-500/40 shadow-lg shadow-purple-500/10 tracking-wide uppercase';
                 powerBtnText.innerText = currentLang === 'en' ? 'Turn Off' : (currentLang === 'ar' ? 'إطفاء' : 'کوژاندنەوە');
-                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-purple-500 text-slate-950 hover:bg-purple-400 transition-all border border-purple-400 flex items-center gap-2 shadow-lg shadow-purple-500/20 active:scale-95 shrink-0';
+                powerBtn.className = 'hs-power-btn px-4 py-2.5 rounded-2xl font-black text-[11px] bg-purple-500 text-slate-950 hover:bg-purple-400 transition-all border border-purple-400 flex items-center gap-2 shadow-lg shadow-purple-500/20 active:scale-95 shrink-0';
             } else {
                 statusBadge.innerText = currentLang === 'en' ? 'OFF' : (currentLang === 'ar' ? 'معطل' : 'کوژاوەتەوە');
-                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
                 powerBtnText.innerText = currentLang === 'en' ? 'Turn On' : (currentLang === 'ar' ? 'تشغيل' : 'داگیرساندن');
-                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+                powerBtn.className = 'px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
             }
 
             renderCinemaVisual();
+            setSliderEnabled('cinema-volume-range', isCinemaOn);
         }
 
         function updateCinemaVolume(val) {
@@ -2276,6 +2976,7 @@
         }
 
         function setCinemaScene(scene) {
+            cinemaScene = scene;
             ['movie', 'sports', 'gaming'].forEach(s => {
                 const btn = document.getElementById('cinema-scene-' + s);
                 if (!btn) return;
@@ -2286,12 +2987,17 @@
                 }
             });
 
-            if (!isCinemaOn) toggleCinema();
+            if (!isCinemaOn) {
+                toggleCinema();
+            } else {
+                renderCinemaVisual();
+            }
         }
 
         // ---------- Smart Lock Widget ----------
         let isUnlocked = false;
         let enteredPin = "";
+        const LOCK_CORRECT_PIN = "1234";
 
         function renderLockVisual() {
             const iconCircle = document.getElementById('lock-icon-circle');
@@ -2301,12 +3007,12 @@
             if (!iconCircle || !icon) return;
 
             if (isUnlocked) {
-                iconCircle.className = 'relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-emerald-500/20 border-emerald-400 shadow-xl shadow-emerald-500/20';
+                iconCircle.className = 'hs-icon-plate relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-emerald-500/20 border-emerald-400 shadow-xl shadow-emerald-500/20';
                 icon.className = 'fa-solid fa-lock-open text-6xl sm:text-7xl text-emerald-400 transition-all duration-500';
                 if (glow) { glow.style.backgroundColor = '#00E676'; glow.style.opacity = '0.3'; }
                 if (led) { led.className = 'absolute top-9 right-9 w-2.5 h-2.5 rounded-full bg-emerald-400 shadow-[0_0_8px_2px_rgba(52,211,153,0.6)] transition-all duration-500'; }
             } else {
-                iconCircle.className = 'relative w-40 h-40 sm:w-48 sm:h-48 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700';
+                iconCircle.className = 'relative w-40 h-40 sm:w-48 sm:h-48 hs-icon-plate rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700';
                 icon.className = 'fa-solid fa-lock text-6xl sm:text-7xl text-slate-500 transition-all duration-500';
                 if (glow) { glow.style.opacity = '0'; }
                 if (led) { led.className = 'absolute top-9 right-9 w-2.5 h-2.5 rounded-full bg-red-500 shadow-[0_0_8px_2px_rgba(239,68,68,0.6)] transition-all duration-500'; }
@@ -2314,6 +3020,15 @@
         }
 
         function toggleLock() {
+            const turningOn = !isUnlocked;
+            if (turningOn) {
+                powerDelay('lock-power-btn', 'lock-status-badge', _commitToggleLock);
+            } else {
+                _commitToggleLock();
+            }
+        }
+
+        function _commitToggleLock() {
             isUnlocked = !isUnlocked;
             const statusBadge = document.getElementById('lock-status-badge');
             const powerBtnText = document.getElementById('lock-power-btn-text');
@@ -2321,14 +3036,14 @@
 
             if (isUnlocked) {
                 statusBadge.innerText = currentLang === 'en' ? 'UNLOCKED' : (currentLang === 'ar' ? 'مفتوح' : 'کراوەتەوە');
-                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
                 powerBtnText.innerText = currentLang === 'en' ? 'Lock' : (currentLang === 'ar' ? 'قفل' : 'قوفڵکردن');
-                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
+                powerBtn.className = 'hs-power-btn px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
             } else {
                 statusBadge.innerText = currentLang === 'en' ? 'LOCKED' : (currentLang === 'ar' ? 'مقفل' : 'قوفڵکراوە');
-                statusBadge.className = 'px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
                 powerBtnText.innerText = currentLang === 'en' ? 'Unlock' : (currentLang === 'ar' ? 'فتح القفل' : 'کردنەوە');
-                powerBtn.className = 'px-4 py-2.5 rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+                powerBtn.className = 'px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
             }
 
             renderLockVisual();
@@ -2349,15 +3064,523 @@
         function updatePinDisplay() {
             const display = document.getElementById('lock-pin-display');
             if (display) {
-                display.innerText = enteredPin.padEnd(4, '-');
+                // Mask entered digits like a real keypad — only length is shown.
+                display.innerText = '●'.repeat(enteredPin.length).padEnd(4, '-');
             }
         }
 
         function submitLockPin() {
-            if (enteredPin.length === 4) {
+            const display = document.getElementById('lock-pin-display');
+            if (enteredPin.length !== 4) return;
+
+            if (isUnlocked) {
+                // Already unlocked: any submit just re-locks the door.
                 toggleLock();
                 clearLockPin();
+                return;
             }
+
+            if (enteredPin === LOCK_CORRECT_PIN) {
+                if (display) {
+                    display.classList.remove('text-cyan-400', 'border-slate-800');
+                    display.classList.add('text-emerald-400', 'border-emerald-500/40');
+                }
+                toggleLock();
+                setTimeout(() => {
+                    if (display) {
+                        display.classList.add('text-cyan-400', 'border-slate-800');
+                        display.classList.remove('text-emerald-400', 'border-emerald-500/40');
+                    }
+                    clearLockPin();
+                }, 700);
+            } else {
+                if (display) {
+                    display.classList.remove('text-cyan-400');
+                    display.classList.add('text-red-400', 'shake-error');
+                    display.innerText = 'هەڵەیە';
+                    setTimeout(() => {
+                        display.classList.remove('shake-error', 'text-red-400');
+                        display.classList.add('text-cyan-400');
+                        clearLockPin();
+                    }, 550);
+                }
+            }
+        }
+
+        // ---------- Smart Speaker Widget ----------
+        let isSpeakerPlaying = false;
+        let speakerRoom = 'living';
+        const speakerRoomNames = { living: 'ژووری دانیشتنەوە', kitchen: 'چێشتخانە', bedroom: 'ژووری نوستن' };
+        const speakerTracks = { living: 'Chill Lounge Mix', kitchen: 'Morning Jazz', bedroom: 'Soft Piano Focus' };
+
+        function renderSpeakerVisual() {
+            const circle = document.getElementById('speaker-icon-circle');
+            const icon = document.getElementById('speaker-icon');
+            const glow = document.getElementById('speaker-bg-glow');
+            const eq = document.getElementById('speaker-eq');
+            if (!circle || !icon) return;
+            if (isSpeakerPlaying) {
+                circle.className = 'relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-emerald-500/20 border-4 border-emerald-400 shadow-xl shadow-emerald-500/20 transition-all duration-500';
+                icon.className = 'fa-solid fa-volume-high text-6xl sm:text-7xl text-emerald-400/30 transition-all duration-500';
+                if (glow) { glow.style.backgroundColor = '#00E676'; glow.style.opacity = '0.3'; }
+                if (eq) eq.classList.add('eq-playing');
+            } else {
+                circle.className = 'relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-slate-800/60 border-4 border-slate-700 transition-all duration-500';
+                icon.className = 'fa-solid fa-volume-high text-6xl sm:text-7xl text-slate-500 transition-all duration-500';
+                if (glow) glow.style.opacity = '0';
+                if (eq) eq.classList.remove('eq-playing');
+            }
+        }
+
+        function toggleSpeaker() {
+            const turningOn = !isSpeakerPlaying;
+            if (turningOn) {
+                powerDelay('speaker-power-btn', 'speaker-status-badge', _commitToggleSpeaker);
+            } else {
+                _commitToggleSpeaker();
+            }
+        }
+
+        function _commitToggleSpeaker() {
+            isSpeakerPlaying = !isSpeakerPlaying;
+            const statusBadge = document.getElementById('speaker-status-badge');
+            const btnText = document.getElementById('speaker-power-btn-text');
+            const btnIcon = document.getElementById('speaker-power-icon');
+            const btn = document.getElementById('speaker-power-btn');
+            const trackText = document.getElementById('speaker-track-text');
+            if (isSpeakerPlaying) {
+                statusBadge.innerText = 'لێدەدرێت';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-lg shadow-emerald-500/10 tracking-wide uppercase';
+                btnText.innerText = 'وەستاندن';
+                btnIcon.className = 'fa-solid fa-pause text-sm';
+                btn.className = 'hs-power-btn px-4 py-2.5 rounded-2xl font-black text-[11px] bg-emerald-500 text-slate-950 hover:bg-emerald-400 transition-all border border-emerald-400 flex items-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 shrink-0';
+                trackText.innerText = '🎵 ' + speakerTracks[speakerRoom] + ' — ' + speakerRoomNames[speakerRoom];
+            } else {
+                statusBadge.innerText = 'وەستاوە';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                btnText.innerText = 'لێدان';
+                btnIcon.className = 'fa-solid fa-play text-sm';
+                btn.className = 'px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+                trackText.innerText = 'هیچ مۆزیکێک ناژەنرێت';
+            }
+            renderSpeakerVisual();
+            setSliderEnabled('speaker-volume-range', isSpeakerPlaying);
+        }
+
+        function setSpeakerRoom(room, btnEl) {
+            speakerRoom = room;
+            document.querySelectorAll('.speaker-room-btn').forEach(b => {
+                b.className = 'speaker-room-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700';
+            });
+            btnEl.className = 'speaker-room-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-emerald-400/10 text-emerald-300 border-emerald-400/40';
+            if (isSpeakerPlaying) {
+                document.getElementById('speaker-track-text').innerText = '🎵 ' + speakerTracks[room] + ' — ' + speakerRoomNames[room];
+            }
+        }
+
+        function updateSpeakerVolume(val) {
+            document.getElementById('speaker-volume-text').innerText = val + '%';
+        }
+
+        // ---------- Smart Amplifier Widget ----------
+        let isAmpOn = false;
+        let ampZone = '1';
+        let ampSource = 'tv';
+        const ampSourceNames = { tv: 'تەلەفزیۆن', bt: 'بلوتوس', phone: 'مۆبایل' };
+
+        function renderAmpVisual() {
+            const circle = document.getElementById('amp-icon-circle');
+            const icon = document.getElementById('amp-icon');
+            const glow = document.getElementById('amp-bg-glow');
+            const vu = document.getElementById('amp-vu');
+            if (!circle || !icon) return;
+            if (isAmpOn) {
+                circle.className = 'relative flex flex-col items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-indigo-500/20 border-4 border-indigo-400 shadow-xl shadow-indigo-500/20 transition-all duration-500 gap-1';
+                icon.className = 'fa-solid fa-sliders text-4xl sm:text-5xl text-indigo-400 transition-all duration-500 mb-2';
+                if (glow) { glow.style.backgroundColor = '#818CF8'; glow.style.opacity = '0.3'; }
+                if (vu) vu.classList.add('vu-playing');
+            } else {
+                circle.className = 'relative flex flex-col items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-slate-800/60 border-4 border-slate-700 transition-all duration-500 gap-1';
+                icon.className = 'fa-solid fa-sliders text-4xl sm:text-5xl text-slate-500 transition-all duration-500 mb-2';
+                if (glow) glow.style.opacity = '0';
+                if (vu) vu.classList.remove('vu-playing');
+            }
+        }
+
+        function toggleAmplifier() {
+            const turningOn = !isAmpOn;
+            if (turningOn) {
+                powerDelay('amp-power-btn', 'amp-status-badge', _commitToggleAmplifier);
+            } else {
+                _commitToggleAmplifier();
+            }
+        }
+
+        function _commitToggleAmplifier() {
+            isAmpOn = !isAmpOn;
+            const statusBadge = document.getElementById('amp-status-badge');
+            const btnText = document.getElementById('amp-power-btn-text');
+            const btn = document.getElementById('amp-power-btn');
+            const zoneText = document.getElementById('amp-zone-text');
+            if (isAmpOn) {
+                statusBadge.innerText = 'کارا';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-indigo-500/20 text-indigo-300 border border-indigo-500/40 shadow-lg shadow-indigo-500/10 tracking-wide uppercase';
+                btnText.innerText = 'کوژاندنەوە';
+                btn.className = 'hs-power-btn px-4 py-2.5 rounded-2xl font-black text-[11px] bg-indigo-500 text-slate-950 hover:bg-indigo-400 transition-all border border-indigo-400 flex items-center gap-2 shadow-lg shadow-indigo-500/20 active:scale-95 shrink-0';
+                zoneText.innerText = 'زۆنی ' + ampZone + ' — سەرچاوە: ' + ampSourceNames[ampSource];
+            } else {
+                statusBadge.innerText = 'کوژاوەتەوە';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                btnText.innerText = 'داگیرساندن';
+                btn.className = 'px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+                zoneText.innerText = 'زۆنێک هەڵنەبژێردراوە';
+            }
+            renderAmpVisual();
+            setSliderEnabled('amp-volume-range', isAmpOn);
+        }
+
+        function setAmpZone(zone, btnEl) {
+            ampZone = zone;
+            document.querySelectorAll('.amp-zone-btn').forEach(b => {
+                b.className = 'amp-zone-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700';
+            });
+            btnEl.className = 'amp-zone-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-indigo-400/10 text-indigo-300 border-indigo-400/40';
+            if (isAmpOn) document.getElementById('amp-zone-text').innerText = 'زۆنی ' + zone + ' — سەرچاوە: ' + ampSourceNames[ampSource];
+        }
+
+        function setAmpSource(src, btnEl) {
+            ampSource = src;
+            document.querySelectorAll('.amp-source-btn').forEach(b => {
+                b.className = 'amp-source-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700';
+            });
+            btnEl.className = 'amp-source-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-indigo-400/10 text-indigo-300 border-indigo-400/40';
+            if (isAmpOn) document.getElementById('amp-zone-text').innerText = 'زۆنی ' + ampZone + ' — سەرچاوە: ' + ampSourceNames[src];
+        }
+
+        function updateAmpVolume(val) {
+            document.getElementById('amp-volume-text').innerText = val + '%';
+        }
+
+        // ---------- Automated Climate Widget ----------
+        let isClimateAuto = false;
+        const climateModeNames = { morning: 'خشتەی بەیانی چالاکە', away: 'دۆخی دەرەوە چالاکە', night: 'خشتەی شەو چالاکە' };
+
+        function toggleClimate() {
+            const turningOn = !isClimateAuto;
+            if (turningOn) {
+                powerDelay('climate-power-btn', 'climate-status-badge', _commitToggleClimate);
+            } else {
+                _commitToggleClimate();
+            }
+        }
+
+        function _commitToggleClimate() {
+            isClimateAuto = !isClimateAuto;
+            const statusBadge = document.getElementById('climate-status-badge');
+            const btnText = document.getElementById('climate-power-btn-text');
+            const btn = document.getElementById('climate-power-btn');
+            const icon = document.getElementById('climate-icon');
+            const circle = document.getElementById('climate-icon-circle');
+            const glow = document.getElementById('climate-bg-glow');
+            const modeText = document.getElementById('climate-mode-text');
+            if (isClimateAuto) {
+                statusBadge.innerText = 'ئۆتۆماتیکی';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-lg shadow-amber-500/10 tracking-wide uppercase';
+                btnText.innerText = 'وەستاندنی ئۆتۆماتیک';
+                btn.className = 'hs-power-btn px-4 py-2.5 rounded-2xl font-black text-[11px] bg-amber-500 text-slate-950 hover:bg-amber-400 transition-all border border-amber-400 flex items-center gap-2 shadow-lg shadow-amber-500/20 active:scale-95 shrink-0';
+                icon.className = 'fa-solid fa-fan text-6xl sm:text-7xl text-amber-400 spin-slow transition-all duration-500';
+                circle.className = 'relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-amber-500/20 border-4 border-amber-400 shadow-xl shadow-amber-500/20 transition-all duration-500';
+                if (glow) { glow.style.backgroundColor = '#FBBF24'; glow.style.opacity = '0.3'; }
+                modeText.innerText = climateModeNames[currentClimateMode];
+            } else {
+                statusBadge.innerText = 'مانوواڵ';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                btnText.innerText = 'چالاککردنی ئۆتۆماتیک';
+                btn.className = 'px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+                icon.className = 'fa-solid fa-fan text-6xl sm:text-7xl text-slate-500 transition-all duration-500';
+                circle.className = 'relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-slate-800/60 border-4 border-slate-700 transition-all duration-500';
+                if (glow) glow.style.opacity = '0';
+                modeText.innerText = 'خشتەیەک چالاک نییە';
+            }
+        }
+
+        let currentClimateMode = 'morning';
+        function setClimateMode(mode, btnEl) {
+            currentClimateMode = mode;
+            document.querySelectorAll('.climate-mode-btn').forEach(b => {
+                b.className = 'climate-mode-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-slate-800 text-slate-400 border-slate-700';
+            });
+            btnEl.className = 'climate-mode-btn py-2 rounded-xl text-[11px] font-black border transition-all bg-amber-400/10 text-amber-300 border-amber-400/40';
+            if (isClimateAuto) document.getElementById('climate-mode-text').innerText = climateModeNames[mode];
+        }
+
+        function toggleClimateZone(btnEl) {
+            const isOn = btnEl.getAttribute('data-on') === 'true';
+            const span = btnEl.querySelector('span');
+            if (isOn) {
+                btnEl.setAttribute('data-on', 'false');
+                btnEl.className = 'climate-zone-toggle w-11 h-6 rounded-full bg-slate-700 relative transition-all';
+                span.className = 'absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white transition-all';
+            } else {
+                btnEl.setAttribute('data-on', 'true');
+                btnEl.className = 'climate-zone-toggle w-11 h-6 rounded-full bg-amber-400 relative transition-all';
+                span.className = 'absolute top-0.5 right-0.5 w-5 h-5 rounded-full bg-white transition-all';
+            }
+        }
+
+        // ---------- Activity History Widget ----------
+        const historyEventPool = [
+            { icon: 'fa-lock', color: 'blue', text: 'دەرگای پشتەوە قوفڵکرا' },
+            { icon: 'fa-bell', color: 'purple', text: 'زەنگی دەرگا لێدرا' },
+            { icon: 'fa-lightbulb', color: 'yellow', text: 'ڕووناکی حەوشە داگیرسا' },
+            { icon: 'fa-video', color: 'cyan', text: 'کامێرای سەرەکی تۆماری کرد' }
+        ];
+        let historyEventCount = 4;
+
+        function simulateHistoryEvent() {
+            const list = document.getElementById('history-log-list');
+            const countText = document.getElementById('history-count-text');
+            if (!list) return;
+            const ev = historyEventPool[Math.floor(Math.random() * historyEventPool.length)];
+            const entry = document.createElement('div');
+            entry.className = 'flex items-start gap-3 bg-slate-900 border border-lime-500/30 rounded-xl px-3 py-2.5';
+            entry.innerHTML = `<div class="w-8 h-8 rounded-lg bg-${ev.color}-500/10 text-${ev.color}-400 flex items-center justify-center shrink-0"><i class="fa-solid ${ev.icon} text-xs"></i></div><div class="flex-1"><p class="text-xs font-bold text-slate-200">${ev.text}</p><p class="text-[10px] text-slate-500 mt-0.5">ئێستا — ڕاستەوخۆ</p></div>`;
+            list.prepend(entry);
+            historyEventCount++;
+            if (countText) countText.innerText = historyEventCount + ' ڕووداو لە دوایین ٢٤ کاتژمێر';
+        }
+
+        // ---------- Home Cinema Systems (Scene) Widget ----------
+        let hcRunning = false;
+        function startMovieScene() {
+            if (hcRunning) return;
+            hcRunning = true;
+            const startBtn = document.getElementById('hc-start-btn');
+            const startText = document.getElementById('hc-start-text');
+            const statusBadge = document.getElementById('hc-status-badge');
+            const icon = document.getElementById('hc-icon');
+            const circle = document.getElementById('hc-icon-circle');
+            const glow = document.getElementById('hc-bg-glow');
+            startText.innerText = 'ئامادەکردن...';
+            startBtn.classList.add('opacity-60', 'pointer-events-none');
+            statusBadge.innerText = 'ئامادەکردن...';
+            statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-fuchsia-500/20 text-fuchsia-300 border border-fuchsia-500/40 tracking-wide uppercase';
+
+            const steps = document.querySelectorAll('.hc-step');
+            steps.forEach((el, i) => {
+                setTimeout(() => {
+                    el.className = 'hc-step flex items-center gap-2 bg-fuchsia-500/10 border border-fuchsia-400/40 rounded-xl px-3 py-2.5 transition-all';
+                    const iconEl = el.querySelector('.hc-step-icon');
+                    iconEl.className = 'fa-solid ' + iconEl.getAttribute('data-icon') + ' text-fuchsia-300 hc-step-icon';
+                    el.querySelector('.hc-step-text').className = 'text-[11px] font-bold text-fuchsia-200 hc-step-text';
+                }, i * 500);
+            });
+
+            setTimeout(() => {
+                icon.className = 'fa-solid fa-clapperboard text-6xl sm:text-7xl text-fuchsia-400 transition-all duration-500';
+                circle.className = 'relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-fuchsia-500/20 border-4 border-fuchsia-400 shadow-xl shadow-fuchsia-500/20 transition-all duration-500';
+                if (glow) { glow.style.backgroundColor = '#E879F9'; glow.style.opacity = '0.3'; }
+                statusBadge.innerText = 'ئامادەیە بۆ فیلم';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-fuchsia-500/20 text-fuchsia-300 border border-fuchsia-500/40 tracking-wide uppercase';
+                startText.innerText = 'گەڕانەوە بۆ سەرەتا';
+                startBtn.classList.remove('opacity-60', 'pointer-events-none');
+                hcRunning = false;
+                startBtn.onclick = resetMovieScene;
+            }, steps.length * 500 + 400);
+        }
+
+        function resetMovieScene() {
+            const startBtn = document.getElementById('hc-start-btn');
+            const startText = document.getElementById('hc-start-text');
+            const statusBadge = document.getElementById('hc-status-badge');
+            const icon = document.getElementById('hc-icon');
+            const circle = document.getElementById('hc-icon-circle');
+            const glow = document.getElementById('hc-bg-glow');
+            icon.className = 'fa-solid fa-clapperboard text-6xl sm:text-7xl text-slate-500 transition-all duration-500';
+            circle.className = 'relative flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-slate-800/60 border-4 border-slate-700 transition-all duration-500';
+            if (glow) glow.style.opacity = '0';
+            statusBadge.innerText = 'ئامادە نییە';
+            statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+            startText.innerText = 'دەستپێکردنی شەوی فیلم';
+            document.querySelectorAll('.hc-step').forEach(el => {
+                el.className = 'hc-step flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2.5 transition-all';
+                el.querySelector('.hc-step-icon').className = el.querySelector('.hc-step-icon').className.replace('text-fuchsia-300', 'text-slate-500');
+                el.querySelector('.hc-step-text').className = 'text-[11px] font-bold text-slate-400 hc-step-text';
+            });
+            startBtn.onclick = startMovieScene;
+        }
+
+        // ---------- Projector Widget ----------
+        let isProjectorOn = false;
+        function toggleProjector() {
+            const turningOn = !isProjectorOn;
+            if (turningOn) {
+                powerDelay('proj-power-btn', 'proj-status-badge', _commitToggleProjector);
+            } else {
+                _commitToggleProjector();
+            }
+        }
+
+        function _commitToggleProjector() {
+            isProjectorOn = !isProjectorOn;
+            const statusBadge = document.getElementById('proj-status-badge');
+            const btnText = document.getElementById('proj-power-btn-text');
+            const btn = document.getElementById('proj-power-btn');
+            const beam = document.getElementById('proj-beam');
+            const lens = document.getElementById('proj-lens');
+            const glow = document.getElementById('proj-bg-glow');
+            if (isProjectorOn) {
+                statusBadge.innerText = 'کارا';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-violet-500/20 text-violet-300 border border-violet-500/40 tracking-wide uppercase';
+                btnText.innerText = 'کوژاندنەوە';
+                btn.className = 'hs-power-btn px-4 py-2.5 rounded-2xl font-black text-[11px] bg-violet-500 text-slate-950 hover:bg-violet-400 transition-all border border-violet-400 flex items-center gap-2 shadow-lg shadow-violet-500/20 active:scale-95 shrink-0';
+                beam.classList.add('beam-on');
+                beam.style.opacity = '1';
+                lens.className = 'w-5 h-5 rounded-full bg-violet-400 border-2 border-violet-300 shadow-[0_0_10px_3px_rgba(167,139,250,0.7)] transition-all duration-500';
+                if (glow) { glow.style.backgroundColor = '#A78BFA'; glow.style.opacity = '0.25'; }
+            } else {
+                statusBadge.innerText = 'کوژاوەتەوە';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                btnText.innerText = 'داگیرساندن';
+                btn.className = 'px-4 py-2.5 hs-power-btn rounded-2xl font-black text-[11px] bg-slate-800 text-slate-300 hover:bg-slate-700 transition-all border border-slate-700 flex items-center gap-2 shadow-lg active:scale-95 shrink-0';
+                beam.classList.remove('beam-on');
+                beam.style.opacity = '0';
+                lens.className = 'w-5 h-5 rounded-full bg-slate-950 border-2 border-slate-600 transition-all duration-500';
+                if (glow) glow.style.opacity = '0';
+            }
+            renderProjectorImage();
+        }
+
+        function updateProjectorScreen(val) {
+            document.getElementById('proj-screen-text').innerText = val + '%';
+            document.getElementById('proj-screen').style.height = (6 + val * 0.6) + 'px';
+            renderProjectorImage();
+        }
+
+        function updateProjectorBrightness(val) {
+            document.getElementById('proj-brightness-text').innerText = val + '%';
+            const beam = document.getElementById('proj-beam');
+            if (beam) beam.style.borderRightColor = 'rgba(167,139,250,' + (0.08 + val / 400) + ')';
+            renderProjectorImage();
+        }
+
+        // A picture only actually shows once the screen has unrolled enough
+        // and the lamp is lit — mirrors how a real projector behaves.
+        function renderProjectorImage() {
+            const img = document.getElementById('proj-screen-image');
+            if (!img) return;
+            const screenVal = parseInt(document.getElementById('proj-screen-range').value, 10);
+            const brightness = parseInt(document.getElementById('proj-brightness-range').value, 10) / 100;
+            if (isProjectorOn && screenVal > 15) {
+                img.className = 'absolute inset-0 bg-gradient-to-br from-violet-500 via-fuchsia-400 to-cyan-400 transition-all duration-500';
+                img.style.opacity = (0.25 + brightness * 0.6).toFixed(2);
+            } else {
+                img.style.opacity = '0';
+            }
+        }
+
+        // ---------- Secure Access Widget ----------
+        let isSecureAccessUnlocked = false;
+        function toggleSecureAccessLock() {
+            isSecureAccessUnlocked = !isSecureAccessUnlocked;
+            const statusBadge = document.getElementById('sa-status-badge');
+            const unlockIcon = document.getElementById('sa-unlock-icon');
+            const unlockText = document.getElementById('sa-unlock-text');
+            if (isSecureAccessUnlocked) {
+                statusBadge.innerText = 'کراوەتەوە';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 tracking-wide uppercase';
+                unlockIcon.className = 'fa-solid fa-lock text-sm';
+                unlockText.innerText = 'قوفڵکردنەوە';
+            } else {
+                statusBadge.innerText = 'قوفڵکراوە';
+                statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-red-500/10 text-red-400 border border-red-500/20 tracking-wide uppercase';
+                unlockIcon.className = 'fa-solid fa-unlock text-sm';
+                unlockText.innerText = 'کردنەوەی دەرگا';
+            }
+        }
+
+        let isSecureAccessTalking = false;
+        function toggleSecureAccessTalk() {
+            isSecureAccessTalking = !isSecureAccessTalking;
+            const btn = document.getElementById('sa-talk-btn');
+            const text = document.getElementById('sa-talk-text');
+            if (isSecureAccessTalking) {
+                btn.className = 'w-full bg-blue-500 text-white border border-blue-400 font-black py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-2 active:scale-95 shadow-lg shadow-blue-500/20';
+                text.innerText = 'قسەکردن چالاکە...';
+            } else {
+                btn.className = 'w-full bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 font-black py-2.5 rounded-xl text-xs transition-all flex items-center justify-center gap-2 active:scale-95';
+                text.innerText = 'دەستپێکردنی قسەکردن';
+            }
+        }
+
+        // ---------- Answer Anywhere (Intercom Call) Widget ----------
+        let acCallTimer = null;
+        let acSeconds = 0;
+
+        function simulateIntercomCall() {
+            document.getElementById('ac-idle-panel').classList.add('hidden');
+            document.getElementById('ac-ringing-panel').classList.remove('hidden');
+            document.getElementById('ac-answered-panel').classList.add('hidden');
+
+            const statusBadge = document.getElementById('ac-status-badge');
+            const icon = document.getElementById('ac-icon');
+            const circle = document.getElementById('ac-icon-circle');
+            const ring1 = document.getElementById('ac-ring-1');
+            const ring2 = document.getElementById('ac-ring-2');
+            const glow = document.getElementById('ac-bg-glow');
+
+            statusBadge.innerText = 'پەیوەندی هاتووە...';
+            statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-teal-500/20 text-teal-300 border border-teal-500/40 tracking-wide uppercase';
+            icon.className = 'fa-solid fa-house text-5xl sm:text-6xl text-teal-400 transition-all duration-500';
+            circle.className = 'hs-icon-plate relative w-32 h-32 sm:w-36 sm:h-36 rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-teal-500/20 border-teal-400';
+            ring1.className = 'absolute inset-0 rounded-full border-4 border-teal-400/50 pulse-ring';
+            ring2.className = 'absolute inset-4 rounded-full border-4 border-teal-400/50 pulse-ring';
+            ring2.style.animationDelay = '.4s';
+            if (glow) { glow.style.backgroundColor = '#2DD4BF'; glow.style.opacity = '0.25'; }
+        }
+
+        function answerIntercomCall() {
+            document.getElementById('ac-ringing-panel').classList.add('hidden');
+            document.getElementById('ac-answered-panel').classList.remove('hidden');
+            document.getElementById('ac-status-badge').innerText = 'پەیوەندی چالاکە';
+
+            acSeconds = 0;
+            if (acCallTimer) clearInterval(acCallTimer);
+            acCallTimer = setInterval(() => {
+                acSeconds++;
+                const m = String(Math.floor(acSeconds / 60)).padStart(2, '0');
+                const s = String(acSeconds % 60).padStart(2, '0');
+                const timerEl = document.getElementById('ac-timer');
+                if (timerEl) timerEl.innerText = m + ':' + s;
+            }, 1000);
+        }
+
+        function openDoorFromCall() {
+            const statusBadge = document.getElementById('ac-status-badge');
+            statusBadge.innerText = 'دەرگا کرایەوە ✓';
+        }
+
+        function declineIntercomCall() {
+            if (acCallTimer) { clearInterval(acCallTimer); acCallTimer = null; }
+            acSeconds = 0;
+            document.getElementById('ac-idle-panel').classList.remove('hidden');
+            document.getElementById('ac-ringing-panel').classList.add('hidden');
+            document.getElementById('ac-answered-panel').classList.add('hidden');
+
+            const statusBadge = document.getElementById('ac-status-badge');
+            const icon = document.getElementById('ac-icon');
+            const circle = document.getElementById('ac-icon-circle');
+            const ring1 = document.getElementById('ac-ring-1');
+            const ring2 = document.getElementById('ac-ring-2');
+            const glow = document.getElementById('ac-bg-glow');
+
+            statusBadge.innerText = 'وەستاوە';
+            statusBadge.className = 'hs-status-badge px-4 py-1.5 rounded-full text-xs font-black bg-slate-700/40 text-slate-400 border border-slate-600/40 tracking-wide uppercase';
+            icon.className = 'fa-solid fa-house text-5xl sm:text-6xl text-slate-500 transition-all duration-500';
+            circle.className = 'relative w-32 h-32 sm:w-36 sm:h-36 hs-icon-plate rounded-full flex items-center justify-center border-4 transition-all duration-500 bg-slate-800/60 border-slate-700';
+            ring1.className = 'absolute inset-0 rounded-full border-4 border-teal-400/0 pulse-ring';
+            ring2.className = 'absolute inset-4 rounded-full border-4 border-teal-400/0 pulse-ring';
+            if (glow) glow.style.opacity = '0';
         }
     </script>
 
@@ -2455,6 +3678,14 @@
 document.addEventListener('DOMContentLoaded', function () {
     if (typeof switchLanguage === 'function') {
         switchLanguage(currentLang || 'ckb');
+    }
+    // Widget sliders start disabled to match each device's initial OFF state.
+    if (typeof setSliderEnabled === 'function') {
+        setSliderEnabled('brightness-range', false);
+        setSliderEnabled('alarm-sensitivity-range', false);
+        setSliderEnabled('cinema-volume-range', false);
+        setSliderEnabled('speaker-volume-range', false);
+        setSliderEnabled('amp-volume-range', false);
     }
 });
 </script>
