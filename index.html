@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ckb" dir="rtl" class="dark scroll-smooth">
+<html lang="en" dir="ltr" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -30,14 +30,14 @@
             }
         }
     </script>
-    <!-- Google Font Vazirmatn -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Google Font Vazirmatn (Kurdish/Arabic) + Inter (English) -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         body {
-            font-family: 'Vazirmatn', sans-serif;
+            font-family: 'Inter', 'Vazirmatn', sans-serif;
             background-color: #0B0F17;
             color: #E2E8F0;
             overflow-x: hidden;
@@ -250,8 +250,11 @@
 .visit-us-section {
   padding: 60px 20px;
   text-align: center;
-  font-family: 'Vazirmatn', sans-serif;
+  font-family: 'Inter', 'Vazirmatn', sans-serif;
   direction: rtl;
+}
+html[dir="ltr"] .visit-us-section {
+  direction: ltr;
 }
 
 .visit-us-section h2 {
@@ -2332,7 +2335,7 @@ button:not(:disabled):active {
 
 
 
-        let currentLang = 'ckb';
+        let currentLang = 'en';
         let currentCategory = null;
 
         // Translation Dictionary for Web UI Elements
@@ -2381,7 +2384,7 @@ button:not(:disabled):active {
                 opt_5: "سیستەمی دەنگ و سپیکەر",
                 btn_submit: "ناردنی داواکاری ڕاوێژکاری",
                 visit_title: "سەردانمان بکەن",
-                visit_hours: "شۆڕومەکانمان کراوەیە لە یەکشەممە تا پێنجشەممە، لە کاتژمێر ٩ی بەیانی تا ٩ی شەو",
+                visit_hours: "شۆرومەکانمان ڕۆژانە لە یەکشەممە تا پێنجشەممە،<br>لە کاتژمێر ٩ی بەیانییەوە تا ٩ی شەو کراوەن بۆ پێشوازیتان",
                 loc_slemani: "سلێمانی",
                 loc_hawler: "هەولێر",
                 loc_baghdad: "بەغدا",
@@ -2431,7 +2434,7 @@ button:not(:disabled):active {
                 opt_5: "Audio & Speaker System",
                 btn_submit: "Submit Consultation Request",
                 visit_title: "Visit Us",
-                visit_hours: "Our showrooms are open Sunday to Thursday, from 9 AM to 9 PM",
+                visit_hours: "Visit our showrooms — open Sunday through Thursday,<br>from 9 AM to 9 PM.",
                 loc_slemani: "Sulaymaniyah",
                 loc_hawler: "Erbil",
                 loc_baghdad: "Baghdad",
@@ -2481,7 +2484,7 @@ button:not(:disabled):active {
                 opt_5: "أنظمة صوتية وسماعات",
                 btn_submit: "إرسال طلب الاستشارة",
                 visit_title: "قوموا بزيارتنا",
-                visit_hours: "معارضنا مفتوحة من الأحد إلى الخميس، من الساعة ٩ صباحاً حتى ٩ مساءً",
+                visit_hours: "معارضنا بانتظاركم من الأحد إلى الخميس،<br>من الساعة ٩ صباحاً حتى ٩ مساءً.",
                 loc_slemani: "السليمانية",
                 loc_hawler: "أربيل",
                 loc_baghdad: "بغداد",
@@ -4029,7 +4032,7 @@ button:not(:disabled):active {
 <section class="visit-us-section">
     <div class="reveal">
     <h2 data-i18n="visit_title">سەردانمان بکەن</h2>
-    <p class="working-hours" data-i18n="visit_hours">شۆڕومەکانمان کراوەیە لە یەکشەممە تا پێنجشەممە، لە کاتژمێر ٩ی بەیانی تا ٩ی شەو</p>
+    <p class="working-hours" data-i18n="visit_hours">شۆرومەکانمان ڕۆژانە لە یەکشەممە تا پێنجشەممە،<br>لە کاتژمێر ٩ی بەیانییەوە تا ٩ی شەو کراوەن بۆ پێشوازیتان</p>
     </div>
 
     <div class="locations-grid">
@@ -4105,7 +4108,7 @@ button:not(:disabled):active {
 // to the correct language on first load instead of showing raw fallback text.
 document.addEventListener('DOMContentLoaded', function () {
     if (typeof switchLanguage === 'function') {
-        switchLanguage(currentLang || 'ckb');
+        switchLanguage(currentLang || 'en');
     }
     // Widget sliders start disabled to match each device's initial OFF state.
     if (typeof setSliderEnabled === 'function') {
