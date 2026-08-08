@@ -43,9 +43,14 @@
             overflow-x: hidden;
         }
         .text-gradient {
-            background: linear-gradient(135deg, #00F0FF 0%, #00E676 100%);
+            background: linear-gradient(135deg, #00F0FF 0%, #00E676 50%, #00F0FF 100%);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: hsTextShimmer 4s linear infinite;
+        }
+        @keyframes hsTextShimmer {
+            to { background-position: -200% center; }
         }
         .border-glow {
             border: 1px solid rgba(0, 240, 255, 0.2);
@@ -244,12 +249,9 @@
 <style>
 .visit-us-section {
   padding: 60px 20px;
-  background: linear-gradient(180deg, #0B0F17 0%, #101625 100%);
   text-align: center;
-  border-radius: 24px;
   font-family: 'Vazirmatn', sans-serif;
   direction: rtl;
-  border-top: 1px solid rgba(0, 240, 255, 0.08);
 }
 
 .visit-us-section h2 {
@@ -297,6 +299,7 @@
     border: 1px solid rgba(0, 240, 255, 0.2);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(160deg, #151C2C 0%, #0B0F17 100%);
 }
 
 .location-card-img img {
@@ -388,6 +391,374 @@
   color: #94a3b8;
   font-size: 0.85rem;
   word-break: break-word;
+}
+
+/* ---- Global interactive polish: applies a consistent, lively feel to
+   every button and clickable control across the page. ---- */
+button:not(:disabled), a.social-icon, .location-card-img {
+    transition: transform 0.22s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s ease, filter 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+}
+button:not(:disabled):hover {
+    filter: brightness(1.1);
+}
+button:not(:disabled):active {
+    transform: scale(0.94);
+}
+
+/* Subtle glow ring that sweeps in on hover for the main device-test cards */
+.hs-device-card {
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.hs-device-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 240, 255, 0.35);
+    box-shadow:
+        0 34px 70px -18px rgba(0, 0, 0, 0.7),
+        0 0 40px -10px rgba(0, 240, 255, 0.18),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.07),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+/* Social icons: colored glow behind each icon on hover, matching its brand */
+.social-icon {
+    position: relative;
+}
+.social-icon:hover {
+    box-shadow: 0 6px 22px -4px currentColor, 0 4px 10px rgba(0,0,0,0.35);
+}
+.social-icon.facebook:hover  { box-shadow: 0 6px 22px -2px rgba(24,119,242,0.65); }
+.social-icon.instagram:hover { box-shadow: 0 6px 22px -2px rgba(220,39,67,0.55); }
+.social-icon.tiktok:hover    { box-shadow: 0 6px 22px -2px rgba(0,0,0,0.5), 0 0 14px rgba(0,240,255,0.35); }
+.social-icon.gmail:hover     { box-shadow: 0 6px 22px -2px rgba(234,67,53,0.55); }
+
+/* Location cards: soft light sweep across the image on hover */
+.location-card-img { position: relative; isolation: isolate; }
+.location-card-img::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,0.16) 42%, transparent 64%);
+    transform: translateX(-120%);
+    transition: transform 0.7s ease;
+}
+.location-card-img:hover::after {
+    transform: translateX(120%);
+}
+
+/* ---- Signature Background: Ambient Smart-Light Wash ---- */
+/* High Smart sells the feeling of a dark room slowly lit and shifted by smart
+   bulbs. Rather than a technical diagram, the page itself sits in that same
+   soft, cinematic wash of colored light — a handful of large, blurred glow
+   pools that breathe and drift on very long, barely-perceptible cycles. */
+/* ---- Header logo: glowing pulse ring + slow rotating gradient border,
+   giving the mark a subtle "powered on" presence. ---- */
+#company-logo-container {
+    position: relative;
+}
+#company-logo-container::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 14px;
+    background: conic-gradient(from 0deg, #00F0FF, #00E676, #A78BFA, #00F0FF);
+    opacity: 0.55;
+    filter: blur(6px);
+    animation: hsLogoSpin 5s linear infinite;
+    z-index: -1;
+}
+#company-logo-container:hover::before {
+    opacity: 0.9;
+}
+@keyframes hsLogoSpin {
+    to { transform: rotate(360deg); }
+}
+.hs-nav-link {
+    position: relative;
+}
+.hs-nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #00F0FF, #00E676);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    border-radius: 2px;
+}
+.hs-nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* Category banner tiles: lift + ambient glow on hover, echoing the device cards */
+.hs-cat-tile {
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.hs-cat-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px -14px rgba(0, 0, 0, 0.6), 0 0 30px -8px rgba(0, 240, 255, 0.25);
+}
+
+/* Section eyebrow labels ("بەرهەمەکانمان" etc.): small pulsing dot for a
+   subtle "live" / online feel next to each section's kicker text. */
+.hs-eyebrow-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00E676;
+    box-shadow: 0 0 8px 2px rgba(0, 230, 118, 0.7);
+    animation: hsNodePulse 2.2s ease-in-out infinite;
+}
+
+.hs-bg-layer {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    background: #0B0F17;
+}
+
+/* ---- Slow "lighting scene" color drift: the whole glow-pool cluster
+   gently rotates hue over a long cycle, like a smart bulb easing between
+   preset scenes (cool blue → warm green → violet) without ever landing
+   on anything jarring. ---- */
+.hs-scene-shift {
+    position: absolute;
+    inset: 0;
+    animation: hsSceneDrift 70s ease-in-out infinite;
+}
+@keyframes hsSceneDrift {
+    0%   { filter: hue-rotate(0deg); }
+    50%  { filter: hue-rotate(-22deg); }
+    100% { filter: hue-rotate(0deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .hs-scene-shift { animation: none; }
+}
+
+.hs-glow-pool {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    will-change: transform;
+    animation: hsGlowBreathe var(--hs-dur, 70s) ease-in-out infinite;
+}
+.hs-glow-pool.p1 { --hs-dur: 62s; top: -20%; left: -16%; width: 58vw; height: 58vw; background: radial-gradient(circle, #00F0FF 0%, transparent 70%); opacity: 0.68; }
+.hs-glow-pool.p2 { --hs-dur: 74s; bottom: -22%; right: -16%; width: 62vw; height: 62vw; background: radial-gradient(circle, #00E676 0%, transparent 70%); opacity: 0.62; animation-delay: -22s; }
+.hs-glow-pool.p3 { --hs-dur: 84s; top: 36%; left: 60%; width: 42vw; height: 42vw; background: radial-gradient(circle, #00F0FF 0%, transparent 72%); opacity: 0.46; animation-delay: -48s; }
+.hs-glow-pool.p4 { --hs-dur: 68s; top: 58%; left: 6%; width: 36vw; height: 36vw; background: radial-gradient(circle, #00E676 0%, transparent 72%); opacity: 0.42; animation-delay: -12s; }
+.hs-glow-pool.p5 { --hs-dur: 96s; top: 4%; left: 42%; width: 28vw; height: 28vw; background: radial-gradient(circle, #A78BFA 0%, transparent 72%); opacity: 0.34; animation-delay: -30s; }
+
+@keyframes hsGlowBreathe {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%      { transform: translate(4%, 5%) scale(1.22); }
+}
+
+/* ---- Sweeping light beam: a wide soft shaft of light glides across the
+   whole page on a slow diagonal, like a smart spotlight scanning a room. ---- */
+.hs-sweep {
+    position: absolute;
+    top: -40%;
+    left: -30%;
+    width: 55vw;
+    height: 180%;
+    background: linear-gradient(100deg, transparent 0%, rgba(0, 240, 255, 0.16) 45%, rgba(0, 230, 118, 0.20) 55%, transparent 100%);
+    transform: rotate(12deg);
+    animation: hsSweepMove 26s ease-in-out infinite;
+    filter: blur(6px);
+}
+@keyframes hsSweepMove {
+    0%   { left: -40%; }
+    50%  { left: 90%; }
+    100% { left: -40%; }
+}
+
+/* ---- Circuit / smart-network grid: faint moving lines suggesting a
+   connected IoT mesh, reinforcing the "High Smart" identity. ---- */
+.hs-grid-layer {
+    position: absolute;
+    inset: -2px;
+    background-image:
+        linear-gradient(rgba(0, 240, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.07) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 0%, transparent 78%);
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 0%, transparent 78%);
+    animation: hsGridDrift 34s linear infinite;
+    opacity: 0.8;
+}
+@keyframes hsGridDrift {
+    0%   { background-position: 0 0, 0 0; }
+    100% { background-position: 46px 46px, 46px 46px; }
+}
+
+/* ---- Drifting light particles: tiny glowing nodes rising slowly, like
+   ambient smart-light dust in a dark room. ---- */
+.hs-particle {
+    position: absolute;
+    bottom: -6%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #00F0FF;
+    box-shadow: 0 0 8px 2px rgba(0, 240, 255, 0.8);
+    opacity: 0;
+    animation: hsParticleRise linear infinite;
+}
+.hs-particle:nth-child(1)  { left: 6%;  width: 3px; height: 3px; background: #00F0FF; box-shadow: 0 0 8px 2px rgba(0,240,255,.8); animation-duration: 25s; animation-delay: 0s; }
+.hs-particle:nth-child(2)  { left: 16%; width: 5px; height: 5px; background: #00E676; box-shadow: 0 0 10px 3px rgba(0,230,118,.8); animation-duration: 33s; animation-delay: -3s; }
+.hs-particle:nth-child(3)  { left: 27%; width: 3px; height: 3px; background: #00F0FF; box-shadow: 0 0 8px 2px rgba(0,240,255,.8); animation-duration: 28s; animation-delay: -9s; }
+.hs-particle:nth-child(4)  { left: 39%; width: 4px; height: 4px; background: #A78BFA; box-shadow: 0 0 9px 2px rgba(167,139,250,.75); animation-duration: 36s; animation-delay: -6s; }
+.hs-particle:nth-child(5)  { left: 51%; width: 6px; height: 6px; background: #00E676; box-shadow: 0 0 11px 3px rgba(0,230,118,.8); animation-duration: 30s; animation-delay: -14s; }
+.hs-particle:nth-child(6)  { left: 63%; width: 3px; height: 3px; background: #00F0FF; box-shadow: 0 0 8px 2px rgba(0,240,255,.8); animation-duration: 40s; animation-delay: -2s; }
+.hs-particle:nth-child(7)  { left: 74%; width: 4px; height: 4px; background: #00E676; box-shadow: 0 0 9px 2px rgba(0,230,118,.8); animation-duration: 27s; animation-delay: -11s; }
+.hs-particle:nth-child(8)  { left: 84%; width: 5px; height: 5px; background: #00F0FF; box-shadow: 0 0 10px 3px rgba(0,240,255,.8); animation-duration: 35s; animation-delay: -18s; }
+.hs-particle:nth-child(9)  { left: 92%; width: 3px; height: 3px; background: #A78BFA; box-shadow: 0 0 8px 2px rgba(167,139,250,.75); animation-duration: 32s; animation-delay: -7s; }
+.hs-particle:nth-child(10) { left: 46%; width: 3px; height: 3px; background: #00E676; box-shadow: 0 0 8px 2px rgba(0,230,118,.8); animation-duration: 24s; animation-delay: -16s; }
+.hs-particle:nth-child(11) { left: 11%; width: 6px; height: 6px; background: #00F0FF; box-shadow: 0 0 12px 3px rgba(0,240,255,.85); animation-duration: 20s; animation-delay: -4s; }
+.hs-particle:nth-child(12) { left: 33%; width: 4px; height: 4px; background: #00E676; box-shadow: 0 0 9px 2px rgba(0,230,118,.8); animation-duration: 27s; animation-delay: -10s; }
+.hs-particle:nth-child(13) { left: 58%; width: 5px; height: 5px; background: #A78BFA; box-shadow: 0 0 10px 3px rgba(167,139,250,.8); animation-duration: 32s; animation-delay: -1s; }
+.hs-particle:nth-child(14) { left: 69%; width: 3px; height: 3px; background: #00F0FF; box-shadow: 0 0 8px 2px rgba(0,240,255,.8); animation-duration: 22s; animation-delay: -12s; }
+.hs-particle:nth-child(15) { left: 88%; width: 4px; height: 4px; background: #00E676; box-shadow: 0 0 9px 2px rgba(0,230,118,.8); animation-duration: 30s; animation-delay: -5s; }
+.hs-particle:nth-child(16) { left: 3%;  width: 4px; height: 4px; background: #00F0FF; box-shadow: 0 0 9px 2px rgba(0,240,255,.8); animation-duration: 25s; animation-delay: -19s; }
+
+@keyframes hsParticleRise {
+    0%   { transform: translate(0, 0) scale(0.6); opacity: 0; }
+    8%   { opacity: 1; }
+    50%  { transform: translate(18px, -52vh) scale(1.1); }
+    92%  { opacity: 0.7; }
+    100% { transform: translate(-14px, -102vh) scale(0.5); opacity: 0; }
+}
+
+/* ---- Connectivity nodes: two faint pulsing dots joined by a beam that
+   sweeps, echoing device-to-device smart connectivity. ---- */
+.hs-connect { position: absolute; inset: 0; opacity: 0.8; }
+.hs-connect .node {
+    position: absolute;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #00E676;
+    box-shadow: 0 0 18px 5px rgba(0, 230, 118, 0.7);
+    animation: hsNodePulse 4.2s ease-in-out infinite;
+}
+.hs-connect .node.n1 { top: 18%; left: 22%; animation-delay: 0s; }
+.hs-connect .node.n2 { top: 30%; left: 47%; background: #00F0FF; box-shadow: 0 0 18px 5px rgba(0,240,255,.7); animation-delay: -1s; }
+.hs-connect .node.n3 { top: 14%; left: 72%; animation-delay: -2s; }
+.hs-connect .node.n4 { top: 66%; left: 82%; background: #00F0FF; box-shadow: 0 0 18px 5px rgba(0,240,255,.7); animation-delay: -1.6s; }
+.hs-connect .node.n5 { top: 74%; left: 30%; animation-delay: -2.4s; }
+.hs-connect .node.n6 { top: 46%; left: 12%; background: #A78BFA; box-shadow: 0 0 18px 5px rgba(167,139,250,.7); animation-delay: -0.6s; }
+.hs-connect .node.n7 { top: 82%; left: 58%; animation-delay: -1.9s; }
+@keyframes hsNodePulse {
+    0%, 100% { transform: scale(0.85); opacity: 0.5; }
+    50%      { transform: scale(1.9); opacity: 1; }
+}
+.hs-connect .ring {
+    position: absolute;
+    width: 22px; height: 22px;
+    margin: -11px 0 0 -11px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0, 230, 118, 0.55);
+    animation: hsRingPulse 2.6s ease-out infinite;
+}
+.hs-connect .node.n2 ~ .ring, .hs-connect .node.n4 ~ .ring {}
+@keyframes hsRingPulse {
+    0%   { transform: scale(0.4); opacity: 0.8; }
+    100% { transform: scale(2.6); opacity: 0; }
+}
+.hs-connect svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hs-connect .beam {
+    stroke: url(#hsBeamGrad);
+    stroke-width: 1.6;
+    fill: none;
+    stroke-dasharray: 7 9;
+    animation: hsBeamFlow 4.2s linear infinite;
+}
+@keyframes hsBeamFlow {
+    to { stroke-dashoffset: -160; }
+}
+
+/* ---- Slow radar sweep: a thin rotating light wedge anchored top-center,
+   evoking a smart sensor scanning its surroundings. ---- */
+.hs-radar {
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    width: 140vmax;
+    height: 140vmax;
+    margin-left: -70vmax;
+    background: conic-gradient(from 0deg, rgba(0, 240, 255, 0.24) 0deg, transparent 40deg, transparent 360deg);
+    animation: hsRadarSpin 20s linear infinite;
+    opacity: 0.65;
+    -webkit-mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 45%);
+    mask-image: radial-gradient(circle at 50% 0%, #000 0%, transparent 45%);
+}
+@keyframes hsRadarSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* ---- Floating smart-device icons: faint outline icons of the products
+   High Smart sells, drifting slowly like holographic UI elements. ---- */
+.hs-icon {
+    position: absolute;
+    color: #00F0FF;
+    opacity: 0;
+    filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.55));
+    animation: hsIconFloat linear infinite;
+}
+.hs-icon.green  { color: #00E676; filter: drop-shadow(0 0 10px rgba(0, 230, 118, 0.55)); }
+.hs-icon.purple { color: #A78BFA; filter: drop-shadow(0 0 10px rgba(167, 139, 250, 0.55)); }
+
+.hs-icon.i1 { top: 12%;  left: 9%;  font-size: 26px; animation-duration: 34s; animation-delay: -2s; }
+.hs-icon.i2 { top: 68%;  left: 17%; font-size: 22px; animation-duration: 40s; animation-delay: -14s; }
+.hs-icon.i3 { top: 22%;  left: 84%; font-size: 24px; animation-duration: 36s; animation-delay: -8s; }
+.hs-icon.i4 { top: 78%;  left: 72%; font-size: 20px; animation-duration: 30s; animation-delay: -20s; }
+.hs-icon.i5 { top: 48%;  left: 4%;  font-size: 20px; animation-duration: 44s; animation-delay: -26s; }
+.hs-icon.i6 { top: 8%;   left: 55%; font-size: 20px; animation-duration: 38s; animation-delay: -6s; }
+.hs-icon.i7 { top: 58%;  left: 92%; font-size: 22px; animation-duration: 32s; animation-delay: -18s; }
+.hs-icon.i8 { top: 88%;  left: 40%; font-size: 20px; animation-duration: 42s; animation-delay: -11s; }
+
+@keyframes hsIconFloat {
+    0%   { transform: translate(0, 0) rotate(-4deg); opacity: 0; }
+    10%  { opacity: 0.45; }
+    50%  { transform: translate(16px, -24px) rotate(4deg); opacity: 0.6; }
+    90%  { opacity: 0.4; }
+    100% { transform: translate(-10px, -50px) rotate(-4deg); opacity: 0; }
+}
+
+.hs-bg-layer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 85% 60% at 50% 22%, transparent 0%, rgba(11,15,23,0.14) 55%, rgba(11,15,23,0.5) 100%);
+}
+
+.hs-bg-layer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.045;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hs-glow-pool, .hs-grid-layer, .hs-particle, .hs-connect .node, .hs-connect .beam, .hs-sweep, .hs-radar { animation: none; }
+}
+
+@media (max-width: 640px) {
+    .hs-glow-pool { filter: blur(80px); }
+    .hs-grid-layer { background-size: 34px 34px; }
+    .hs-connect { opacity: 0.55; }
+    .hs-sweep { width: 90vw; }
+    .hs-radar { opacity: 0.3; }
+    .hs-icon { display: none; }
+    .hs-icon.i1, .hs-icon.i3, .hs-icon.i6, .hs-icon.i8 { display: block; font-size: 18px; }
 }
 
 .section-divider {
@@ -568,6 +939,72 @@
 </head>
 <body class="antialiased selection:bg-brand-neon selection:text-black min-h-screen flex flex-col bg-brand-dark">
 
+    <div class="hs-bg-layer" aria-hidden="true">
+        <div class="hs-scene-shift">
+            <div class="hs-glow-pool p1"></div>
+            <div class="hs-glow-pool p2"></div>
+            <div class="hs-glow-pool p3"></div>
+            <div class="hs-glow-pool p4"></div>
+            <div class="hs-glow-pool p5"></div>
+        </div>
+
+        <div class="hs-radar"></div>
+        <div class="hs-grid-layer"></div>
+        <div class="hs-sweep"></div>
+
+        <i class="fa-solid fa-wifi hs-icon i1"></i>
+        <i class="fa-solid fa-lightbulb hs-icon green i2"></i>
+        <i class="fa-solid fa-video hs-icon i3"></i>
+        <i class="fa-solid fa-house-signal hs-icon purple i4"></i>
+        <i class="fa-solid fa-plug hs-icon green i5"></i>
+        <i class="fa-solid fa-mobile-screen-button hs-icon i6"></i>
+        <i class="fa-solid fa-shield-halved hs-icon purple i7"></i>
+        <i class="fa-solid fa-microchip hs-icon green i8"></i>
+
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+        <div class="hs-particle"></div>
+
+        <div class="hs-connect">
+            <svg preserveAspectRatio="none" viewBox="0 0 100 100">
+                <defs>
+                    <linearGradient id="hsBeamGrad" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#00F0FF" stop-opacity="0"/>
+                        <stop offset="50%" stop-color="#00F0FF" stop-opacity="0.9"/>
+                        <stop offset="100%" stop-color="#00E676" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+                <path class="beam" d="M22,18 L47,30" vector-effect="non-scaling-stroke"/>
+                <path class="beam" d="M47,30 L72,14" vector-effect="non-scaling-stroke"/>
+                <path class="beam" d="M47,30 L82,66" vector-effect="non-scaling-stroke"/>
+                <path class="beam" d="M22,18 L30,74" vector-effect="non-scaling-stroke"/>
+                <path class="beam" d="M22,18 L12,46" vector-effect="non-scaling-stroke"/>
+                <path class="beam" d="M30,74 L58,82" vector-effect="non-scaling-stroke"/>
+            </svg>
+            <span class="node n1"></span>
+            <span class="node n2"></span>
+            <span class="node n3"></span>
+            <span class="node n4"></span>
+            <span class="node n5"></span>
+            <span class="node n6"></span>
+            <span class="node n7"></span>
+        </div>
+    </div>
+
+
     <a href="https://wa.me/9647701915449" target="_blank" rel="noopener" class="whatsapp-float" title="پەیوەندی وواتساپ" aria-label="پەیوەندی وواتساپ">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
@@ -578,20 +1015,11 @@
             <div class="flex items-center gap-2 sm:gap-3 cursor-pointer shrink-0" onclick="openLogoModal()">
                 <div id="company-logo-container" class="relative group">
                     <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-neon p-0.5 shadow-lg shadow-cyan-500/20 flex items-center justify-center bg-brand-dark">
-                        <!-- High Smart Circuit Logo SVG -->
-<img id="header-logo-img" src="logo.jpg" alt="High Smart Logo" class="w-full h-full object-contain rounded-lg">
-                            <path d="M25 20V80M75 20V80M25 50H75M25 20L75 80" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="25" cy="20" r="7" fill="#00E676"/>
-                            <circle cx="25" cy="80" r="7" fill="#00F0FF"/>
-                            <circle cx="75" cy="20" r="7" fill="#00F0FF"/>
-                            <circle cx="75" cy="80" r="7" fill="#00E676"/>
-                            <circle cx="50" cy="50" r="6" fill="#FFFFFF"/>
-                        </svg>
-                        <img id="header-logo-img" src="logo.jpg" alt="High Smart Logo" class="hidden w-full h-full object-contain rounded-lg">
+                        <img id="header-logo-img" src="logo.png" alt="High Smart Logo" class="w-full h-full object-contain rounded-lg">
                     </div>
                 </div>
                 <div>
-                    <h1 class="text-sm sm:text-lg lg:text-5x0.1 font-black tracking-wider text-white E6FFFA flex items-center gap-1.5 leading-tight">
+                    <h1 class="text-sm sm:text-lg lg:text-5x0.1 font-black tracking-wider text-white flex items-center gap-1.5 leading-tight">
                         HIGH SMART
                     </h1>
                 </div>
@@ -599,9 +1027,9 @@
 
             <!-- Desktop Navigation Links -->
             <div class="hidden lg:flex items-center gap-12 text-sm font-medium text-slate-300">
-                <a href="#services" class="hover:text-brand-cyan transition-colors" data-i18n="nav_services">خزمەتگوزارییەکان</a>
-                <a href="#brands" class="hover:text-brand-cyan transition-colors" data-i18n="nav_brands">براندە جیهانییەکان</a>
-                <a href="#products" class="hover:text-brand-cyan transition-colors" data-i18n="nav_products">بەرهەمەکانمان</a>
+                <a href="#services" class="hs-nav-link hover:text-brand-cyan transition-colors" data-i18n="nav_services">خزمەتگوزارییەکان</a>
+                <a href="#brands" class="hs-nav-link hover:text-brand-cyan transition-colors" data-i18n="nav_brands">براندە جیهانییەکان</a>
+                <a href="#products" class="hs-nav-link hover:text-brand-cyan transition-colors" data-i18n="nav_products">بەرهەمەکانمان</a>
             </div>
 
             <!-- Language Switcher in Header -->
@@ -749,11 +1177,11 @@
         </div>
     </section>
 
-    <section id="products" class="py-14 sm:py-20 bg-brand-dark">
+    <section id="products" class="py-14 sm:py-20 bg-brand-dark/55">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="reveal text-center max-w-2xl mx-auto mb-8 sm:mb-12">
                 <div class="inline-flex items-center gap-2 text-brand-cyan text-xs font-bold uppercase tracking-wider mb-3">
-                    <span class="w-6 h-px bg-brand-cyan/60"></span> <span data-i18n="nav_products">بەرهەمەکانمان</span> <span class="w-6 h-px bg-brand-cyan/60"></span>
+                    <span class="hs-eyebrow-dot"></span> <span data-i18n="nav_products">بەرهەمەکانمان</span> <span class="w-6 h-px bg-brand-cyan/60"></span>
                 </div>
                 <p class="text-slate-400 text-xs font-bold sm:text-xl mt-2" data-i18n="cat_desc"> Providing you with high end smart home solutions </p>
             </div>
@@ -761,7 +1189,7 @@
             <!-- Full-Width Stacked Banner Tiles -->
             <div class="grid grid-cols-2 gap-3 sm:gap-5">
                 <!-- 1. Smart Lighting Banner -->
-                <div onclick="openProductModelsModal('lighting')" class="reveal relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-brand-cyan/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
+                <div onclick="openProductModelsModal('lighting')" class="reveal hs-cat-tile relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-brand-cyan/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
                     <img id="img-cat-lighting" src="control.jpg" alt="Smart Lighting" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-[0.45] group-hover:brightness-[0.55]" onerror="this.src='https://placehold.co/1200x400/151C2C/00F0FF?text=Smart+Lighting'">
                     <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/55"></div>
                     <div class="relative z-10 text-center px-1.5 sm:px-4">
@@ -772,7 +1200,7 @@
                 </div>
 
                 <!-- 2. Audio Systems Banner -->
-                <div onclick="openProductModelsModal('audio')" class="reveal relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-brand-neon/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
+                <div onclick="openProductModelsModal('audio')" class="reveal hs-cat-tile relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-brand-neon/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
                     <img id="img-cat-audio" src="spiker.jpg" alt="Audio Systems" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-[0.45] group-hover:brightness-[0.55]" onerror="this.src='https://placehold.co/1200x400/151C2C/00E676?text=Audio+Systems'">
                     <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/55"></div>
                     <div class="relative z-10 text-center px-1.5 sm:px-4">
@@ -783,7 +1211,7 @@
                 </div>
 
                 <!-- 3. Comfort Banner -->
-                <div onclick="openProductModelsModal('comfort')" class="reveal relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-yellow-400/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
+                <div onclick="openProductModelsModal('comfort')" class="reveal hs-cat-tile relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-yellow-400/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
                     <img id="img-cat-comfort" src="splet.jpg" alt="Comfort" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-[0.45] group-hover:brightness-[0.55]" onerror="this.src='https://placehold.co/1200x400/151C2C/FACC15?text=Comfort'">
                     <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/55"></div>
                     <div class="relative z-10 text-center px-1.5 sm:px-4">
@@ -794,7 +1222,7 @@
                 </div>
 
                 <!-- 4. Security and Safety Banner -->
-                <div onclick="openProductModelsModal('security')" class="reveal relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-emerald-400/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
+                <div onclick="openProductModelsModal('security')" class="reveal hs-cat-tile relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-emerald-400/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
                     <img id="img-cat-security" src="camera.jpg" alt="Security and Safety" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-[0.45] group-hover:brightness-[0.55]" onerror="this.src='https://placehold.co/1200x400/151C2C/34D399?text=Security+and+Safety'">
                     <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/55"></div>
                     <div class="relative z-10 text-center px-1.5 sm:px-4">
@@ -805,7 +1233,7 @@
                 </div>
 
                 <!-- 5. Home Cinema Banner -->
-                <div onclick="openProductModelsModal('cinema')" class="reveal relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-purple-400/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
+                <div onclick="openProductModelsModal('cinema')" class="reveal hs-cat-tile relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-purple-400/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
                     <img id="img-cat-cinema" src="cinema.jpg" alt="Home Cinema" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-[0.45] group-hover:brightness-[0.55]" onerror="this.src='https://placehold.co/1200x400/151C2C/C084FC?text=Home+Cinema'">
                     <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/55"></div>
                     <div class="relative z-10 text-center px-1.5 sm:px-4">
@@ -816,7 +1244,7 @@
                 </div>
 
                 <!-- 6. Intercom and Doors Banner -->
-                <div onclick="openProductModelsModal('doors')" class="reveal relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-brand-cyan/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
+                <div onclick="openProductModelsModal('doors')" class="reveal hs-cat-tile relative h-24 sm:h-40 md:h-56 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 hover:border-brand-cyan/80 transition-all duration-300 group cursor-pointer shadow-xl flex items-center justify-center">
                     <img id="img-cat-doors" src="lool.jpg" alt="Intercom and Doors" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-[0.45] group-hover:brightness-[0.55]" onerror="this.src='https://placehold.co/1200x400/151C2C/00F0FF?text=Intercom+and+Doors'">
                     <div class="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/55"></div>
                     <div class="relative z-10 text-center px-1.5 sm:px-4">
@@ -829,7 +1257,7 @@
         </div>
     </section>
 
-    <section id="services" class="py-14 sm:py-20 bg-brand-dark relative section-divider">
+    <section id="services" class="py-14 sm:py-20 bg-brand-dark/55 relative section-divider">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="reveal text-center mb-8 sm:mb-12">
                 <div class="inline-flex items-center gap-2 text-brand-neon text-xs font-bold uppercase tracking-wider mb-3">
