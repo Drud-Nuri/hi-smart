@@ -244,6 +244,24 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 0 3px rgba(255, 255, 255, 0.08);
         }
 
+        .header-shimmer {
+            background:
+                radial-gradient(40% 140% at 12% 50%, rgba(0, 240, 255, 0.14), transparent 70%),
+                radial-gradient(40% 140% at 88% 50%, rgba(0, 230, 118, 0.12), transparent 70%),
+                linear-gradient(120deg, rgba(11,15,23,0.98) 0%, rgba(21,28,44,0.97) 30%, rgba(11,15,23,0.98) 50%, rgba(21,28,44,0.97) 70%, rgba(11,15,23,0.98) 100%);
+            background-size: 100% 100%, 100% 100%, 250% 100%;
+            background-repeat: no-repeat;
+            animation: hsHeaderShimmer 12s ease-in-out infinite;
+            position: relative;
+        }
+        @keyframes hsHeaderShimmer {
+            0%   { background-position: 0% 50%, 0% 50%, 0% 50%; }
+            50%  { background-position: 0% 50%, 0% 50%, 100% 50%; }
+            100% { background-position: 0% 50%, 0% 50%, 0% 50%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .header-shimmer { animation: none; }
+        }
     </style>
 
 <style>
@@ -1008,72 +1026,79 @@ button:not(:disabled):active {
     </div>
 
 
-    <a href="https://wa.me/9647701915449" target="_blank" rel="noopener" class="whatsapp-float" title="پەیوەندی وواتساپ" aria-label="پەیوەندی وواتساپ">
+    <a href="https://wa.me/9647501285842" target="_blank" rel="noopener" class="whatsapp-float" title="پەیوەندی وواتساپ" aria-label="پەیوەندی وواتساپ">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-    <header class="sticky top-0 z-40 bg-brand-dark/95 backdrop-blur-md border-b border-slate-800/80">
-        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2">
+    <header class="header-shimmer sticky top-0 z-40 backdrop-blur-md relative shadow-[0_10px_35px_-8px_rgba(0,0,0,0.5)] rounded-b-[28px] sm:rounded-b-[36px]">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent rounded-t-[28px] sm:rounded-t-[36px]"></div>
+        <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/80 to-transparent rounded-b-[28px] sm:rounded-b-[36px]"></div>
+        <div class="absolute inset-x-0 -bottom-8 h-8 bg-gradient-to-b from-brand-cyan/15 to-transparent pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-10 h-[70px] sm:h-24 flex items-center justify-between gap-3">
             <!-- Company Logo & Title -->
-            <div class="flex items-center gap-2 sm:gap-3 cursor-pointer shrink-0" onclick="openLogoModal()">
+            <div class="flex items-center gap-3 sm:gap-4 cursor-pointer shrink-0" onclick="openLogoModal()">
                 <div id="company-logo-container" class="relative group">
-                    <div class="w-9 h-9 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-neon p-0.5 shadow-lg shadow-cyan-500/20 flex items-center justify-center bg-brand-dark">
+                    <div class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-neon p-0.5 shadow-lg shadow-cyan-500/30 flex items-center justify-center bg-brand-dark">
                         <img id="header-logo-img" src="logo.png" alt="High Smart Logo" class="w-full h-full object-contain rounded-lg">
                     </div>
                 </div>
                 <div>
-                    <h1 class="text-sm sm:text-lg lg:text-5x0.1 font-black tracking-wider text-white flex items-center gap-1.5 leading-tight">
+                    <h1 class="text-base sm:text-xl lg:text-2xl font-black tracking-wider text-gradient flex items-center gap-1.5 leading-tight">
                         HIGH SMART
                     </h1>
+                    <div class="hidden sm:flex items-center gap-1.5 mt-0.5">
+                        <span class="hs-eyebrow-dot"></span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">Smart Home Solutions</span>
+                    </div>
                 </div>
             </div>
 
             <!-- Desktop Navigation Links -->
-            <div class="hidden lg:flex items-center gap-12 text-sm font-medium text-slate-300">
-                <a href="#services" class="hs-nav-link hover:text-brand-cyan transition-colors" data-i18n="nav_services">خزمەتگوزارییەکان</a>
-                <a href="#brands" class="hs-nav-link hover:text-brand-cyan transition-colors" data-i18n="nav_brands">براندە جیهانییەکان</a>
-                <a href="#products" class="hs-nav-link hover:text-brand-cyan transition-colors" data-i18n="nav_products">بەرهەمەکانمان</a>
+            <div class="hidden lg:flex items-center gap-2 text-sm font-medium text-slate-300">
+                <a href="#services" class="hs-nav-pill group flex items-center gap-2 px-4 py-2 rounded-full bg-brand-card/60 border border-slate-800/80 hover:border-brand-cyan/60 hover:bg-brand-card hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-8px_rgba(0,240,255,0.35)] transition-all duration-300"><i class="fa-solid fa-screwdriver-wrench text-[13px] text-brand-cyan/70 group-hover:text-brand-cyan transition-colors"></i><span class="group-hover:text-white transition-colors" data-i18n="nav_services">خزمەتگوزارییەکان</span></a>
+                <a href="#brands" class="hs-nav-pill group flex items-center gap-2 px-4 py-2 rounded-full bg-brand-card/60 border border-slate-800/80 hover:border-brand-neon/60 hover:bg-brand-card hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-8px_rgba(0,230,118,0.35)] transition-all duration-300"><i class="fa-solid fa-award text-[13px] text-brand-neon/70 group-hover:text-brand-neon transition-colors"></i><span class="group-hover:text-white transition-colors" data-i18n="nav_brands">براندە جیهانییەکان</span></a>
+                <a href="#products" class="hs-nav-pill group flex items-center gap-2 px-4 py-2 rounded-full bg-brand-card/60 border border-slate-800/80 hover:border-brand-cyan/60 hover:bg-brand-card hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-8px_rgba(0,240,255,0.35)] transition-all duration-300"><i class="fa-solid fa-cubes text-[13px] text-brand-cyan/70 group-hover:text-brand-cyan transition-colors"></i><span class="group-hover:text-white transition-colors" data-i18n="nav_products">بەرهەمەکانمان</span></a>
             </div>
 
             <!-- Language Switcher in Header -->
             <div class="flex items-center gap-2 shrink-0">
                 <div class="relative">
-                    <button onclick="toggleLangMenu()" id="lang-trigger-btn" class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-slate-200 text-[11px] font-bold shadow-inner hover:border-brand-cyan/50 transition-all" aria-haspopup="true" aria-expanded="false">
+                    <button onclick="toggleLangMenu()" id="lang-trigger-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-brand-card/80 border border-brand-cyan/30 text-slate-200 text-[11px] font-bold shadow-[0_0_0_1px_rgba(0,240,255,0.08),0_4px_14px_-4px_rgba(0,240,255,0.25)] hover:border-brand-cyan/60 hover:shadow-[0_0_0_1px_rgba(0,240,255,0.15),0_6px_18px_-4px_rgba(0,240,255,0.4)] transition-all" aria-haspopup="true" aria-expanded="false">
                         <i class="fa-solid fa-globe text-[11px] text-brand-cyan"></i>
                         <span id="lang-trigger-label">کوردی</span>
                         <i id="lang-trigger-chevron" class="fa-solid fa-chevron-down text-[9px] text-slate-500 transition-transform"></i>
                     </button>
-                    <div id="lang-menu" class="hidden absolute top-full mt-2 left-0 w-32 bg-slate-900 border border-slate-800 rounded-xl shadow-2xl overflow-hidden z-50 py-1">
-                        <button onclick="switchLanguage('ckb')" id="lang-ckb" class="w-full flex items-center justify-between px-3 py-2 text-[11px] font-bold text-white hover:bg-slate-800 transition-colors">
-                            <span>کوردی</span><i class="fa-solid fa-check text-brand-cyan text-[10px]"></i>
+                    <div id="lang-menu" class="hs-lang-menu invisible opacity-0 scale-95 -translate-y-1 pointer-events-none absolute top-full mt-2 left-0 w-40 bg-brand-card border border-slate-700/70 rounded-xl shadow-[0_18px_40px_-12px_rgba(0,0,0,0.7)] overflow-hidden z-50 py-1.5 origin-top-left transition-all duration-200 ease-out">
+                        <button onclick="switchLanguage('ckb')" id="lang-ckb" class="hs-lang-item w-full flex items-center justify-between gap-2 px-3 py-2.5 text-[12px] font-bold text-white bg-brand-cyan/10 border-r-2 border-brand-cyan transition-colors">
+                            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-cyan"></span>کوردی</span><i class="fa-solid fa-check text-brand-cyan text-[10px]"></i>
                         </button>
-                        <button onclick="switchLanguage('en')" id="lang-en" class="w-full flex items-center justify-between px-3 py-2 text-[11px] font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-colors">
-                            <span>English</span><i class="fa-solid fa-check text-brand-cyan text-[10px] hidden"></i>
+                        <button onclick="switchLanguage('en')" id="lang-en" class="hs-lang-item w-full flex items-center justify-between gap-2 px-3 py-2.5 text-[12px] font-bold text-slate-400 border-r-2 border-transparent hover:bg-slate-800/70 hover:text-white transition-colors">
+                            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>English</span><i class="fa-solid fa-check text-brand-cyan text-[10px] hidden"></i>
                         </button>
-                        <button onclick="switchLanguage('ar')" id="lang-ar" class="w-full flex items-center justify-between px-3 py-2 text-[11px] font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-colors">
-                            <span>عربي</span><i class="fa-solid fa-check text-brand-cyan text-[10px] hidden"></i>
+                        <button onclick="switchLanguage('ar')" id="lang-ar" class="hs-lang-item w-full flex items-center justify-between gap-2 px-3 py-2.5 text-[12px] font-bold text-slate-400 border-r-2 border-transparent hover:bg-slate-800/70 hover:text-white transition-colors">
+                            <span class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-slate-600"></span>عربي</span><i class="fa-solid fa-check text-brand-cyan text-[10px] hidden"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Mobile Menu Toggle -->
-                <button onclick="toggleMobileMenu()" id="mobile-menu-btn" class="lg:hidden w-9 h-9 rounded-lg bg-slate-900/90 border border-slate-800 text-slate-200 flex items-center justify-center shrink-0" aria-label="Menu" aria-expanded="false">
+                <button onclick="toggleMobileMenu()" id="mobile-menu-btn" class="lg:hidden w-9 h-9 rounded-lg bg-brand-card/60 border border-slate-800/80 hover:border-brand-cyan/50 text-slate-200 flex items-center justify-center shrink-0 transition-colors" aria-label="Menu" aria-expanded="false">
                     <i id="mobile-menu-icon" class="fa-solid fa-bars text-sm"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Navigation Panel -->
-        <div id="mobile-nav-panel" class="lg:hidden hidden border-t border-slate-800/80 bg-brand-dark/98 backdrop-blur-md">
-            <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-1 text-sm font-medium text-slate-300">
-                <a href="#services" onclick="closeMobileMenu()" class="py-2.5 px-2 rounded-lg hover:bg-slate-900 hover:text-brand-cyan transition-colors" data-i18n="nav_services">خزمەتگوزارییەکان</a>
-                <a href="#brands" onclick="closeMobileMenu()" class="py-2.5 px-2 rounded-lg hover:bg-slate-900 hover:text-brand-cyan transition-colors" data-i18n="nav_brands">براندە جیهانییەکان</a>
-                <a href="#products" onclick="closeMobileMenu()" class="py-2.5 px-2 rounded-lg hover:bg-slate-900 hover:text-brand-cyan transition-colors" data-i18n="nav_products">بەرهەمەکانمان</a>
+        <div id="mobile-nav-panel" class="header-shimmer lg:hidden hidden border-t border-white/10 backdrop-blur-md">
+            <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-2 text-sm font-medium text-slate-300">
+                <a href="#services" onclick="closeMobileMenu()" class="py-2.5 px-3 rounded-xl bg-brand-card/60 border border-slate-800/80 hover:border-brand-cyan/50 hover:text-brand-cyan transition-colors flex items-center gap-2"><i class="fa-solid fa-screwdriver-wrench text-[13px] text-brand-cyan/70"></i><span data-i18n="nav_services">خزمەتگوزارییەکان</span></a>
+                <a href="#brands" onclick="closeMobileMenu()" class="py-2.5 px-3 rounded-xl bg-brand-card/60 border border-slate-800/80 hover:border-brand-neon/50 hover:text-brand-neon transition-colors flex items-center gap-2"><i class="fa-solid fa-award text-[13px] text-brand-neon/70"></i><span data-i18n="nav_brands">براندە جیهانییەکان</span></a>
+                <a href="#products" onclick="closeMobileMenu()" class="py-2.5 px-3 rounded-xl bg-brand-card/60 border border-slate-800/80 hover:border-brand-cyan/50 hover:text-brand-cyan transition-colors flex items-center gap-2"><i class="fa-solid fa-cubes text-[13px] text-brand-cyan/70"></i><span data-i18n="nav_products">بەرهەمەکانمان</span></a>
             </div>
         </div>
     </header>
 
-    <section class="relative overflow-hidden py-14 sm:py-20 lg:py-28 bg-gradient-to-b from-brand-dark via-brand-card/30 to-brand-dark">
+    <section class="relative overflow-hidden py-14 sm:py-20 lg:py-28">
         <div class="absolute top-1/4 left-10 w-72 h-72 sm:w-96 sm:h-96 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute bottom-10 right-10 w-72 h-72 sm:w-96 sm:h-96 bg-brand-neon/10 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -1111,7 +1136,7 @@ button:not(:disabled):active {
         </div>
     </section>
 
-    <section id="brands" class="py-12 sm:py-16 bg-slate-900/60 section-divider">
+    <section id="brands" class="py-12 sm:py-16 section-divider">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="reveal text-center mb-8">
                 <div class="inline-flex items-center gap-2 text-brand-neon text-xs font-bold uppercase tracking-wider mb-3">
@@ -1180,7 +1205,7 @@ button:not(:disabled):active {
         </div>
     </section>
 
-    <section id="products" class="py-14 sm:py-20 bg-brand-dark/55">
+    <section id="products" class="py-14 sm:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="reveal text-center max-w-2xl mx-auto mb-8 sm:mb-12">
                 <div class="inline-flex items-center gap-2 text-brand-cyan text-xs font-bold uppercase tracking-wider mb-3">
@@ -1260,7 +1285,7 @@ button:not(:disabled):active {
         </div>
     </section>
 
-    <section id="services" class="py-14 sm:py-20 bg-brand-dark/55 relative section-divider">
+    <section id="services" class="py-14 sm:py-20 relative section-divider">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="reveal text-center mb-8 sm:mb-12">
                 <div class="inline-flex items-center gap-2 text-brand-neon text-xs font-bold uppercase tracking-wider mb-3">
@@ -2873,11 +2898,12 @@ button:not(:disabled):active {
             const chevron = document.getElementById('lang-trigger-chevron');
             const btn = document.getElementById('lang-trigger-btn');
             if (!menu) return;
-            const isOpen = !menu.classList.contains('hidden');
+            const isOpen = !menu.classList.contains('invisible');
             if (isOpen) {
                 closeLangMenu();
             } else {
-                menu.classList.remove('hidden');
+                menu.classList.remove('invisible', 'opacity-0', 'scale-95', '-translate-y-1', 'pointer-events-none');
+                menu.classList.add('opacity-100', 'scale-100', 'translate-y-0');
                 if (chevron) chevron.style.transform = 'rotate(180deg)';
                 if (btn) btn.setAttribute('aria-expanded', 'true');
             }
@@ -2888,7 +2914,8 @@ button:not(:disabled):active {
             const chevron = document.getElementById('lang-trigger-chevron');
             const btn = document.getElementById('lang-trigger-btn');
             if (!menu) return;
-            menu.classList.add('hidden');
+            menu.classList.add('invisible', 'opacity-0', 'scale-95', '-translate-y-1', 'pointer-events-none');
+            menu.classList.remove('opacity-100', 'scale-100', 'translate-y-0');
             if (chevron) chevron.style.transform = '';
             if (btn) btn.setAttribute('aria-expanded', 'false');
         }
@@ -2896,7 +2923,7 @@ button:not(:disabled):active {
         document.addEventListener('click', function (e) {
             const menu = document.getElementById('lang-menu');
             const trigger = document.getElementById('lang-trigger-btn');
-            if (!menu || menu.classList.contains('hidden')) return;
+            if (!menu || menu.classList.contains('invisible')) return;
             if (!menu.contains(e.target) && !trigger.contains(e.target)) {
                 closeLangMenu();
             }
@@ -2913,12 +2940,15 @@ button:not(:disabled):active {
                 const btn = document.getElementById(`lang-${l}`);
                 if (btn) {
                     const check = btn.querySelector('.fa-check');
+                    const dot = btn.querySelector('span.w-1\\.5');
                     if (l === lang) {
-                        btn.className = "w-full flex items-center justify-between px-3 py-2 text-[11px] font-bold text-white bg-slate-800/70 transition-colors";
+                        btn.className = "hs-lang-item w-full flex items-center justify-between gap-2 px-3 py-2.5 text-[12px] font-bold text-white bg-brand-cyan/10 border-r-2 border-brand-cyan transition-colors";
                         if (check) check.classList.remove('hidden');
+                        if (dot) dot.className = 'w-1.5 h-1.5 rounded-full bg-brand-cyan';
                     } else {
-                        btn.className = "w-full flex items-center justify-between px-3 py-2 text-[11px] font-bold text-slate-400 hover:bg-slate-800 hover:text-white transition-colors";
+                        btn.className = "hs-lang-item w-full flex items-center justify-between gap-2 px-3 py-2.5 text-[12px] font-bold text-slate-400 border-r-2 border-transparent hover:bg-slate-800/70 hover:text-white transition-colors";
                         if (check) check.classList.add('hidden');
+                        if (dot) dot.className = 'w-1.5 h-1.5 rounded-full bg-slate-600';
                     }
                 }
             });
